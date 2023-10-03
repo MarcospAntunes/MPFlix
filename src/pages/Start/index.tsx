@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Botao } from '../../components/Botao'
-import { ContainerMain } from '../../components/Containers/containerMain'
+import { ContainerMain } from '../../components/Containers/ContainerMain'
 import { Section } from './styles'
 
 function Start() {
