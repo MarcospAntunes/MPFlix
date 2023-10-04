@@ -1,3 +1,5 @@
+import Banner from "../../components/Banner"
+import CaixaDePesquisa from "../../components/CaixaDePesquisa"
 import { ContainerDiv } from "../../components/Containers/ContainerDiv"
 import Header from "../../components/Header"
 
@@ -8,7 +10,8 @@ function Home() {
       <ContainerDiv>
         <Header />
         <main>
-          <section></section> {/* Seção do banner */}
+          <CaixaDePesquisa />
+          <Banner /> {/* Seção do banner */}
           <section></section> {/* Seção dos filmes */}
         </main>
         <footer>
