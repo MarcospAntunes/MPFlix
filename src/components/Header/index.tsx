@@ -8,7 +8,7 @@ import teste from '../../assets/react.svg'
 const HeaderStyled = styled.header`
     display: flex;
     flex-direction: column;
-    width: 300px;
+    min-width: 250px;
     height: 100vh;
     padding: 15px 0px 0px 15px;
     margin-right: 15px;
@@ -88,16 +88,16 @@ function Header() {
             <p>Menus</p>
             <br />
             <nav>
-                <NavLink to={'/home'}><AiFillHome className="icons" activeClassName="active"/>Home</NavLink>
-                <NavLink to={'/browse'}><AiOutlineGlobal className="icons" activeClassName="active" />Browse</NavLink>
-                <NavLink to={'/watch-List'}><MdFavorite className="icons" activeClassName="active" />Watch List</NavLink>
-                <NavLink to={'/history'}><AiOutlineHistory className="icons" activeClassName="active" />History</NavLink>
+                <NavLink to={'/home'}><AiFillHome className="icons" activeclassname={CSSMathValue.toString()}/>Home</NavLink>
+                <NavLink to={'/browse'}><AiOutlineGlobal className="icons" activeclassname={CSSMathValue.toString()} />Browse</NavLink>
+                <NavLink to={'/watch-List'}><MdFavorite className="icons" activeclassname={CSSMathValue.toString()} />Watch List</NavLink>
+                <NavLink to={'/history'}><AiOutlineHistory className="icons" activeclassname={CSSMathValue.toString()} />History</NavLink>
                 <br />
 
                 <p>General</p>
                 <br />
-                <NavLink to={'/setting'}><IoSettingsSharp className="icons" activeClassName="active" />Setting</NavLink>
-                <NavLink to={'/start'}><IoLogOutSharp className="icons" activeClassName="active" />Logout</NavLink>
+                <NavLink to={'/setting'}><IoSettingsSharp className="icons" activeclassname={CSSMathValue.toString()} />Setting</NavLink>
+                <NavLink to={'/start'}><IoLogOutSharp className="icons" activeclassname={CSSMathValue.toString()} />Logout</NavLink>
             </nav>
 
             
