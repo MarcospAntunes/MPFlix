@@ -5,7 +5,7 @@ const SectionStyled = styled.section`
     flex-direction: column;
     justify-content: end;
     gap: 50%;
-    width: 800px;
+    width: 70vw;
     height: 400px;
     background-color: #9b9b9b;
     border-radius: 15px;
