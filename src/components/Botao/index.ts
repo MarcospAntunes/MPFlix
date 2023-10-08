@@ -11,7 +11,6 @@ const Botao = styled.button`
     transition: 0.3s;
 
     &:hover {
-        transform: translate(3px, 3px);
         transition: 0.3s;
         background-color: rgb(130, 0, 0);
         color: white
