@@ -14,7 +14,6 @@ const ContainerDivParaTituloDosVideos = styled.div`
     justify-content: space-between;
     width: 35%;
     
-
 `
 
 export { 
