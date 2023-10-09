@@ -1,18 +1,25 @@
 import styled from "styled-components"
+import { getTrendingMovieData } from "../../services/api"
+import { useEffect, useState } from "react"
 
 const SectionStyled = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: end;
     gap: 50%;
-    width: 70vw;
-    height: 400px;
+    width: 50vw;
+    height: 50vh;
     background-color: #9b9b9b;
     border-radius: 15px;
-    padding: 50px 0 50px 50px;
     
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+    }
 
     button {
+        position: absolute;
         width: 150px;
         height: 50px;
         border: none;
@@ -29,13 +36,25 @@ const SectionStyled = styled.section`
     }
 `
 
+
+
 function Banner() {
+    const [movieTrendingData, setMovieTrendingData] = useState<any>([])
+
+    useEffect(() => {
+    getTrendingMovieData("movie", setMovieTrendingData)
+     }, [])
+     const poster = movieTrendingData.map((poster: any) => {
+        return poster.poster_path
+
+     })
+     console.log(movieTrendingData)
     return(
         <>
             {/* Banner que irá gerar um filme aleatório a cada refresh da página */}
             <SectionStyled>
-                <h1>teste</h1>
-                <button>Watch now</button>
+                <img src={`https://image.tmdb.org/t/p/w300/${poster[0]}`} alt="" />
+                <button style={{margin: '20px'}}>Watch now</button>
             </SectionStyled>     
         </>           
     )
