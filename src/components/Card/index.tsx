@@ -32,7 +32,7 @@ function Card({id, genre_ids, poster, title, release_date, overview, vote_averag
     const [openModal, setOpenModal] = useState(false)
 
     return(
-        <li key="id">
+        <li key={id}>
             <ImgStyled src={`https://image.tmdb.org/t/p/w300/${poster}`} onClick={() => setOpenModal(true)}/>
             <ModalMovie 
                 isOpen={openModal}

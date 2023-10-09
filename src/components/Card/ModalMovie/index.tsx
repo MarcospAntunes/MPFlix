@@ -1,7 +1,6 @@
 import styled from "styled-components"
 import { AiOutlineCloseCircle } from 'react-icons/ai'
-import { BsFillPlayFill } from 'react-icons/bs'
-import { Botao } from "../../Botao"
+import IframeVideo from "../IframeVideo"
 
 const BackgroundModal = styled.div`
     position: fixed;
@@ -24,20 +23,20 @@ const ModalStyled = styled.div`
 
     .ConteudoModal {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
 
-        img {
-            width: 300px;
-            height: 500px;
-            border-radius: 10px 0px 0px 10px;
+        iframe {
+            background-color: gray;
+            border-radius: 10px 10px 0px 0px ;
         }
 
         .average {
             position: absolute;
-            bottom: 10px;
-            left: 265px;
+            top: 400px;
+            right: 10px;
             padding: 5px;
             border: 2px solid #bf4343;
+            background-color: #363636;
             border-radius: 50%;
         }
 
@@ -73,8 +72,6 @@ const ModalStyled = styled.div`
                 height: 28px;
                 vertical-align: middle;
             }
-
-            
         }
     }
 `
@@ -98,23 +95,20 @@ function ModalMovie({isOpen, setModalOpen, id, genre_ids, poster, title, release
             <BackgroundModal>
                 <ModalStyled>
                     <div className="ConteudoModal">
+                        
                         <AiOutlineCloseCircle className="closeModal" onClick={setModalOpen} />
-                        <img src={"https://image.tmdb.org/t/p/w300/" + poster} alt="" key={genre_ids} />
+                        <IframeVideo
+                                    id ={id}
+                                />
                         <div className="average">{vote_average.toFixed(1)}</div>
+                        
                         <div key={id} className="Overview">
                             <h1>{title}</h1>
                             <p>{overview}</p>
-
-                            <hr />
-
+                            <br /><hr /><br />
                             <h2>Info on {title}</h2>
                             <p>Genres: {genre_ids}</p>
                             <p>Release date: {release_date}</p>
-
-                            <Botao> 
-                                <BsFillPlayFill clasName="playTrailer"/>
-                                Trailer
-                            </Botao>
                         </div>
                     </div>
                     
