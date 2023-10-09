@@ -21,6 +21,7 @@ const UlStyled = styled.ul`
 
 `
 
+
 function Home() {
   const [movieTrendingData, setMovieTrendingData] = useState<any>([])
   const [movieDiscoverData, setMovieDiscoverData] = useState<any>([])
@@ -28,22 +29,20 @@ function Home() {
   useEffect(() => {
     getTrendingMovieData("movie", setMovieTrendingData)
     getDiscoverMovieData("movie", setMovieDiscoverData)
-
   }, [])
-
-  console.log(movieDiscoverData)
 
   return (
     <>
       <ContainerDivConteudoPrincipal>
-        <Header />
+          <Header />
         <main>
           <CaixaDePesquisa />
-          <Banner /> {/* Seção do banner */}
+
+          <Banner />
+
           <section>
             <ContainerDivParaTituloDosVideos>
               <h1 style={{marginTop:"10px"}}>Trending</h1>
-              
               <div><BotaoCarrossel /></div>
             </ContainerDivParaTituloDosVideos>
             
