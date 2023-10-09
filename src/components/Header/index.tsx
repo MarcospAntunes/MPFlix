@@ -14,6 +14,7 @@ const HeaderStyled = styled.header`
     margin-right: 15px;
     background-color: #363636;
     font-size: 18px;
+    
 
     .userPerfil {
         display: flex;
