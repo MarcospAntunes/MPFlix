@@ -5,7 +5,6 @@ const ContainerDivConteudoPrincipal = styled.div`
     flex-direction: row;
     width: 100vw;
     height: 100vh;
-
 `
 
 const ContainerDivParaTituloDosVideos = styled.div`
