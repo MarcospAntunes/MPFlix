@@ -1,23 +1,27 @@
 import Banner from "../../components/Banner"
 import CaixaDePesquisa from "../../components/CaixaDePesquisa"
-import { ContainerDivConteudoPrincipal, ContainerDivParaTituloDosVideos } from "../../components/Containers/ContainerDiv"
+import { ContainerDivConteudoPrincipal } from "../../components/Containers/ContainerDiv"
 import Header from "../../components/Header"
 import { useState, useEffect } from 'react'
 import Card from "../../components/Card"
 import styled from "styled-components"
-import BotaoCarrossel from "../../components/BotaoCarrossel"
 import { getDiscoverMovieData, getTrendingMovieData } from "../../services/api"
+import Carrossel from "../../components/Carrossel"
 
-const UlStyled = styled.ul`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  gap: 15px;
-  width: 100%;
-  height: 100%;
-  margin: 20px 0;
-  text-align: center;
-  list-style: none;
+
+const FooterStyled = styled.footer`
+    position: fixed;
+    width: calc(100vw - 250px);
+    margin-left: 250px;
+    bottom: 0;
+    text-align: center;
+    background-color: #3030304b;
+    backdrop-filter: blur(5px);
+
+    a {
+      text-decoration: none;
+      color: #5e5eca;
+    }
 
 `
 
@@ -35,18 +39,11 @@ function Home() {
     <>
       <ContainerDivConteudoPrincipal>
           <Header />
-        <main>
+        <main style={{marginLeft: '280px'}}>
           <CaixaDePesquisa />
-
           <Banner />
-
           <section>
-            <ContainerDivParaTituloDosVideos>
-              <h1 style={{marginTop:"10px"}}>Trending</h1>
-              <div><BotaoCarrossel /></div>
-            </ContainerDivParaTituloDosVideos>
-            
-            <UlStyled>
+            <Carrossel>
               {movieTrendingData.map((movie: any) => (
                 <Card
                   key={movie.id}
@@ -59,15 +56,9 @@ function Home() {
                   vote_average = {movie.vote_average}
                 /> 
               ))}
-            </UlStyled>
+            </Carrossel>
 
-            <ContainerDivParaTituloDosVideos>
-              <h1 style={{marginTop:"10px"}}>Discover</h1>
-              
-              <div><BotaoCarrossel /></div>
-            </ContainerDivParaTituloDosVideos>
-            
-            <UlStyled>
+            <Carrossel>
               {movieDiscoverData.map((movie: any) => (
                 <Card
                   key={movie.id}
@@ -80,14 +71,15 @@ function Home() {
                   vote_average = {movie.vote_average}
                 /> 
               ))}
-            </UlStyled>
+            </Carrossel>
           </section> {/* Seção dos filmes */}
         </main>
-      </ContainerDivConteudoPrincipal>
-      <footer>
+        <FooterStyled style={{bottom: '0', position: 'fixed'}}>
           <h2>Desenvolvidor por Marcos Antunes</h2>
           <h2>Design feito por <a href="https://dribbble.com/apurple" target="_blank">aPurple</a></h2>
-        </footer> 
+        </FooterStyled>
+      </ContainerDivConteudoPrincipal>
+      
     </>
   )
 }

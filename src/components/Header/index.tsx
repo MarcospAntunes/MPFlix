@@ -6,14 +6,16 @@ import { IoSettingsSharp, IoLogOutSharp } from 'react-icons/io5'
 import teste from '../../assets/react.svg'
 
 const HeaderStyled = styled.header`
+    position: fixed;
     display: flex;
     flex-direction: column;
     min-width: 250px;
-    height: 100vh;
+    height: 100%;
     padding: 15px 0px 0px 15px;
     margin-right: 15px;
     background-color: #363636;
     font-size: 18px;
+    z-index: 1;
     
 
     .userPerfil {

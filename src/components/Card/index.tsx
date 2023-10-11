@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import ModalMovie from "./ModalMovie"
 import { useState } from "react"
+import { motion } from 'framer-motion'
 
 
 const ImgStyled = styled.img`
@@ -32,7 +33,7 @@ function Card({id, genre_ids, poster, title, release_date, overview, vote_averag
     const [openModal, setOpenModal] = useState(false)
 
     return(
-        <li key={id}>
+        <motion.li key={id} className="itens">
             <ImgStyled src={`https://image.tmdb.org/t/p/w300/${poster}`} onClick={() => setOpenModal(true)}/>
             <ModalMovie 
                 isOpen={openModal}
@@ -45,7 +46,7 @@ function Card({id, genre_ids, poster, title, release_date, overview, vote_averag
                 overview = {overview}
                 vote_average = {vote_average}
                 />
-        </li>
+        </motion.li>
     )
 }
 

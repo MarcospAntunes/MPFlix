@@ -4,7 +4,8 @@ const ContainerDivConteudoPrincipal = styled.div`
     display: flex;
     flex-direction: row;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
+    
 `
 
 const ContainerDivParaTituloDosVideos = styled.div`
@@ -12,6 +13,7 @@ const ContainerDivParaTituloDosVideos = styled.div`
     flex-direction: row;
     justify-content: space-between;
     width: 35%;
+    margin-top: 20px;
     
 `
 
