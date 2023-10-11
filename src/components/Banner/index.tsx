@@ -48,7 +48,6 @@ function Banner() {
         return poster.poster_path
 
      })
-     console.log(movieTrendingData)
     return(
         <>
             {/* Banner que irá gerar um filme aleatório a cada refresh da página */}
