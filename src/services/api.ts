@@ -16,8 +16,11 @@ export async function getDiscoverMovieData(type: string, setMovieDiscoverData: a
     try {
         let response = await axios.get(`https://api.themoviedb.org/3/discover/${type}?api_key=${api_key}`)
         setMovieDiscoverData(response.data.results)
-    } catch(error) {
-        console.log(error)
+    } catch(error: any) {
+        const converteErro = error.toString()
+        let erro = window.document.createElement("div")
+        let conteudo = window.document.createTextNode(converteErro)
+        erro.appendChild(conteudo)
     }
     
 }
