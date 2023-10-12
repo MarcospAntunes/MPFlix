@@ -41,7 +41,9 @@ function Home() {
           <Header />
         <main style={{marginLeft: '280px'}}>
           <CaixaDePesquisa />
-          <Banner />
+          <div style={{width: 'calc(100vw - 250px)', display: 'flex', justifyContent: 'center'}}>
+            <Banner />
+          </div>
           <section>
             <Carrossel>
               {movieTrendingData.map((movie: any) => (
