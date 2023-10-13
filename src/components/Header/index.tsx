@@ -78,7 +78,7 @@ const HeaderStyled = styled.header`
 
 `
 
-function Header() {
+function Header(): JSX.Element {
     return(
         <HeaderStyled>
             <figure className="userPerfil">  {/* img de perfil do usuario */}

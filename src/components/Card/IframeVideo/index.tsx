@@ -5,7 +5,7 @@ interface IframeVIdeoProps {
     id: number
 }
 
-function IframeVideo({ id }: IframeVIdeoProps) {
+function IframeVideo({ id }: IframeVIdeoProps): JSX.Element {
     const [VideosMovieData, setVideosMovieData] = useState<any>([])
     useEffect(() => {
         getVideosMovieData("movie", setVideosMovieData, id)

@@ -38,7 +38,7 @@ const SectionStyled = styled.section`
 
 
 
-function Banner() {
+function Banner(): JSX.Element {
     const [movieTrendingData, setMovieTrendingData] = useState<any>([])
 
     useEffect(() => {

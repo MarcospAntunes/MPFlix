@@ -29,7 +29,7 @@ interface CardProps {
 
 
 
-function Card({id, genre_ids, poster, title, release_date, overview, vote_average}: CardProps) {
+function Card({id, genre_ids, poster, title, release_date, overview, vote_average}: CardProps): JSX.Element {
     const [openModal, setOpenModal] = useState(false)
 
     return(

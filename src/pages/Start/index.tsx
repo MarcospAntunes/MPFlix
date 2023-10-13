@@ -3,7 +3,7 @@ import { Botao } from '../../components/Botao'
 import { ContainerMain } from '../../components/Containers/ContainerMain'
 import { Section } from './styles'
 
-function Start() {
+function Start(): JSX.Element {
     return(
         <>
             <ContainerMain>

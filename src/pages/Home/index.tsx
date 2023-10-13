@@ -25,10 +25,9 @@ const FooterStyled = styled.footer`
 
 `
 
-
-function Home() {
-  const [movieTrendingData, setMovieTrendingData] = useState<any>([])
-  const [movieDiscoverData, setMovieDiscoverData] = useState<any>([])
+function Home(): JSX.Element {
+  const [movieTrendingData, setMovieTrendingData] = useState<any[]>([])
+  const [movieDiscoverData, setMovieDiscoverData] = useState<any[]>([])
 
   useEffect(() => {
     getTrendingMovieData("movie", setMovieTrendingData)

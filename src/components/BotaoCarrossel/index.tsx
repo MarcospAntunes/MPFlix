@@ -7,7 +7,7 @@ interface BotaoCarrosselProps {
   children: ReactNode
   onClick: any
 }
-function BotaoCarrossel( {children, onClick}: BotaoCarrosselProps )  {
+function BotaoCarrossel( {children, onClick}: BotaoCarrosselProps ): JSX.Element  {
   
 
   return (

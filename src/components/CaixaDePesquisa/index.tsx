@@ -34,12 +34,12 @@ const DivBusca = styled.div`
     }
 `
 
-function chamarInput() {
+function chamarInput(): void {
     const chamarInput: HTMLInputElement = document.querySelector('#textBusca')!
     chamarInput.focus()
 }
 
-function CaixaDePesquisa() {
+function CaixaDePesquisa(): JSX.Element {
     return(
         <DivBusca>
             <BiSearch className="btnBusca" onClick={() => chamarInput()}/>

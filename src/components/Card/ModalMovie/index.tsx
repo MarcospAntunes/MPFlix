@@ -89,7 +89,7 @@ interface ModalMovieProps {
     vote_average: number
 }
 
-function ModalMovie({isOpen, setModalOpen, id, genre_ids, poster, title, release_date, overview, vote_average}: ModalMovieProps) {
+function ModalMovie({isOpen, setModalOpen, id, genre_ids, poster, title, release_date, overview, vote_average}: ModalMovieProps): JSX.Element | null {
     if(isOpen) {
         return (
             <BackgroundModal>
