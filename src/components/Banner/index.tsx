@@ -1,13 +1,14 @@
 import styled from "styled-components"
 import { getTrendingMovieData } from "../../services/api"
 import { useEffect, useState } from "react"
+import ModalBanner from "./ModalBanner"
 
 const SectionStyled = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: end;
     gap: 50%;
-    width: 50vw;
+    width: 30vw;
     height: 50vh;
     background-color: #9b9b9b;
     border-radius: 15px;
@@ -40,7 +41,7 @@ const SectionStyled = styled.section`
 
 function Banner(): JSX.Element {
     const [movieTrendingData, setMovieTrendingData] = useState<any>([])
-
+    const [openModal, setOpenModal] = useState(false)
     useEffect(() => {
     getTrendingMovieData("movie", setMovieTrendingData)
      }, [])
@@ -50,11 +51,19 @@ function Banner(): JSX.Element {
      })
     return(
         <>
-            {/* Banner que irá gerar um filme aleatório a cada refresh da página */}
+            {/* Banner que irá gerar um filme com a maior tendência a cada refresh da página */}
             <SectionStyled>
                 <img src={`https://image.tmdb.org/t/p/w300/${poster[0]}`} alt="" />
-                <button style={{margin: '20px'}}>Watch now</button>
-            </SectionStyled>     
+                <button style={{margin: '20px'}} onClick={() => setOpenModal(true)}>Trailer</button>
+                <ModalBanner
+                 movieTrendingData = {movieTrendingData}
+                setOpenModal = {() => setOpenModal(!openModal)}
+                isOpen = {openModal}
+               
+                
+            /> 
+            </SectionStyled> 
+               
         </>           
     )
 }

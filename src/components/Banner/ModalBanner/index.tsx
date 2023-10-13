@@ -12,7 +12,7 @@ const BackgroundModal = styled.div`
     z-index: 1000;
 `
 
-const ModalStyled = styled.div`
+const ModalBannerStyled = styled.div`
     position: fixed;
     top: 50%;
     left: 50%;
@@ -76,44 +76,28 @@ const ModalStyled = styled.div`
     }
 `
 
-
-interface ModalMovieProps {
-    isOpen?: boolean
-    setModalOpen?: () => void
-    id?: number
-    genre_ids?: number
-    poster?: string
-    title?: string
-    release_date?: string
-    overview?: string
-    vote_average?: number
-    movieTrendingData?: any
+interface ModalBannerProps {
+    movieTrendingData: any 
+    setOpenModal: any
+    isOpen: boolean
 }
 
-function ModalMovie({isOpen, setModalOpen, id, genre_ids, poster, title, release_date, overview, vote_average, movieTrendingData}: ModalMovieProps): JSX.Element | null {
+function ModalBanner({movieTrendingData, setOpenModal, isOpen}: ModalBannerProps) {
+    const id = movieTrendingData.map((video: any) => video.id)
     if(isOpen) {
         return (
             <BackgroundModal>
-                <ModalStyled>
+                <ModalBannerStyled>
                     <div className="ConteudoModal">
                         
-                        <AiOutlineCloseCircle className="closeModal" onClick={setModalOpen} />
+                        <AiOutlineCloseCircle className="closeModal" onClick={setOpenModal} />
                         <IframeVideo
-                                    id ={id!}
+                                    id ={id[0]}
                                 />
-                        <div className="average">{vote_average!.toFixed(1)}</div>
                         
-                        <div key={id} className="Overview">
-                            <h1>{title}</h1>
-                            <p>{overview}</p>
-                            <br /><hr /><br />
-                            <h2>Info on {title}</h2>
-                            <p>Genres: {genre_ids}</p>
-                            <p>Release date: {release_date}</p>
-                        </div>
                     </div>
                     
-                </ModalStyled>
+                </ModalBannerStyled>
             </BackgroundModal>
         )
     }
@@ -122,4 +106,4 @@ function ModalMovie({isOpen, setModalOpen, id, genre_ids, poster, title, release
 }
 
 
-export default ModalMovie
+export default ModalBanner

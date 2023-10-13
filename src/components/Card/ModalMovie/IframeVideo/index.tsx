@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getVideosMovieData } from "../../../services/api"
+import { getVideosMovieData } from "../../../../services/api"
 
 interface IframeVIdeoProps {
     id: number
