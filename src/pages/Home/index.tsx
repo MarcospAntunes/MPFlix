@@ -44,7 +44,7 @@ function Home(): JSX.Element {
             <Banner />
           </div>
           <section>
-            <Carrossel>
+            <Carrossel secao = 'Trending'>
               {movieTrendingData.map((movie: any) => (
                 <Card
                   key={movie.id}
@@ -59,7 +59,7 @@ function Home(): JSX.Element {
               ))}
             </Carrossel>
 
-            <Carrossel>
+            <Carrossel secao = 'Discover'>
               {movieDiscoverData.map((movie: any) => (
                 <Card
                   key={movie.id}

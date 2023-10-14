@@ -5,7 +5,12 @@ import BotaoCarrossel from '../BotaoCarrossel';
 import { FaGreaterThan, FaLessThan } from 'react-icons/fa';
 import { ContainerDivParaTituloDosVideos } from '../Containers/ContainerDiv';
 
-function Carrossel({ children }: any) {
+interface CarrosselProps {
+  children: any
+  secao: string
+}
+
+function Carrossel({ children, secao }: CarrosselProps) {
   const carrosel = useRef<any>();
   const [width, setWidth] = useState<number>(0);
   const [larguraDaTela, setLarguraDaTela] = useState(window.innerWidth);
@@ -33,7 +38,7 @@ function Carrossel({ children }: any) {
   return (
     <>
       <ContainerDivParaTituloDosVideos>
-        <h1 style={{ marginTop: "10px" }}>Trending</h1>
+        <h1 style={{ marginTop: "10px" }}>{secao}</h1>
         <div>
           <BotaoCarrossel onClick={() => handleScroll(-carrosel.current.offsetWidth)}>
             <FaLessThan />
