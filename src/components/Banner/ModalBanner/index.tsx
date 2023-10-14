@@ -77,13 +77,13 @@ const ModalBannerStyled = styled.div`
 `
 
 interface ModalBannerProps {
-    movieTrendingData: any 
+    movieNowPlayingData: any 
     setOpenModal: any
     isOpen: boolean
 }
 
-function ModalBanner({movieTrendingData, setOpenModal, isOpen}: ModalBannerProps) {
-    const id = movieTrendingData.map((video: any) => video.id)
+function ModalBanner({movieNowPlayingData, setOpenModal, isOpen}: ModalBannerProps) {
+    const id = movieNowPlayingData.map((video: any) => video.id)
     if(isOpen) {
         return (
             <BackgroundModal>

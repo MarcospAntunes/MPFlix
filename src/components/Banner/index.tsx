@@ -1,17 +1,35 @@
 import styled from "styled-components"
-import { getTrendingMovieData } from "../../services/api"
+import { getNowPlayingMovieData, getTrendingMovieData } from "../../services/api"
 import { useEffect, useState } from "react"
 import ModalBanner from "./ModalBanner"
 
-const SectionStyled = styled.section`
+const SectionNowPlayingStyled = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: end;
     gap: 50%;
+    margin: 0 10px;
     width: 30vw;
     height: 50vh;
     background-color: #9b9b9b;
     border-radius: 15px;
+
+    .nowPlaying {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+
+    .nowPlaying h2 {
+        position: absolute;
+        padding: 5px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: #303030;
+        
+    }
     
     img {
         width: 100%;
@@ -40,29 +58,31 @@ const SectionStyled = styled.section`
 
 
 function Banner(): JSX.Element {
-    const [movieTrendingData, setMovieTrendingData] = useState<any>([])
+    const [movieNowPlayingData, setMovieNowPlayingData] = useState<any>([])
     const [openModal, setOpenModal] = useState(false)
     useEffect(() => {
-    getTrendingMovieData("movie", setMovieTrendingData)
+    getNowPlayingMovieData("movie", setMovieNowPlayingData)
      }, [])
-     const poster = movieTrendingData.map((poster: any) => {
+     const poster = movieNowPlayingData.map((poster: any) => {
         return poster.poster_path
 
      })
     return(
         <>
             {/* Banner que irá gerar um filme com a maior tendência a cada refresh da página */}
-            <SectionStyled>
-                <img src={`https://image.tmdb.org/t/p/w300/${poster[0]}`} alt="" />
+            <SectionNowPlayingStyled>
+                <div className="nowPlaying">
+                    <h2>Now Playing in theaters</h2>
+                    <img src={`https://image.tmdb.org/t/p/w300/${poster[0]}`} alt="" />
+                </div>
                 <button style={{margin: '20px'}} onClick={() => setOpenModal(true)}>Trailer</button>
                 <ModalBanner
-                 movieTrendingData = {movieTrendingData}
+                 movieNowPlayingData = {movieNowPlayingData}
                 setOpenModal = {() => setOpenModal(!openModal)}
                 isOpen = {openModal}
-               
-                
-            /> 
-            </SectionStyled> 
+                /> 
+            </SectionNowPlayingStyled>
+            
                
         </>           
     )
