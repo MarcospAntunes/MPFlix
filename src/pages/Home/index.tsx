@@ -8,7 +8,6 @@ import styled from "styled-components"
 import { getDiscoverMovieData, getTrendingMovieData } from "../../services/api"
 import Carrossel from "../../components/Carrossel"
 
-
 const FooterStyled = styled.footer`
     position: fixed;
     width: calc(100vw - 250px);
@@ -28,7 +27,6 @@ const FooterStyled = styled.footer`
 function Home(): JSX.Element {
   const [movieTrendingData, setMovieTrendingData] = useState<any[]>([])
   const [movieDiscoverData, setMovieDiscoverData] = useState<any[]>([])
-
   useEffect(() => {
     getTrendingMovieData("movie", setMovieTrendingData)
     getDiscoverMovieData("movie", setMovieDiscoverData)
@@ -58,7 +56,6 @@ function Home(): JSX.Element {
                 /> 
               ))}
             </Carrossel>
-
             <Carrossel secao = 'Discover'>
               {movieDiscoverData.map((movie: any) => (
                 <Card

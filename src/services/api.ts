@@ -31,10 +31,10 @@ export async function getDiscoverMovieData(type: string, setMovieDiscoverData: a
 }
 
 // Filmes em cartaz
-export async function getNowPlayingMovieData(type: string, setMovieDiscoverData: any): Promise<void> {
+export async function getNowPlayingMovieData(type: string, setNowPlayingMovieData: any): Promise<void> {
     try {
         let response = await axios.get(`https://api.themoviedb.org/3/${type}/now_playing?api_key=${api_key}`)
-        setMovieDiscoverData(response.data.results)
+        setNowPlayingMovieData(response.data.results)
     } catch(error: any) {
         const converteErro = error.toString()
         let erro = window.document.createElement("div")
@@ -43,12 +43,11 @@ export async function getNowPlayingMovieData(type: string, setMovieDiscoverData:
     }
 }
 
-
 // Gêneros dos filmes
-export async function getMovieGenreData(type: string, setMovieDiscoverData: any): Promise<void> {
+export async function getMovieGenreData(type: string, setMovieGenreData: any): Promise<void> {
     try {
         let response = await axios.get(`https://api.themoviedb.org/3/genre/${type}/list?api_key=${api_key}`)
-        setMovieDiscoverData(response.data.results)
+        setMovieGenreData(response.data.genres)
     } catch(error: any) {
         const converteErro = error.toString()
         let erro = window.document.createElement("div")
@@ -58,10 +57,10 @@ export async function getMovieGenreData(type: string, setMovieDiscoverData: any)
 }
 
 // Videos dos filmes
-export async function getVideosMovieData(type: string, setMovieDiscoverData: any, movie_id: number): Promise<void> {
+export async function getVideosMovieData(type: string, setVideosMovieData: any, movie_id: number): Promise<void> {
     try {
         let response = await axios.get(`https://api.themoviedb.org/3/${type}/${movie_id}/videos?api_key=${api_key}`)
-        setMovieDiscoverData(response.data.results)
+        setVideosMovieData(response.data.results)
     } catch(error: any) {
         const converteErro = error.toString()
         let erro = window.document.createElement("div")

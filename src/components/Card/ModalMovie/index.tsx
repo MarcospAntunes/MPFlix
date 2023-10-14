@@ -1,6 +1,8 @@
 import styled from "styled-components"
 import { AiOutlineCloseCircle } from 'react-icons/ai'
 import IframeVideo from "./IframeVideo"
+import { useEffect, useState } from "react"
+import { getMovieGenreData } from "../../../services/api"
 
 const BackgroundModal = styled.div`
     position: fixed;
@@ -76,31 +78,37 @@ const ModalStyled = styled.div`
     }
 `
 
-
 interface ModalMovieProps {
-    isOpen?: boolean
-    setModalOpen?: () => void
-    id?: number
-    genre_ids?: number
-    poster?: string
-    title?: string
-    release_date?: string
-    overview?: string
-    vote_average?: number
-    movieTrendingData?: any
+    isOpen: boolean
+    setModalOpen: () => void
+    id: number
+    genre_ids: number[]
+    title: string
+    release_date: string
+    overview: string
+    vote_average: number
+    
 }
 
-function ModalMovie({isOpen, setModalOpen, id, genre_ids, poster, title, release_date, overview, vote_average, movieTrendingData}: ModalMovieProps): JSX.Element | null {
+function ModalMovie({isOpen, setModalOpen, id, genre_ids, title, release_date, overview, vote_average}: ModalMovieProps): JSX.Element | null {
+    const [movieGenreData, setMovieGenreData] = useState<any[]>([])
+    useEffect(() => {
+        getMovieGenreData("movie", setMovieGenreData)
+    }, [])
+    const genres = movieGenreData.map((genre) => genre_ids.find(id => genre.id == id))
+    const genresId: any[] = genres.filter((list:any) => list !== undefined)
+    const genre = movieGenreData.filter((genre: any) => genre.id === genresId.find((id) => id == genre.id))
+    
+    const genreName = genre.map((key) => key.name)
     if(isOpen) {
         return (
             <BackgroundModal>
                 <ModalStyled>
                     <div className="ConteudoModal">
-                        
                         <AiOutlineCloseCircle className="closeModal" onClick={setModalOpen} />
                         <IframeVideo
-                                    id ={id!}
-                                />
+                            id ={id!}
+                        />
                         <div className="average">{vote_average!.toFixed(1)}</div>
                         
                         <div key={id} className="Overview">
@@ -108,11 +116,10 @@ function ModalMovie({isOpen, setModalOpen, id, genre_ids, poster, title, release
                             <p>{overview}</p>
                             <br /><hr /><br />
                             <h2>Info on {title}</h2>
-                            <p>Genres: {genre_ids}</p>
+                            <p>Genres: {genreName.join(", ")}</p>
                             <p>Release date: {release_date}</p>
                         </div>
                     </div>
-                    
                 </ModalStyled>
             </BackgroundModal>
         )
