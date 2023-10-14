@@ -117,7 +117,7 @@ function ModalMovie({isOpen, setModalOpen, id, genre_ids, title, release_date, o
                             <br /><hr /><br />
                             <h2>Info on {title}</h2>
                             <p>Genres: {genreName.join(", ")}</p>
-                            <p>Release date: {release_date}</p>
+                            <p>Release date: {release_date.replace(new RegExp("-", "g"), "/")}</p>
                         </div>
                     </div>
                 </ModalStyled>
