@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { AiFillHome, AiOutlineHistory, AiOutlineGlobal } from 'react-icons/ai'
 import { MdFavorite } from 'react-icons/md'
+import { SlOptionsVertical } from 'react-icons/sl'
 import { IoSettingsSharp, IoLogOutSharp } from 'react-icons/io5'
 import teste from '../../assets/react.svg'
 
@@ -44,6 +45,13 @@ const HeaderStyled = styled.header`
         border-radius: 50%;
     }
 
+    .userPerfil svg {
+        margin: auto;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+
     nav {
         display: flex;
         flex-direction: column;
@@ -83,7 +91,10 @@ function Header(): JSX.Element {
         <HeaderStyled>
             <figure className="userPerfil">  {/* img de perfil do usuario */}
                 <img src={teste} alt="perfil" className="userPhoto" />
-                <figcaption><span>Welcome</span> <br /> Marcos Antunes! {/* Nome do usuario */}</figcaption>
+                <figcaption>
+                    <span>Welcome</span> <br /> Marcos Antunes! {/* Nome do usuario */}
+                </figcaption>
+                <SlOptionsVertical />
             </figure>
             
             <br />
