@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { AiOutlineCloseCircle } from 'react-icons/ai'
 import IframeVideo from "./IframeVideo"
+import { numeroAleatorio } from "../../../utils/numeroAleatorio"
 
 const BackgroundModal = styled.div`
     position: fixed;
@@ -92,7 +93,7 @@ function ModalBanner({movieNowPlayingData, setOpenModal, isOpen}: ModalBannerPro
                         
                         <AiOutlineCloseCircle className="closeModal" onClick={setOpenModal} />
                         <IframeVideo
-                                    id ={id[0]}
+                                    id ={id[numeroAleatorio]}
                                 />
                         
                     </div>
