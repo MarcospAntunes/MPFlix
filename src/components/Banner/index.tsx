@@ -7,7 +7,7 @@ import { numeroAleatorio } from "../../utils/numeroAleatorio"
 const SectionNowPlayingStyled = styled.section`
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: flex-end;
     gap: 50%;
     margin: 0 10px;
     width: 30vw;
@@ -43,6 +43,7 @@ const SectionNowPlayingStyled = styled.section`
         width: 150px;
         height: 50px;
         border: none;
+       
         border-radius: 10px;
         color: white;
         background-color: #d63837;
