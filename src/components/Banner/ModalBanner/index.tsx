@@ -16,7 +16,7 @@ const BackgroundModal = styled.div`
 const ModalBannerStyled = styled.div`
     position: fixed;
     top: 50%;
-    left: 50%;
+    left: 60%;
     transform: translate(-50%, -50%);
     background: #363636;
     border-radius: 10px;
@@ -28,17 +28,9 @@ const ModalBannerStyled = styled.div`
 
         iframe {
             background-color: gray;
-            border-radius: 10px 10px 0px 0px ;
-        }
-
-        .average {
-            position: absolute;
-            top: 400px;
-            right: 10px;
-            padding: 5px;
-            border: 2px solid #bf4343;
-            background-color: #363636;
-            border-radius: 50%;
+            border-radius: 10px;
+            width: 660px; 
+            height: 415px; 
         }
 
         .closeModal {
@@ -48,31 +40,24 @@ const ModalBannerStyled = styled.div`
             cursor: pointer;
             right: 0;
         }
+    }
 
-        .Overview {
-            padding: 20px;
-            text-align: left;
-            
-            h1, h2 {
-                margin: 10px;
-                text-align: left;
-            }
+    @media screen and (max-width: 500px) {
+        
+        left: 50%;
 
-            p {
-                width: 500px;
-                margin: 10px;
-                text-align: left;
-            }
+        .ConteudoModal {
+        display: flex;
+        flex-direction: column;
 
-            hr {
-                border: 1px solid #8f8d8d;
-            }
+        iframe {
+            width: 350px;
+            height: 350px;
+        }
 
-            button > svg {
-                width: 28px;
-                height: 28px;
-                vertical-align: middle;
-            }
+        .closeModal {
+            width: 32px;
+            height: 32px;
         }
     }
 `

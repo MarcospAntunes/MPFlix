@@ -82,6 +82,12 @@ const MenuStyled = styled.menu`
     .active .icons {
         color: #bf4343;
     }
+
+    @media screen and (max-width: 500px) {
+        & {
+            display: none;
+        }
+    }
     
 `
 

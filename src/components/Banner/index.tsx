@@ -55,6 +55,18 @@ const SectionNowPlayingStyled = styled.section`
             transition: 0.3s;
         }
     }
+
+    @media screen and (max-width: 500px) {
+        margin: 20px 0px 20px 50px;
+        width: 300px;
+        
+
+        
+        
+        img {
+            width: 300px;
+        }
+    }
 `
 
 function Banner(): JSX.Element {

@@ -14,6 +14,10 @@ const ContainerDivParaTituloDosVideos = styled.div`
     justify-content: space-between;
     width: calc(100vw - 7%);
     margin-top: 20px;
+
+    @media screen and (max-width: 500px) {
+        margin-left: 20px
+    }
     
 `
 

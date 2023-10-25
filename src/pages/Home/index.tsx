@@ -7,21 +7,58 @@ import Card from "../../components/Card"
 import styled from "styled-components"
 import { getDiscoverMovieData, getTrendingMovieData } from "../../services/api"
 import Carrossel from "../../components/Carrossel"
+import MenuMobile from "../../components/MenuMobile"
+import teste from '../../assets/react.svg'
+
+const MainHome = styled.main`
+  margin-left: 280px;
+
+  @media screen and (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+`
+const DivBanner = styled.div`
+  width: calc(100vw - 250px);
+  display: flex; 
+  justify-content: center;
+
+  @media screen and (max-width: 500px) {
+    
+    margin-left: 3%;
+  }
+`
+const ImgStyled = styled.img`
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #bf4343;
+  background-color: #9b9b9b;
+  border-radius: 50%;
+
+`
 
 const FooterStyled = styled.footer`
-    position: fixed;
-    width: calc(100vw - 250px);
-    margin-left: 250px;
-    bottom: 0;
-    text-align: center;
-    background-color: #3030304b;
-    backdrop-filter: blur(5px);
+  position: fixed !important;
+  width: calc(100vw - 250px);
+  margin-left: 250px;
+  bottom: 0;
+  text-align: center;
+  background-color: #3030304b;
+  backdrop-filter: blur(5px);
 
-    a {
-      text-decoration: none;
-      color: #5e5eca;
-    }
+  a {
+    text-decoration: none;
+    color: #5e5eca;
+  }
 
+  @media screen and (max-width: 500px) {
+    margin-left: 0;
+    width: 100vw;
+  }
 `
 
 function Home(): JSX.Element {
@@ -32,15 +69,19 @@ function Home(): JSX.Element {
     getDiscoverMovieData("movie", setMovieDiscoverData)
   }, [])
 
+  const [menuIsVisible, setMenuIsVisible] = useState(false)
+
   return (
     <>
       <ContainerDivConteudoPrincipal>
-          <Menu />
-        <main style={{marginLeft: '280px'}}>
+        <ImgStyled src={teste} alt="" onClick={() => setMenuIsVisible(true)} />
+        <MenuMobile menuIsVisible={menuIsVisible} setMenuIsVisible={setMenuIsVisible} />
+        <Menu />
+        <MainHome>
           <CaixaDePesquisa />
-          <div style={{width: 'calc(100vw - 250px)', display: 'flex', justifyContent: 'center'}}>
+          <DivBanner>
             <Banner />
-          </div>
+          </DivBanner>
           <section>
             <Carrossel secao = 'Trending'>
               {movieTrendingData.map((movie: any) => (
@@ -71,8 +112,8 @@ function Home(): JSX.Element {
               ))}
             </Carrossel>
           </section> {/* Seção dos filmes */}
-        </main>
-        <FooterStyled style={{bottom: '0', position: 'fixed'}}>
+        </MainHome>
+        <FooterStyled>
           <h2>Desenvolvidor por Marcos Antunes</h2>
           <h2>Design feito por <a href="https://dribbble.com/apurple" target="_blank">aPurple</a></h2>
         </FooterStyled>
