@@ -13,10 +13,11 @@ const ContainerDivParaTituloDosVideos = styled.div`
     flex-direction: row;
     justify-content: space-between;
     width: calc(100vw - 7%);
-    margin-top: 20px;
-
+    margin-top: 60px;
+    height: 10px;
     @media screen and (max-width: 500px) {
-        margin-left: 20px
+        margin-left: 20px;
+        height: 50px;
     }
     
 `
