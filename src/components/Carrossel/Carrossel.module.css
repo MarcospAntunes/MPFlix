@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   width: 100% !important;
-  max-width: 37%;
+  max-width: 22%;
   min-height: 300px;
   overflow: hidden;
   transition: ease-in;
@@ -15,7 +15,7 @@
     align-items: center;
     justify-content: center;
     width: 100% !important;
-    max-width: 37%;
+    max-width: 13%;
     min-height: 300px;
     overflow: hidden;
     cursor: grab;
@@ -33,5 +33,13 @@
   margin: 20px 0;
   text-align: center;
   list-style: none;
+  
+}
+
+@media screen and (min-width: 850px) and (max-width: 984px) {
+
+  .carrosselMobile {
+    max-width: 16%;
+  }
   
 }

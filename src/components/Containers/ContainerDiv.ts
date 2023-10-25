@@ -12,7 +12,7 @@ const ContainerDivParaTituloDosVideos = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 35%;
+    width: calc(100vw - 7%);
     margin-top: 20px;
     
 `

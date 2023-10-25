@@ -1,7 +1,7 @@
 import Banner from "../../components/Banner"
 import CaixaDePesquisa from "../../components/CaixaDePesquisa"
 import { ContainerDivConteudoPrincipal } from "../../components/Containers/ContainerDiv"
-import Header from "../../components/Header"
+import Menu from "../../components/Menu"
 import { useState, useEffect } from 'react'
 import Card from "../../components/Card"
 import styled from "styled-components"
@@ -35,7 +35,7 @@ function Home(): JSX.Element {
   return (
     <>
       <ContainerDivConteudoPrincipal>
-          <Header />
+          <Menu />
         <main style={{marginLeft: '280px'}}>
           <CaixaDePesquisa />
           <div style={{width: 'calc(100vw - 250px)', display: 'flex', justifyContent: 'center'}}>

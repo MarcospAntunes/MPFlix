@@ -8,3 +8,7 @@
     background-color: #353535;
     cursor: pointer;
 }
+
+.botaoOff {
+    display: none;
+}

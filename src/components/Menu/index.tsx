@@ -6,7 +6,7 @@ import { SlOptionsVertical } from 'react-icons/sl'
 import { IoSettingsSharp, IoLogOutSharp } from 'react-icons/io5'
 import teste from '../../assets/react.svg'
 
-const HeaderStyled = styled.header`
+const MenuStyled = styled.menu`
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -17,14 +17,13 @@ const HeaderStyled = styled.header`
     background-color: #363636;
     font-size: 18px;
     z-index: 1;
-    
+    list-style: none;
 
     .userPerfil {
         display: flex;
         width: 100%;
         flex-direction: row;
         align-items: center;
-        
     }
 
 
@@ -83,41 +82,44 @@ const HeaderStyled = styled.header`
     .active .icons {
         color: #bf4343;
     }
-
+    
 `
 
-function Header(): JSX.Element {
+function Menu(): JSX.Element {
     return(
-        <HeaderStyled>
-            <figure className="userPerfil">  {/* img de perfil do usuario */}
-                <img src={teste} alt="perfil" className="userPhoto" />
-                <figcaption>
-                    <span>Welcome</span> <br /> Marcos Antunes! {/* Nome do usuario */}
-                </figcaption>
-                <SlOptionsVertical />
-            </figure>
+        <MenuStyled>
+            <li>
+                <figure className="userPerfil">  {/* img de perfil do usuario */}
+                    <img src={teste} alt="perfil" className="userPhoto" />
+                    <figcaption>
+                        <span>Welcome</span> <br /> Marcos Antunes! {/* Nome do usuario */}
+                    </figcaption>
+                    <SlOptionsVertical />
+                </figure>
+            </li>
             
             <br />
 
-            <p>Menus</p>
-            <br />
-            <nav>
-                <NavLink to={'/home'}><AiFillHome className="icons" activeclassname={CSSMathValue.toString()}/>Home</NavLink>
-                <NavLink to={'/browse'}><AiOutlineGlobal className="icons" activeclassname={CSSMathValue.toString()} />Browse</NavLink>
-                <NavLink to={'/watch-List'}><MdFavorite className="icons" activeclassname={CSSMathValue.toString()} />Watch List</NavLink>
-                <NavLink to={'/history'}><AiOutlineHistory className="icons" activeclassname={CSSMathValue.toString()} />History</NavLink>
+            <li>
+                <p>Menus</p>
                 <br />
-
-                <p>General</p>
-                <br />
-                <NavLink to={'/setting'}><IoSettingsSharp className="icons" activeclassname={CSSMathValue.toString()} />Setting</NavLink>
-                <NavLink to={'/start'}><IoLogOutSharp className="icons" activeclassname={CSSMathValue.toString()} />Logout</NavLink>
-            </nav>
+                <nav>
+                    <NavLink to={'/home'}><AiFillHome className="icons" activeclassname={CSSMathValue.toString()}/>Home</NavLink>
+                    <NavLink to={'/browse'}><AiOutlineGlobal className="icons" activeclassname={CSSMathValue.toString()} />Browse</NavLink>
+                    <NavLink to={'/watch-List'}><MdFavorite className="icons" activeclassname={CSSMathValue.toString()} />Watch List</NavLink>
+                    <NavLink to={'/history'}><AiOutlineHistory className="icons" activeclassname={CSSMathValue.toString()} />History</NavLink>
+                    <br />
+                    <p>General</p>
+                    <br />
+                    <NavLink to={'/setting'}><IoSettingsSharp className="icons" activeclassname={CSSMathValue.toString()} />Setting</NavLink>
+                    <NavLink to={'/start'}><IoLogOutSharp className="icons" activeclassname={CSSMathValue.toString()} />Logout</NavLink>
+                </nav>
+            </li>
 
             
 
-        </HeaderStyled>
+        </MenuStyled>
     )
 }
 
-export default Header
+export default Menu

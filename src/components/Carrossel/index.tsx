@@ -18,12 +18,12 @@ function Carrossel({ children, secao }: CarrosselProps) {
   useEffect(() => {
     const handleResize = () => {
       setLarguraDaTela(window.innerWidth)
-      setWidth(carrosel.current?.scrollWidth - carrosel.current?.offsetWidth)
+      setTimeout(() => setWidth(carrosel.current?.scrollWidth - carrosel.current?.offsetWidth), 100)
     };
 
     window.addEventListener('resize', handleResize);
 
-    setWidth(carrosel.current?.scrollWidth - carrosel.current?.offsetWidth)
+    setTimeout(() => setWidth(carrosel.current?.scrollWidth - carrosel.current?.offsetWidth), 100)
 
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -32,7 +32,7 @@ function Carrossel({ children, secao }: CarrosselProps) {
 
   function handleScroll(offset: number) {
     carrosel.current.scrollLeft += offset;
-    setWidth(carrosel.current?.scrollWidth - carrosel.current?.offsetWidth);
+    setTimeout(() => setWidth(carrosel.current?.scrollWidth - carrosel.current?.offsetWidth), 100)
   }
 
   return (
@@ -40,10 +40,10 @@ function Carrossel({ children, secao }: CarrosselProps) {
       <ContainerDivParaTituloDosVideos>
         <h1 style={{ marginTop: "10px" }}>{secao}</h1>
         <div>
-          <BotaoCarrossel onClick={() => handleScroll(-carrosel.current.offsetWidth)}>
+          <BotaoCarrossel larguraDaTela = {larguraDaTela} onClick={() => handleScroll(-carrosel.current.offsetWidth)}>
             <FaLessThan />
           </BotaoCarrossel>
-          <BotaoCarrossel onClick={() => handleScroll(carrosel.current.offsetWidth)}>
+          <BotaoCarrossel larguraDaTela = {larguraDaTela} onClick={() => handleScroll(carrosel.current.offsetWidth)}>
             <FaGreaterThan />
           </BotaoCarrossel>
         </div>
