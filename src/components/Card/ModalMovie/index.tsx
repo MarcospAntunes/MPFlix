@@ -6,7 +6,6 @@ import { getMovieGenreData } from "../../../services/api"
 
 const BackgroundModal = styled.div`
     position: fixed !important;
-    
     top: 0;
     bottom: 0;
     left: 0;
@@ -14,12 +13,12 @@ const BackgroundModal = styled.div`
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 1000;
     
+    
 `
 
 const ModalStyled = styled.div`
     position: fixed;
     top: 50%;
-    left: 55%;
     transform: translate(-50%, -50%);
     background: #363636;
     border-radius: 10px;

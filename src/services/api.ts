@@ -56,6 +56,26 @@ export async function getMovieGenreData(type: string, setMovieGenreData: any): P
     }
 }
 
+// Todos os filmes
+export async function getAllMovies(type: string, setAllMovies: any): Promise<void> {
+    const baseUrl = `https://api.themoviedb.org/3/${type}/popular`;
+    const totalPages = 10;
+    const results = []; // Crie um array para armazenar os resultados
+  
+    for (let page = 1; page <= totalPages; page++) {
+      try {
+        const response = await axios.get(`${baseUrl}?api_key=${api_key}&page=${page}`);
+        results.push(...response.data.results); // Adicione os resultados ao array
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  
+    // Atualize o estado com os resultados após todas as chamadas serem concluídas
+    setAllMovies(results);
+  }
+  
+
 // Videos dos filmes
 export async function getVideosMovieData(type: string, setVideosMovieData: any, movie_id: number): Promise<void> {
     try {

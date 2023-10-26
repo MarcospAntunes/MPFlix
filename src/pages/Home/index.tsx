@@ -5,10 +5,11 @@ import Menu from "../../components/Menu"
 import { useState, useEffect } from 'react'
 import Card from "../../components/Card"
 import styled from "styled-components"
-import { getDiscoverMovieData, getTrendingMovieData } from "../../services/api"
+import { getDiscoverMovieData, getTrendingMovieData, getAllMovies } from "../../services/api"
 import Carrossel from "../../components/Carrossel"
 import MenuMobile from "../../components/MenuMobile"
 import teste from '../../assets/react.svg'
+import filterMoviesByGenre, { genreIdsToNames } from "../../utils/filerMoviesByGenre"
 
 const MainHome = styled.main`
   margin-left: 280px;
@@ -26,7 +27,7 @@ const DivBanner = styled.div`
 
   @media screen and (max-width: 500px) {
     
-    margin-left: 3%;
+    margin-left: 0.68%;
   }
 `
 const ImgStyled = styled.img`
@@ -64,11 +65,18 @@ const FooterStyled = styled.footer`
 function Home(): JSX.Element {
   const [movieTrendingData, setMovieTrendingData] = useState<any[]>([])
   const [movieDiscoverData, setMovieDiscoverData] = useState<any[]>([])
+  const [allMovies, setAllMovies] = useState<any[]>([])
   useEffect(() => {
     getTrendingMovieData("movie", setMovieTrendingData)
     getDiscoverMovieData("movie", setMovieDiscoverData)
+    getAllMovies("movie", setAllMovies)
   }, [])
 
+  const genreMovies: { [key: string]: any[] } = {}
+  for(const genreId in genreIdsToNames) {
+    genreMovies[genreIdsToNames[genreId]] = filterMoviesByGenre(parseInt(genreId), allMovies)
+  }
+  
   const [menuIsVisible, setMenuIsVisible] = useState(false)
 
   return (
@@ -99,6 +107,118 @@ function Home(): JSX.Element {
             </Carrossel>
             <Carrossel secao = 'Discover'>
               {movieDiscoverData.map((movie: any) => (
+                <Card
+                  key={movie.id}
+                  id = {movie.id}
+                  genre_ids = {movie.genre_ids}
+                  poster = {movie.poster_path}
+                  title = {movie.title}
+                  release_date = {movie.release_date}
+                  overview = {movie.overview}
+                  vote_average = {movie.vote_average}
+                /> 
+              ))}
+            </Carrossel>
+            <Carrossel secao = 'Action'>
+              {genreMovies.action.map((movie: any) => (
+                <Card
+                  key={movie.id}
+                  id = {movie.id}
+                  genre_ids = {movie.genre_ids}
+                  poster = {movie.poster_path}
+                  title = {movie.title}
+                  release_date = {movie.release_date}
+                  overview = {movie.overview}
+                  vote_average = {movie.vote_average}
+                /> 
+              ))}
+            </Carrossel>
+            <Carrossel secao = 'Adeventure'>
+              {genreMovies.adventure.map((movie: any) => (
+                <Card
+                  key={movie.id}
+                  id = {movie.id}
+                  genre_ids = {movie.genre_ids}
+                  poster = {movie.poster_path}
+                  title = {movie.title}
+                  release_date = {movie.release_date}
+                  overview = {movie.overview}
+                  vote_average = {movie.vote_average}
+                /> 
+              ))}
+            </Carrossel>
+            <Carrossel secao = 'Animation'>
+              {genreMovies.animation.map((movie: any) => (
+                <Card
+                  key={movie.id}
+                  id = {movie.id}
+                  genre_ids = {movie.genre_ids}
+                  poster = {movie.poster_path}
+                  title = {movie.title}
+                  release_date = {movie.release_date}
+                  overview = {movie.overview}
+                  vote_average = {movie.vote_average}
+                /> 
+              ))}
+            </Carrossel>
+            <Carrossel secao = 'Comedy'>
+              {genreMovies.comedy.map((movie: any) => (
+                <Card
+                  key={movie.id}
+                  id = {movie.id}
+                  genre_ids = {movie.genre_ids}
+                  poster = {movie.poster_path}
+                  title = {movie.title}
+                  release_date = {movie.release_date}
+                  overview = {movie.overview}
+                  vote_average = {movie.vote_average}
+                /> 
+              ))}
+            </Carrossel>
+            <Carrossel secao = 'Crime'>
+              {genreMovies.crime.map((movie: any) => (
+                <Card
+                  key={movie.id}
+                  id = {movie.id}
+                  genre_ids = {movie.genre_ids}
+                  poster = {movie.poster_path}
+                  title = {movie.title}
+                  release_date = {movie.release_date}
+                  overview = {movie.overview}
+                  vote_average = {movie.vote_average}
+                /> 
+              ))}
+            </Carrossel>
+            <Carrossel secao = 'Drama'>
+              {genreMovies.drama.map((movie: any) => (
+                <Card
+                  key={movie.id}
+                  id = {movie.id}
+                  genre_ids = {movie.genre_ids}
+                  poster = {movie.poster_path}
+                  title = {movie.title}
+                  release_date = {movie.release_date}
+                  overview = {movie.overview}
+                  vote_average = {movie.vote_average}
+                /> 
+              ))}
+            </Carrossel>
+            <Carrossel secao = 'Horror'>
+              {genreMovies.horror.map((movie: any) => (
+                <Card
+                  key={movie.id}
+                  id = {movie.id}
+                  genre_ids = {movie.genre_ids}
+                  poster = {movie.poster_path}
+                  title = {movie.title}
+                  release_date = {movie.release_date}
+                  overview = {movie.overview}
+                  vote_average = {movie.vote_average}
+                /> 
+              ))}
+            </Carrossel>
+            <Carrossel secao = 'Science Fiction'>
+              {genreMovies.scienceFiction.map((movie: any) => (
                 <Card
                   key={movie.id}
                   id = {movie.id}

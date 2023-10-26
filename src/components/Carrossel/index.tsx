@@ -18,12 +18,15 @@ function Carrossel({ children, secao }: CarrosselProps) {
   useEffect(() => {
     const handleResize = () => {
       setLarguraDaTela(window.innerWidth)
-      setTimeout(() => setWidth(carrosel.current?.scrollWidth - carrosel.current?.offsetWidth), 100)
+      setTimeout(() => setWidth(carrosel.current?.scrollWidth - carrosel.current?.offsetWidth), 600)
+      
     };
 
     window.addEventListener('resize', handleResize);
 
-    setTimeout(() => setWidth(carrosel.current?.scrollWidth - carrosel.current?.offsetWidth), 100)
+    setTimeout(() => setWidth(carrosel.current?.scrollWidth - carrosel.current?.offsetWidth), 600)
+    setTimeout(() => setWidth(carrosel.current?.scrollWidth - carrosel.current?.offsetWidth), 1000)
+    
 
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -32,7 +35,8 @@ function Carrossel({ children, secao }: CarrosselProps) {
 
   function handleScroll(offset: number) {
     carrosel.current.scrollLeft += offset;
-    setTimeout(() => setWidth(carrosel.current?.scrollWidth - carrosel.current?.offsetWidth), 100)
+    setTimeout(() => setWidth(carrosel.current?.scrollWidth - carrosel.current?.offsetWidth), 600)
+    
   }
 
   return (

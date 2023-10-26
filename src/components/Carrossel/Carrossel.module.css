@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   width: 100% !important;
-  max-width: 22%;
+  max-width: 4.8%;
   min-height: 300px;
   overflow: hidden;
   transition: ease-in;
@@ -15,7 +15,7 @@
     align-items: center;
     justify-content: center;
     width: 100% !important;
-    max-width: 13%;
+    max-width: 10%;
     min-height: 200px;
     overflow: hidden;
     cursor: grab;
