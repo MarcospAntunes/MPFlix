@@ -115,7 +115,7 @@ const ModalStyled = styled.div`
 
 interface ModalMovieProps {
     isOpen: boolean
-    setModalOpen: () => void
+    setModalOpen: React.Dispatch<React.SetStateAction<boolean>>
     id: number
     genre_ids: number[]
     title: string

@@ -50,21 +50,22 @@ const ModalBannerStyled = styled.div`
         display: flex;
         flex-direction: column;
 
-        iframe {
-            width: 350px;
-            height: 350px;
-        }
+            iframe {
+                width: 350px;
+                height: 350px;
+            }
 
-        .closeModal {
-            width: 32px;
-            height: 32px;
+            .closeModal {
+                width: 32px;
+                height: 32px;
+            }
         }
     }
 `
 
 interface ModalBannerProps {
-    movieNowPlayingData: any 
-    setOpenModal: any
+    movieNowPlayingData: any[] 
+    setOpenModal: React.Dispatch<React.SetStateAction<boolean>>
     isOpen: boolean
 }
 

@@ -5,7 +5,7 @@ import { ReactNode } from 'react'
 
 interface BotaoCarrosselProps {
   children: ReactNode
-  onClick: any
+  onClick: React.MouseEventHandler<HTMLButtonElement>
   larguraDaTela: number
 }
 function BotaoCarrossel( {children, onClick, larguraDaTela}: BotaoCarrosselProps ): JSX.Element  {
