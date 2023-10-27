@@ -15,6 +15,7 @@ export const BackgroundModal = styled.div`
 export const ModalStyled = styled.div`
     position: fixed;
     top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     background: #363636;
     border-radius: 10px;
