@@ -23,7 +23,17 @@ const ContainerDivParaTituloDosVideos = styled.div`
     
 `
 
+const ContainerCentralizado = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+
+`
+
 export { 
     ContainerDivConteudoPrincipal, 
-    ContainerDivParaTituloDosVideos 
+    ContainerDivParaTituloDosVideos,
+    ContainerCentralizado 
 }
