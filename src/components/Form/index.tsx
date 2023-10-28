@@ -1,13 +1,15 @@
-import { FormStyled } from "./styles"
+import { ContainerForm, FormStyled } from "./styles"
 
 
 function Form({ children }: any): JSX.Element {
     return(
-        <FormStyled>
+        <ContainerForm>
+            <FormStyled>
             
-            {children}
-        
-        </FormStyled>
+                {children}
+            
+            </FormStyled>
+        </ContainerForm>
         
     )
 }
