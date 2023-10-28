@@ -33,7 +33,7 @@ function Menu(): JSX.Element {
                     <p>General</p>
                     <br />
                     <NavLink to={'/setting'}><IoSettingsSharp className="icons" activeclassname={CSSMathValue.toString()} />Setting</NavLink>
-                    <NavLink to={'/start'}><IoLogOutSharp className="icons" activeclassname={CSSMathValue.toString()} />Logout</NavLink>
+                    <NavLink to={'/'}><IoLogOutSharp className="icons" activeclassname={CSSMathValue.toString()} />Logout</NavLink>
                 </nav>
             </li>
 
