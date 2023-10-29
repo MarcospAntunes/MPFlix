@@ -15,7 +15,7 @@ interface MenuMobileProps {
 function MenuMobile({ menuIsVisible, setMenuIsVisible }: MenuMobileProps) {
 
     return(
-        <MenuMobileStyled isVisible={menuIsVisible}>
+        <MenuMobileStyled isvisible={menuIsVisible ? menuIsVisible.toString() : undefined}>
             <li>
                 
                 <figure className="userPerfil">  {/* img de perfil do usuario */}

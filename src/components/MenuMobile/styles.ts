@@ -1,11 +1,11 @@
 import styled, { css } from "styled-components"
 
 interface MenuMobileStyledProps {
-    isVisible: boolean
+    isvisible: string | undefined
 }
 
 export const MenuMobileStyled = styled.menu<MenuMobileStyledProps>`
-    position: absolute;
+    position: fixed;
     width: 250px;
     height: 100%;
     top: 0;
@@ -22,7 +22,7 @@ export const MenuMobileStyled = styled.menu<MenuMobileStyledProps>`
     pointer-events: none;
     transition: 0.3s;
     transform: translateX(-50px);
-    ${({ isVisible }: any)  => isVisible && css`
+    ${({ isvisible }: any)  => isvisible && css`
         opacity: 1;
         pointer-events: auto;
         transition: 0.3s;

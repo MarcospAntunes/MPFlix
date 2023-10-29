@@ -18,11 +18,11 @@ function Card({id, genre_ids, poster, title, release_date, overview, vote_averag
 
     return(
         <>
-            <motion.li key={id} className="itens" style={{height: '100%'}}>
+            <motion.li className="itens" style={{height: '100%'}}>
             <ImgStyled src={`https://image.tmdb.org/t/p/w300/${poster}`} onClick={() => setOpenModal(true)}/>
             </motion.li>
             
-            <ModalMovie 
+            <ModalMovie
             isOpen={openModal}
             setModalOpen = {() => setOpenModal(!openModal)}
             id = {id} 

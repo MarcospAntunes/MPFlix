@@ -29,7 +29,7 @@ function ModalMovie({isOpen, setModalOpen, id, genre_ids, title, release_date, o
     if(isOpen) {
         return (
             <BackgroundModal>
-                <ModalStyled>
+                <ModalStyled >
                     <div className="ConteudoModal">
                         <AiOutlineCloseCircle className="closeModal" onClick={setModalOpen} />
                         <IframeVideo
