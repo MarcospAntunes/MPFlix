@@ -43,9 +43,9 @@ function Home(): JSX.Element {
           </DivBanner>
           <section>
             <Carrossel secao = 'Trending'>
-              {movieTrendingData.map((movie: any) => (
+              {movieTrendingData.map((movie: any, index) => (
                 <Card
-                  key={Math.floor(Math.random() * 100000) + 1}
+                  key={`${movie.id}-${index}`}
                   id = {movie.id}
                   genre_ids = {movie.genre_ids}
                   poster = {movie.poster_path}
@@ -57,9 +57,9 @@ function Home(): JSX.Element {
               ))}
             </Carrossel>
             <Carrossel secao = 'Discover'>
-              {movieDiscoverData.map((movie: any) => (
+              {movieDiscoverData.map((movie: any, index) => (
                 <Card
-                  key={Math.floor(Math.random() * 100000) + 1}
+                  key={`${movie.id}-${index}`}
                   id = {movie.id}
                   genre_ids = {movie.genre_ids}
                   poster = {movie.poster_path}
@@ -71,9 +71,9 @@ function Home(): JSX.Element {
               ))}
             </Carrossel>
             <Carrossel secao = 'Action'>
-              {genreMovies.action.map((movie: any) => (
+              {genreMovies.action.map((movie: any, index) => (
                 <Card
-                  key={Math.floor(Math.random() * 100000) + 1}
+                  key={`${movie.id}-${index}`}
                   id = {movie.id}
                   genre_ids = {movie.genre_ids}
                   poster = {movie.poster_path}
@@ -85,9 +85,9 @@ function Home(): JSX.Element {
               ))}
             </Carrossel>
             <Carrossel secao = 'Adeventure'>
-              {genreMovies.adventure.map((movie: any) => (
+              {genreMovies.adventure.map((movie: any, index) => (
                 <Card
-                  key={Math.floor(Math.random() * 100000) + 1}
+                  key={`${movie.id}-${index}`}
                   id = {movie.id}
                   genre_ids = {movie.genre_ids}
                   poster = {movie.poster_path}
@@ -99,9 +99,9 @@ function Home(): JSX.Element {
               ))}
             </Carrossel>
             <Carrossel secao = 'Animation'>
-              {genreMovies.animation.map((movie: any) => (
+              {genreMovies.animation.map((movie: any, index) => (
                 <Card
-                  key={Math.floor(Math.random() * 100000) + 1}
+                  key={`${movie.id}-${index}`}
                   id = {movie.id}
                   genre_ids = {movie.genre_ids}
                   poster = {movie.poster_path}
@@ -113,9 +113,9 @@ function Home(): JSX.Element {
               ))}
             </Carrossel>
             <Carrossel secao = 'Comedy'>
-              {genreMovies.comedy.map((movie: any) => (
+              {genreMovies.comedy.map((movie: any, index) => (
                 <Card
-                  key={Math.floor(Math.random() * 100000) + 1}
+                  key={`${movie.id}-${index}`}
                   id = {movie.id}
                   genre_ids = {movie.genre_ids}
                   poster = {movie.poster_path}
@@ -127,9 +127,9 @@ function Home(): JSX.Element {
               ))}
             </Carrossel>
             <Carrossel secao = 'Crime'>
-              {genreMovies.crime.map((movie: any) => (
+              {genreMovies.crime.map((movie: any, index) => (
                 <Card
-                  key={Math.floor(Math.random() * 100000) + 1}
+                  key={`${movie.id}-${index}`}
                   id = {movie.id}
                   genre_ids = {movie.genre_ids}
                   poster = {movie.poster_path}
@@ -141,9 +141,9 @@ function Home(): JSX.Element {
               ))}
             </Carrossel>
             <Carrossel secao = 'Drama'>
-              {genreMovies.drama.map((movie: any) => (
+              {genreMovies.drama.map((movie: any, index) => (
                 <Card
-                  key={Math.floor(Math.random() * 100000) + 1}
+                  key={`${movie.id}-${index}`}
                   id = {movie.id}
                   genre_ids = {movie.genre_ids}
                   poster = {movie.poster_path}
@@ -155,9 +155,9 @@ function Home(): JSX.Element {
               ))}
             </Carrossel>
             <Carrossel secao = 'Horror'>
-              {genreMovies.horror.map((movie: any) => (
+              {genreMovies.horror.map((movie: any, index) => (
                 <Card
-                  key={Math.floor(Math.random() * 100000) + 1}
+                  key={`${movie.id}-${index}`}
                   id = {movie.id}
                   genre_ids = {movie.genre_ids}
                   poster = {movie.poster_path}
@@ -169,9 +169,9 @@ function Home(): JSX.Element {
               ))}
             </Carrossel>
             <Carrossel secao = 'Science Fiction'>
-              {genreMovies.scienceFiction.map((movie: any) => (
+              {genreMovies.scienceFiction.map((movie: any, index) => (
                 <Card
-                  key={Math.floor(Math.random() * 100000) + 1}
+                  key={`${movie.id}-${index}`}
                   id = {movie.id}
                   genre_ids = {movie.genre_ids}
                   poster = {movie.poster_path}
