@@ -77,6 +77,17 @@ export const MenuStyled = styled.menu`
         color: #bf4343;
     }
 
+    .logout {
+        color: white;
+        text-decoration: none;
+        margin-top: 15px;
+        width: 100%;
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+        padding: 10px;
+        cursor: pointer;
+    }
+
     @media screen and (max-width: 500px) {
         & {
             display: none;

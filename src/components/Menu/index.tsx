@@ -1,19 +1,38 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AiFillHome, AiOutlineHistory, AiOutlineGlobal } from 'react-icons/ai'
 import { MdFavorite } from 'react-icons/md'
 import { SlOptionsVertical } from 'react-icons/sl'
 import { IoSettingsSharp, IoLogOutSharp } from 'react-icons/io5'
 import teste from '../../assets/react.svg'
 import { MenuStyled } from "./styles";
+import useAuth from "../../hooks/useAuth";
 
 function Menu(): JSX.Element {
+    const { logOut }: any = useAuth()
+    const navigate = useNavigate()
+    const user: any = useAuth()
+    function verificaNome() {
+        let partsOfNameUser: string[]
+        let firstAndLastName: string
+        if(user.user.name) {
+            partsOfNameUser = user.user.name.split(' ')
+            firstAndLastName = `${partsOfNameUser[0]} ${partsOfNameUser[partsOfNameUser.length - 1]}`
+        } else {
+            firstAndLastName = 'Sem nome'
+        }
+        return firstAndLastName
+    }
+    
+
+    
+
     return(
         <MenuStyled>
             <li>
                 <figure className="userPerfil">  {/* img de perfil do usuario */}
                     <img src={teste} alt="perfil" className="userPhoto" />
                     <figcaption>
-                        <span>Welcome</span> <br /> Marcos Antunes! {/* Nome do usuario */}
+                        <span>Welcome</span> <br /> {verificaNome()}! {/* Nome do usuario */}
                     </figcaption>
                     <SlOptionsVertical />
                 </figure>
@@ -33,7 +52,8 @@ function Menu(): JSX.Element {
                     <p>General</p>
                     <br />
                     <NavLink to={'/setting'}><IoSettingsSharp className="icons" activeclassname={CSSMathValue.toString()} />Setting</NavLink>
-                    <NavLink to={'/'}><IoLogOutSharp className="icons" activeclassname={CSSMathValue.toString()} />Logout</NavLink>
+                    <span className="logout" onClick={() => [logOut(), navigate('/')] }><IoLogOutSharp className="icons" activeclassname={CSSMathValue.toString()}  />Logout
+                    </span>
                 </nav>
             </li>
 

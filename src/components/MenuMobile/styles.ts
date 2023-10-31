@@ -84,6 +84,16 @@ export const MenuMobileStyled = styled.menu<MenuMobileStyledProps>`
         color: #9b9b9b;
     }
 
+    .logout {
+        color: white;
+        text-decoration: none;
+        margin-top: 15px;
+        width: 100%;
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+        padding: 10px;
+    }
+
     .active {
         color: #bf4343;
         background-color: #303030;
