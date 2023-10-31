@@ -4,7 +4,7 @@ import { ContainerForm, FormStyled } from "./styles"
 function Form({ children }: any): JSX.Element {
     return(
         <ContainerForm>
-            <FormStyled>
+            <FormStyled className="formulario">
             
                 {children}
             
