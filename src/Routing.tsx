@@ -4,22 +4,29 @@ import Register from "./pages/Register"
 import Login from "./pages/Login"
 import Home from "./pages/Home"
 import GlobalStyles from "./GlobalStyles"
+import { AuthProvider } from "./contexts/auth"
+import useAuth from "./hooks/useAuth"
 
+const Private = ({ Item }: any): JSX.Element => {
+  const { signed }: any = useAuth();
+
+  return signed > 0 ? <Item /> : <Login />;
+}
 
 function Routing() {
-  
-
   return (
     <>
-      <BrowserRouter>
-      <GlobalStyles />
-        <Routes>
-          <Route path="/" element={<Start />}></Route>
-          <Route path="/register" element={<Register />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/home" element={<Home />}></Route>
-        </Routes>
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+        <GlobalStyles />
+          <Routes>
+            <Route path="/" element={<Start />}></Route>
+            <Route path="/register" element={<Register />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/home" element={<Private Item={Home} />} />
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
     </>
   )
 }

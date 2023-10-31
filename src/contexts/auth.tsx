@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }: any) => {
         }
     }
 
-    const register = (email: string, password: any) => {
+    const register = (name: string, email: string, password: any) => {
         const usersStorage = JSON.parse(localStorage.getItem('users_db')!)
         const hasUser = usersStorage?.filter((user: any) => user.email === email)
 
@@ -45,9 +45,9 @@ export const AuthProvider = ({ children }: any) => {
         let newUser
 
         if(usersStorage) {
-            newUser = [...usersStorage, {email, password}]
+            newUser = [...usersStorage, {name, email, password}]
         } else {
-            newUser = [{email, password}]
+            newUser = [{name, email, password}]
         }
 
         localStorage.setItem('users_db', JSON.stringify(newUser))
