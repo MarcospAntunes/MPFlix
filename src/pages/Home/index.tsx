@@ -7,9 +7,10 @@ import Card from "../../components/Card"
 import { getDiscoverMovieData, getTrendingMovieData, getAllMovies } from "../../services/api"
 import Carrossel from "../../components/Carrossel"
 import MenuMobile from "../../components/MenuMobile"
-import teste from '../../assets/react.svg'
+import defaultPhoto from '../../assets/user.png'
 import filterMoviesByGenre, { genreIdsToNames } from "../../utils/filerMoviesByGenre"
 import { DivBanner, FooterStyled, ImgStyled, MainHome } from "./styles"
+import useAuth from "../../hooks/useAuth"
 
 
 
@@ -30,10 +31,22 @@ function Home(): JSX.Element {
   
   const [menuIsVisible, setMenuIsVisible] = useState(false)
 
+  const user: any = useAuth()
+
+  function verificaFoto() {
+    let photo: string
+    if(user.user.photoUrl) {
+        photo = user.user.photoUrl
+    } else {
+        photo = defaultPhoto
+    }
+    return photo
+}
+
   return (
     <>
       <ContainerDivConteudoPrincipal>
-        <ImgStyled src={teste} alt="" onClick={() => setMenuIsVisible(true)} />
+        <ImgStyled src={verificaFoto()} alt="" onClick={() => setMenuIsVisible(true)} />
         <MenuMobile menuIsVisible={menuIsVisible} setMenuIsVisible={setMenuIsVisible} />
         <Menu />
         <MainHome>

@@ -6,6 +6,7 @@ import Home from "./pages/Home"
 import GlobalStyles from "./GlobalStyles"
 import { AuthProvider } from "./contexts/auth"
 import useAuth from "./hooks/useAuth"
+import Settings from "./pages/Settings"
 
 const Private = ({ Item }: any): JSX.Element => {
   const { signed }: any = useAuth();
@@ -24,6 +25,7 @@ function Routing() {
             <Route path="/register" element={<Register />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/home" element={<Private Item={Home} />} />
+            <Route path="/settings" element={<Private Item={Settings} />} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>

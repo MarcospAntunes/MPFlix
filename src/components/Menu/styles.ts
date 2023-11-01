@@ -4,7 +4,7 @@ export const MenuStyled = styled.menu`
     position: fixed;
     display: flex;
     flex-direction: column;
-    min-width: 250px;
+    min-width: 350px;
     height: 100%;
     padding: 15px 0px 0px 15px;
     margin-right: 15px;
@@ -26,13 +26,13 @@ export const MenuStyled = styled.menu`
     }
 
     .userPerfil figcaption span {
-        font-size: 14px;
+        font-size: 16px;
         color: #9b9b9b;
     }
 
     .userPhoto {
-        width: 50px;
-        height: 50px;
+        width: 100px;
+        height: 100px;
         border: 2px solid #bf4343;
         background-color: #9b9b9b;
         border-radius: 50%;

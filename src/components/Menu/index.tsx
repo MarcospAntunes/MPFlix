@@ -3,7 +3,7 @@ import { AiFillHome, AiOutlineHistory, AiOutlineGlobal } from 'react-icons/ai'
 import { MdFavorite } from 'react-icons/md'
 import { SlOptionsVertical } from 'react-icons/sl'
 import { IoSettingsSharp, IoLogOutSharp } from 'react-icons/io5'
-import teste from '../../assets/react.svg'
+import defaultPhoto from '../../assets/user.png'
 import { MenuStyled } from "./styles";
 import useAuth from "../../hooks/useAuth";
 
@@ -22,6 +22,15 @@ function Menu(): JSX.Element {
         }
         return firstAndLastName
     }
+    function verificaFoto() {
+        let photo: string
+        if(user.user.photoUrl) {
+            photo = user.user.photoUrl
+        } else {
+            photo = defaultPhoto
+        }
+        return photo
+    }
     
 
     
@@ -30,7 +39,7 @@ function Menu(): JSX.Element {
         <MenuStyled>
             <li>
                 <figure className="userPerfil">  {/* img de perfil do usuario */}
-                    <img src={teste} alt="perfil" className="userPhoto" />
+                    <img src={verificaFoto()} alt="perfil" className="userPhoto" />
                     <figcaption>
                         <span>Welcome</span> <br /> {verificaNome()}! {/* Nome do usuario */}
                     </figcaption>
@@ -51,7 +60,7 @@ function Menu(): JSX.Element {
                     <br />
                     <p>General</p>
                     <br />
-                    <NavLink to={'/setting'}><IoSettingsSharp className="icons" activeclassname={CSSMathValue.toString()} />Setting</NavLink>
+                    <NavLink to={'/settings'}><IoSettingsSharp className="icons" activeclassname={CSSMathValue.toString()} />Setting</NavLink>
                     <span className="logout" onClick={() => [logOut(), navigate('/')] }><IoLogOutSharp className="icons" activeclassname={CSSMathValue.toString()}  />Logout
                     </span>
                 </nav>

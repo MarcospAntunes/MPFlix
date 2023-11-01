@@ -22,7 +22,7 @@ const ContainerDivParaTituloDosVideos = styled.div`
     }
 
     @media screen and (min-width: 1265px) {
-        width: calc(100% - 92.3%)
+        width: calc(100% - 92.8%)
     } 
     
 `

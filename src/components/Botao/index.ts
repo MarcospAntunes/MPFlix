@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 const Botao = styled.button`
     width: 100px;
-    height: 50px;
+    height: 40px;
+    margin: 10px;
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
     border: none;
