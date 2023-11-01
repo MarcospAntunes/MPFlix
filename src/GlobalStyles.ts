@@ -7,7 +7,7 @@ const GlobalStyles = createGlobalStyle`
         padding: 0;
         scrollbar-base-color: transparent;
         scrollbar-arrow-color: transparent;
-        scrollbar-face-color: background-color: #BF4343;
+        scrollbar-face-color: #BF4343;
         scrollbar-track-color: transparent;
         
 
