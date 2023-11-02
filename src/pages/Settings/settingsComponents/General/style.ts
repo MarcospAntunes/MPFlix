@@ -17,8 +17,51 @@ export const GeneralMenuStyled = styled.menu`
         margin-bottom: 15px;
     }
 
-    & span {
-        margin-right: 15px;
-        font-size: 18px;
+    .radioButtons {
+        display: flex;
+        gap: 50px;
+    }
+
+    input[type='radio'] {
+        display: none;
+    }
+
+    .radio-container label {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        column-gap: 20px;
+        cursor: pointer;
+    }
+
+    .custom-radio {
+        border: 1px solid #fff;
+        width: 22px;
+        height: 21px;
+        display: grid;
+        place-content: center;
+        border-radius: 50%;
+    }
+
+    .custom-radio,
+    span {
+        transition: 0.3s ease;
+        color: #fff;
+    }
+
+    .custom-radio span {
+        content: '';
+        width: 18px;
+        height: 15px;
+        background: #fff;
+        border-radius: 50%;
+    }
+
+    input[type='radio']:checked + .custom-radio {
+        border-color: white;
+    }
+
+    input[type='radio']:checked + .custom-radio span {
+        background: #bf4343;
     }
 `
