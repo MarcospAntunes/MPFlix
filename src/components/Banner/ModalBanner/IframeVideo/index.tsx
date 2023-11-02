@@ -9,7 +9,7 @@ function IframeVideo({ id }: IframeVIdeoProps): JSX.Element {
     const [VideosMovieData, setVideosMovieData] = useState<any>([])
     useEffect(() => {
         getVideosMovieData("movie", setVideosMovieData, id)
-    }, [])
+    }, [id])
     
 
     const key = VideosMovieData.map((video: any) => {
