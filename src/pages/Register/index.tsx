@@ -28,13 +28,13 @@ function Register() {
     e.preventDefault()
     
     if(!email || !emailConf || !password || !passwordConf || !name) {
-      setError("Preencha todos os campos")
+      setError("Fill in all fields")
       return
     } else if (email !== emailConf) {
-      setError("Os e-mails não são iguais")
+      setError("Emails are not the same")
       return
     } else if (password !== passwordConf) {
-      setError("As senhas não são iguais")
+      setError("Passwords are not the same")
     }
 
     const res = register(name, email, password)
@@ -44,7 +44,7 @@ function Register() {
       return
     }
 
-    alert("Usuário cadastrado com sucesso!")
+    alert("User registered successfully!")
     navigate("/login")
   }
 
@@ -58,7 +58,7 @@ function Register() {
           <label htmlFor="nome">Full Name</label>
           <InputStyled 
             type="text" 
-            placeholder="Nome Completo" 
+            placeholder="Full name" 
             required 
             minLength={4} 
             onChange={(e) => [setName(e.target.value), setError("")]}
@@ -67,25 +67,25 @@ function Register() {
           <InputStyled 
             id="email" 
             type="email" 
-            placeholder="Seu Email" 
+            placeholder="Your email" 
             required 
             onChange={(e) => [setEmail(e.target.value), setError("")] } 
           />
           <InputStyled 
             id="confirmaEmail" 
             type="email" 
-            placeholder="Confirme seu Email" 
+            placeholder="Confirm your Email" 
             required 
             onChange={(e) => [setEmailConf(e.target.value), setError("")] } 
           />
 
-          <ParagraphError id="errorEmail">Os e-mails não estão iguais, verifique e tente novamente.</ParagraphError>
+          <ParagraphError id="errorEmail">The emails are not the same, check and try again.</ParagraphError>
           
           <label htmlFor="nome">Password</label>
           <InputStyled 
             id="senha" 
             type="password"
-            placeholder="Senha" 
+            placeholder="Password" 
             required 
             minLength={8} 
             onChange={(e) => [setPassword(e.target.value), setError("")] } 
@@ -93,7 +93,7 @@ function Register() {
           <InputStyled 
             id="confirmaSenha" 
             type="password" 
-            placeholder="Confirme sua Senha" 
+            placeholder="Confirm your password" 
             required 
             minLength={8} 
             onChange={(e) => [setPasswordConf(e.target.value), setError("")] } 
@@ -103,7 +103,7 @@ function Register() {
           <br />
           <InputStyled 
             type="submit" 
-            value="Registrar"
+            value="Register"
             onClick={(e) => handleRegister(e)}
           />
           <p style={{textAlign: "center"}}>Already have an account? <Link to={'/login'}>Click here</Link> and login!</p>

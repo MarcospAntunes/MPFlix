@@ -8,11 +8,11 @@ function Start(): JSX.Element {
         <>
             <ContainerMain>
                 <Section>
-                    <h1>Seja-bem vindo (a)!</h1>
+                    <h1>Welcome!</h1>
 
-                    <p>Este é um site em que você irá poder ter conhecimento sobre diversos filmes. Faça login para acessar nossos sistemas!</p>
+                    <p>This is a website where you can get knowledge about different films. Log in to access our systems!</p>
 
-                    <Link to={'/login'}><Botao>Acessar</Botao></Link>
+                    <Link to={'/login'}><Botao>Login</Botao></Link>
                 </Section>
             </ContainerMain>
         </>

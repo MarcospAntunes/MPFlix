@@ -52,7 +52,7 @@ function Home(): JSX.Element {
         <MainHome>
           <CaixaDePesquisa />
           {movieTrendingData === null || movieDiscoverData === null || allMovies === null ? (
-            <p>Carregando...</p>
+            <p>Loading...</p>
           ) : (
             <>
               <DivBanner>
@@ -205,8 +205,8 @@ function Home(): JSX.Element {
           )}
         </MainHome>
         <FooterStyled>
-          <h2>Desenvolvidor por Marcos Antunes</h2>
-          <h2>Design feito por <a href="https://dribbble.com/apurple" target="_blank">aPurple</a></h2>
+          <h2>Developed by Marcos Antunes</h2>
+          <h2>Design based on design made by <a href="https://dribbble.com/apurple" target="_blank">aPurple</a></h2>
         </FooterStyled>
       </ContainerDivConteudoPrincipal>
       

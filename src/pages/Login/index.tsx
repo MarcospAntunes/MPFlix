@@ -17,7 +17,7 @@ function Login() {
   const handleLogin = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
     e.preventDefault()
     if(!email || !password) {
-      setError('Preencha todos os campos')
+      setError('Fill in all fields')
       return
     }
     const res = login(email, password)
@@ -38,14 +38,14 @@ function Login() {
 
           <InputStyled 
             type="email" 
-            placeholder="Seu Email" 
+            placeholder="Your email" 
             required 
             value={email}
             onChange={(e) => [setEmail(e.target.value), setError("")]}  
           />
           <InputStyled 
             type="password" 
-            placeholder="Senha" 
+            placeholder="Password" 
             required 
             minLength={8} 
             value={password}
