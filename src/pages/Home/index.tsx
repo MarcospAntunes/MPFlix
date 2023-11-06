@@ -9,7 +9,7 @@ import Carrossel from "../../components/Carrossel"
 import MenuMobile from "../../components/MenuMobile"
 import defaultPhoto from '../../assets/user.png'
 import filterMoviesByGenre, { genreIdsToNames } from "../../utils/filerMoviesByGenre"
-import { DivBanner, FooterStyled, ImgStyled, MainHome } from "./styles"
+import { SectionNowPlaying, FooterStyled, ImgStyled, MainHome } from "./styles"
 import useAuth from "../../hooks/useAuth"
 
 
@@ -55,9 +55,9 @@ function Home(): JSX.Element {
             <p>Loading...</p>
           ) : (
             <>
-              <DivBanner>
+              <SectionNowPlaying>
                 <Banner />
-              </DivBanner>
+              </SectionNowPlaying>
               <section>
                 <Carrossel secao = 'Trending'>
                   {movieTrendingData.map((movie: any, index) => (

@@ -2,7 +2,7 @@ import { getNowPlayingMovieData } from "../../services/api"
 import { useEffect, useState } from "react"
 import ModalBanner from "./ModalBanner"
 import { numeroAleatorio } from "../../utils/numeroAleatorio"
-import { SectionNowPlayingStyled } from "./styles"
+import { DivBanner } from "./styles"
 
 
 
@@ -20,19 +20,19 @@ function Banner(): JSX.Element {
 
     return(
         <>
-            {/* Banner que irá gerar um filme com a maior tendência a cada refresh da página */}
-            <SectionNowPlayingStyled>
+            <DivBanner>
                 <div className="nowPlaying">
                     <h2>Now Playing in theaters</h2>
                     <img src={`https://image.tmdb.org/t/p/w300/${poster[numeroAleatorio]}`} alt="" />
+                    <button onClick={() => setOpenModal(true)}>Trailer</button>
                 </div>
-                <button style={{margin: '20px'}} onClick={() => setOpenModal(true)}>Trailer</button>
+                
                 <ModalBanner
-                 movieNowPlayingData = {movieNowPlayingData}
-                setOpenModal = {() => setOpenModal(!openModal)}
-                isOpen = {openModal}
-                /> 
-            </SectionNowPlayingStyled>
+                    movieNowPlayingData = {movieNowPlayingData}
+                    setOpenModal = {() => setOpenModal(!openModal)}
+                    isOpen = {openModal}
+                />
+            </DivBanner>
             
                
         </>           

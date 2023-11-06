@@ -31,11 +31,11 @@ export const MenuStyled = styled.menu`
     }
 
     .userPhoto {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
         border: 2px solid #bf4343;
         background-color: #9b9b9b;
-        border-radius: 50%;
+        border-radius: 40px;
     }
 
     .userPerfil svg {

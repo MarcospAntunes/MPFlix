@@ -25,6 +25,7 @@ const GlobalStyles = createGlobalStyle`
 
     body {
         background-color: #303030;
+        font-family: Arial, Helvetica, sans-serif;
         color: white;
         overflow-x: hidden;
         width: 100vw;

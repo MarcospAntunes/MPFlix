@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const SectionNowPlayingStyled = styled.section`
+export const DivBanner = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -38,8 +38,8 @@ export const SectionNowPlayingStyled = styled.section`
         position: absolute;
         width: 150px;
         height: 50px;
+        top: 50vh;
         border: none;
-       
         border-radius: 10px;
         color: white;
         background-color: #d63837;

@@ -9,7 +9,7 @@ export const MainHome = styled.main`
     margin: 0;
   }
 `
-export const DivBanner = styled.div`
+export const SectionNowPlaying = styled.section`
   width: calc(100vw - 250px);
   display: flex; 
   justify-content: center;
@@ -33,8 +33,8 @@ export const ImgStyled = styled.img`
 
 export const FooterStyled = styled.footer`
   position: fixed !important;
-  width: calc(100vw - 250px);
-  margin-left: 250px;
+  width: calc(100vw - 350px);
+  margin-left: 350px;
   bottom: 0;
   text-align: center;
   background-color: #3030304b;
