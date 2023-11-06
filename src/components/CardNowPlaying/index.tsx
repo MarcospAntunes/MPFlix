@@ -12,10 +12,7 @@ interface CardNowPlayingProps {
 
 function CardNowPlaying({ id, poster_path, title, vote_average, release_date}: CardNowPlayingProps): JSX.Element {
 
-    const fullDate = release_date.split("-")
-    const ano = fullDate[0]
     const [openModal, setOpenModal] = useState(false)
-
 
     return (
         <ContainerCardNowPlaying>
@@ -25,7 +22,7 @@ function CardNowPlaying({ id, poster_path, title, vote_average, release_date}: C
                     <h3>{title}</h3>
                     <div className="VotoEData">
                         <span className="voto">{vote_average.toFixed(1)}</span>
-                        <span className="dataLancamento">{ano}</span>
+                        <span className="dataLancamento">{release_date.replace(new RegExp("-", "g"), "/")}</span>
                     </div>
                 </div>
             </div>
