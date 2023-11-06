@@ -7,7 +7,7 @@ export const DivBanner = styled.div`
     gap: 50%;
     margin: 0 10px;
     width: 30vw;
-    height: 50vh;
+    height: 54vh;
     background-color: #9b9b9b;
     border-radius: 15px;
 

@@ -11,8 +11,15 @@ export const MainHome = styled.main`
 `
 export const SectionNowPlaying = styled.section`
   width: calc(100vw - 250px);
-  display: flex; 
+  display: flex;
   justify-content: center;
+
+  aside {
+    display: flex;
+    flex-direction: column;
+    margin-left: 200px;
+    gap: 20px;
+  }
 
   @media screen and (max-width: 500px) {
     

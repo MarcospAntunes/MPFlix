@@ -4,13 +4,15 @@ import { ContainerDivConteudoPrincipal } from "../../components/Containers/Conta
 import Menu from "../../components/Menu"
 import { useState, useEffect } from 'react'
 import Card from "../../components/Card"
-import { getDiscoverMovieData, getTrendingMovieData, getAllMovies } from "../../services/api"
+import { getDiscoverMovieData, getTrendingMovieData, getAllMovies, getNowPlayingMovieData } from "../../services/api"
 import Carrossel from "../../components/Carrossel"
 import MenuMobile from "../../components/MenuMobile"
 import defaultPhoto from '../../assets/user.png'
 import filterMoviesByGenre, { genreIdsToNames } from "../../utils/filerMoviesByGenre"
 import { SectionNowPlaying, FooterStyled, ImgStyled, MainHome } from "./styles"
 import useAuth from "../../hooks/useAuth"
+import CardNowPlaying from "../../components/CardNowPlaying"
+import { numeroAleatorio } from "../../utils/numeroAleatorio"
 
 
 
@@ -18,17 +20,22 @@ function Home(): JSX.Element {
   const [movieTrendingData, setMovieTrendingData] = useState<any[]>([])
   const [movieDiscoverData, setMovieDiscoverData] = useState<any[]>([])
   const [allMovies, setAllMovies] = useState<any[]>([])
+  const [movieNowPlayingData, setMovieNowPlayingData] = useState<any>([])
   useEffect(() => {
     getTrendingMovieData("movie", setMovieTrendingData)
     getDiscoverMovieData("movie", setMovieDiscoverData)
     getAllMovies("movie", setAllMovies)
+    getNowPlayingMovieData("movie", setMovieNowPlayingData)
   }, [])
 
   const genreMovies: { [key: string]: any[] } = {}
   for(const genreId in genreIdsToNames) {
     genreMovies[genreIdsToNames[genreId]] = filterMoviesByGenre(parseInt(genreId), allMovies)
   }
-  
+
+  const filterMovieNowPlayingData = movieNowPlayingData.filter((element: any, index: number) => index !== numeroAleatorio )
+  const movieNowPlaying = filterMovieNowPlayingData.slice(0, 4)
+
   const [menuIsVisible, setMenuIsVisible] = useState(false)
 
   const user: any = useAuth()
@@ -57,8 +64,21 @@ function Home(): JSX.Element {
             <>
               <SectionNowPlaying>
                 <Banner />
+                <aside>
+                  {movieNowPlaying.map((movie: any, index: number) => (
+                    <CardNowPlaying
+                      key={`${movie.id}-${index}`}
+                      id={movie.id} 
+                      poster_path={movie.poster_path}
+                      title={movie.title}
+                      vote_average={movie.vote_average}
+                      release_date={movie.release_date}
+                    />
+                  ))}
+                </aside>
               </SectionNowPlaying>
-              <section>
+
+              <section> {/* Seção dos filmes */}
                 <Carrossel secao = 'Trending'>
                   {movieTrendingData.map((movie: any, index) => (
                     <Card
@@ -199,7 +219,7 @@ function Home(): JSX.Element {
                     /> 
                   ))}
                 </Carrossel>
-              </section> {/* Seção dos filmes */}
+              </section>
             </>
           
           )}
