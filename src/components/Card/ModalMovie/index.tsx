@@ -3,6 +3,8 @@ import IframeVideo from "./IframeVideo"
 import { useEffect, useState } from "react"
 import { getMovieGenreData } from "../../../services/api"
 import { BackgroundModal, ModalStyled } from './styles'
+import { useFavorite } from '../../../hooks/useFavorite'
+import { MdFavorite, MdFavoriteBorder } from 'react-icons/md'
 
 interface ModalMovieProps {
     isOpen: boolean
@@ -26,6 +28,10 @@ function ModalMovie({isOpen, setModalOpen, id, genre_ids, title, release_date, o
     const genre = movieGenreData.filter((genre: any) => genre.id === genresId.find((id) => id == genre.id))
     
     const genreName = genre.map((key) => key.name)
+
+    const { favorite, addFavorite } = useFavorite()
+    const isFavorite = favorite.some((fav: any) => fav.id === id)
+
     if(isOpen) {
         return (
             <BackgroundModal>
@@ -44,7 +50,21 @@ function ModalMovie({isOpen, setModalOpen, id, genre_ids, title, release_date, o
                             <h2>Info on {title}</h2>
                             <p>Genres: {genreName.join(", ")}</p>
                             <p>Release date: {release_date.replace(new RegExp("-", "g"), "/")}</p>
+
+                            <div className="favoriteContainer">
+                                {isFavorite ?
+                                    <MdFavorite
+                                        className="favorite favorited"
+                                        onClick={() => addFavorite({ id, genre_ids, title, release_date, overview, vote_average })}
+                                    />
+                                :
+                                    <MdFavoriteBorder
+                                        className="favorite"
+                                        onClick={() => addFavorite({ id, genre_ids, title, release_date, overview, vote_average })}
+                                    />}
+                            </div>
                         </div>
+                        
                     </div>
                 </ModalStyled>
             </BackgroundModal>
