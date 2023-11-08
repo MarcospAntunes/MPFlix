@@ -1,14 +1,14 @@
-import { ReactNode, createContext, useState } from "react";
+import { createContext, useState } from "react";
 
-export const FavoritesCotenxt = createContext<any>("")
-FavoritesCotenxt.displayName = "myFavorites"
+export const FavoritesContext = createContext<any>("")
+FavoritesContext.displayName = "myFavorites"
 
-export default function FavoritesProvider(children: ReactNode) {
-    const [ favorite, setFavorite ] = useState([])
+export default function FavoritesProvider({ children }: any) { 
+    const [favorite, setFavorite] = useState([])
 
     return (
-        <FavoritesCotenxt.Provider value={{favorite, setFavorite }}>
+        <FavoritesContext.Provider value={{ favorite, setFavorite }}>
             {children}
-        </FavoritesCotenxt.Provider>
+        </FavoritesContext.Provider>
     )
 }
