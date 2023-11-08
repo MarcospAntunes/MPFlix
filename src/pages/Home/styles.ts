@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const MainHome = styled.main`
-  margin-left: 380px;
+  margin-left: 500px;
 
   @media screen and (max-width: 500px) {
     display: flex;

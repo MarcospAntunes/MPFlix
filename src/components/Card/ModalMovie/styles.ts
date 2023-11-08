@@ -25,6 +25,8 @@ export const ModalStyled = styled.div`
         flex-direction: column;
 
         iframe {
+            width: 660px;
+            height: 415px;
             background-color: gray;
             border-radius: 10px 10px 0px 0px;
         }
@@ -70,6 +72,25 @@ export const ModalStyled = styled.div`
                 width: 28px;
                 height: 28px;
                 vertical-align: middle;
+            }
+
+            .favoriteContainer {
+                width: 100%;
+                height: 42px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .favorite {
+                width: 42px;
+                height: 42px;
+                text-align: center;
+                cursor: pointer;
+            }
+
+            .favorited {
+                color: #D63837;
             }
         }
     }
