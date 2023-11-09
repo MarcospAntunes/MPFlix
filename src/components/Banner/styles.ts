@@ -53,14 +53,18 @@ export const DivBanner = styled.div`
     }
 
     @media screen and (max-width: 500px) {
-        margin: 20px 0px 20px 50px;
-        width: 300px;
-        
+        margin: 50px 0px 20px 50px;
+        width: 85px;
+        height: 300px;
 
-        
-        
         img {
-            width: 300px;
+            width: 200px;
+            height: 300px;
         }
+
+        .nowPlaying h2 {
+        font-size: 14px;
+        
+    }
     }
 `

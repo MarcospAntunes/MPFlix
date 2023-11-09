@@ -12,7 +12,7 @@ const ContainerDivParaTituloDosVideos = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: calc(100% - 95.2%);
+    width: calc(100% - 97.2%);
     
     margin-top: 60px;
     height: 10px;
@@ -22,7 +22,7 @@ const ContainerDivParaTituloDosVideos = styled.div`
     }
 
     @media screen and (min-width: 1265px) {
-        width: calc(100% - 92.8%)
+        width: calc(100% - 91.3%)
     } 
     
 `

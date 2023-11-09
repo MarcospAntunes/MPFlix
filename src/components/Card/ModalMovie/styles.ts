@@ -25,7 +25,7 @@ export const ModalStyled = styled.div`
         flex-direction: column;
 
         iframe {
-            width: 660px;
+            width: 100%;
             height: 415px;
             background-color: gray;
             border-radius: 10px 10px 0px 0px;
@@ -98,8 +98,8 @@ export const ModalStyled = styled.div`
     @media screen and (max-width: 500px) {
         left: 50%;
         iframe {
-            width: 350px;
-            height: 250px;
+            width: 350px !important;
+            height: 250px !important;
         }
 
         .average {
@@ -114,12 +114,14 @@ export const ModalStyled = styled.div`
         .Overview {
             h1, h2 {
                 margin: 10px 0px !important;
+                font-size: 16px;
             }
 
             p {
                 width: 310px !important;
                 margin: 0px !important;
                 text-align: left;
+                font-size: 12px
             }
 
             hr {
