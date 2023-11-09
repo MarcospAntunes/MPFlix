@@ -10,6 +10,7 @@ interface CarrosselProps {
   secao: string
 }
 
+
 function Carrossel({ children, secao }: CarrosselProps) {
   const carrosel = useRef<any>();
   const [width, setWidth] = useState<number>(0);
@@ -76,6 +77,7 @@ function Carrossel({ children, secao }: CarrosselProps) {
           </motion.ul>
         </motion.div>
       )}
+      {}
     </>
   );
 }

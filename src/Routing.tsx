@@ -8,6 +8,7 @@ import { AuthProvider } from "./contexts/auth"
 import useAuth from "./hooks/useAuth"
 import Settings from "./pages/Settings"
 import FavoritesProvider from "./contexts/Favorites"
+import { CardDataProvider } from "./contexts/CardData"
 
 const Private = ({ Item }: any): JSX.Element => {
   const { signed }: any = useAuth();
@@ -21,14 +22,16 @@ function Routing() {
       <AuthProvider>
         <BrowserRouter>
           <FavoritesProvider>
-            <GlobalStyles />
-            <Routes>
-              <Route path="/" element={<Start />}></Route>
-              <Route path="/register" element={<Register />}></Route>
-              <Route path="/login" element={<Login />}></Route>
-              <Route path="/home" element={<Private Item={Home} />} />
-              <Route path="/settings" element={<Private Item={Settings} />} />
-            </Routes>
+            <CardDataProvider>
+              <GlobalStyles />
+              <Routes>
+                <Route path="/" element={<Start />}></Route>
+                <Route path="/register" element={<Register />}></Route>
+                <Route path="/login" element={<Login />}></Route>
+                <Route path="/home" element={<Private Item={Home} />} />
+                <Route path="/settings" element={<Private Item={Settings} />} />
+              </Routes>
+            </CardDataProvider>
           </FavoritesProvider>
         </BrowserRouter>
       </AuthProvider>

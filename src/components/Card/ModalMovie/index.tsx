@@ -5,39 +5,41 @@ import { getMovieGenreData } from "../../../services/api"
 import { BackgroundModal, ModalStyled } from './styles'
 import { useFavorite } from '../../../hooks/useFavorite'
 import { MdFavorite, MdFavoriteBorder } from 'react-icons/md'
+import { useCardData } from '../../../hooks/useCard'
 
-interface ModalMovieProps {
-    isOpen: boolean
-    setModalOpen: React.Dispatch<React.SetStateAction<boolean>>
-    id: number
-    genre_ids: number[]
-    title: string
-    release_date: string
-    overview: string
-    vote_average: number
+function ModalMovie(): JSX.Element | null {
+    const { clickedCardData, setOpenModal, modalOpen }: any = useCardData();
+
+    const closeModal = () => {
+        setOpenModal(false)
+    }
+
     
-}
 
-function ModalMovie({isOpen, setModalOpen, id, genre_ids, title, release_date, overview, vote_average}: ModalMovieProps): JSX.Element | null {
+    
+
     const [movieGenreData, setMovieGenreData] = useState<any[]>([])
     useEffect(() => {
         getMovieGenreData("movie", setMovieGenreData)
     }, [])
-    const genres = movieGenreData.map((genre) => genre_ids.find(id => genre.id == id))
-    const genresId: any[] = genres.filter((list:any) => list !== undefined)
-    const genre = movieGenreData.filter((genre: any) => genre.id === genresId.find((id) => id == genre.id))
-    
-    const genreName = genre.map((key) => key.name)
 
     const { favorite, addFavorite } = useFavorite()
-    const isFavorite = favorite.some((fav: any) => fav.id === id)
 
-    if(isOpen) {
+    if(modalOpen && clickedCardData) {
+        const { id, genre_ids, title, release_date, overview, vote_average }: any = clickedCardData;
+
+        const genres = movieGenreData.map((genre) => genre_ids.find((id: number) => genre.id == id))
+        const genresId: any[] = genres.filter((list:any) => list !== undefined)
+        const genre = movieGenreData.filter((genre: any) => genre.id === genresId.find((id) => id == genre.id))
+        
+        const genreName = genre.map((key) => key.name)
+        const isFavorite = favorite.some((fav: any) => fav.id === id)
+
         return (
             <BackgroundModal>
                 <ModalStyled >
                     <div className="ConteudoModal">
-                        <AiOutlineCloseCircle className="closeModal" onClick={setModalOpen} />
+                        <AiOutlineCloseCircle className="closeModal" onClick={closeModal} />
                         <IframeVideo
                             id ={id!}
                         />

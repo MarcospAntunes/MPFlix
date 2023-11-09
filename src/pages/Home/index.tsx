@@ -13,6 +13,7 @@ import { SectionNowPlaying, FooterStyled, ImgStyled, MainHome } from "./styles"
 import useAuth from "../../hooks/useAuth"
 import CardNowPlaying from "../../components/CardNowPlaying"
 import { numeroAleatorio } from "../../utils/numeroAleatorio"
+import ModalMovie from "../../components/Card/ModalMovie"
 
 
 
@@ -219,6 +220,7 @@ function Home(): JSX.Element {
                     /> 
                   ))}
                 </Carrossel>
+                <ModalMovie />
               </section>
             </>
           
