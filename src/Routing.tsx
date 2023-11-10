@@ -9,31 +9,47 @@ import useAuth from "./hooks/useAuth"
 import Settings from "./pages/Settings"
 import FavoritesProvider from "./contexts/Favorites"
 import { CardDataProvider } from "./contexts/CardData"
+import { useState } from "react"
+import { ThemeProvider } from "styled-components"
+import { darkTheme, lightTheme } from "./themes"
 
-const Private = ({ Item }: any): JSX.Element => {
+interface PrivateProps {
+  Item: any
+  themeToggler: () => void
+}
+
+const Private = ({ Item, themeToggler }: PrivateProps): JSX.Element => {
   const { signed }: any = useAuth();
 
-  return signed > 0 ? <Item /> : <Login />;
+  return signed > 0 ? <Item themeToggler={themeToggler} /> : <Login />;
 }
 
 function Routing() {
+  const [theme, setTheme] = useState('dark')
+  const themeToggler = (target?: string) => {
+    target === 'dark' ? setTheme('dark') : setTheme('light')
+    console.log(target)
+  }
   return (
     <>
       <AuthProvider>
-        <BrowserRouter>
-          <FavoritesProvider>
-            <CardDataProvider>
-              <GlobalStyles />
-              <Routes>
-                <Route path="/" element={<Start />}></Route>
-                <Route path="/register" element={<Register />}></Route>
-                <Route path="/login" element={<Login />}></Route>
-                <Route path="/home" element={<Private Item={Home} />} />
-                <Route path="/settings" element={<Private Item={Settings} />} />
-              </Routes>
-            </CardDataProvider>
-          </FavoritesProvider>
-        </BrowserRouter>
+        <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+          <BrowserRouter>
+            <FavoritesProvider>
+              <CardDataProvider>
+                <GlobalStyles />
+                <Routes>
+                  <Route path="/" element={<Start />}></Route>
+                  <Route path="/register" element={<Register />}></Route>
+                  <Route path="/login" element={<Login />}></Route>
+                  <Route path="/home" element={<Private Item={Home} themeToggler={themeToggler} />} />
+                  <Route path="/settings" element={<Private Item={Settings} themeToggler={themeToggler} />} />
+                </Routes>
+              </CardDataProvider>
+            </FavoritesProvider>
+          </BrowserRouter>
+        </ThemeProvider>
+        
       </AuthProvider>
     </>
   )

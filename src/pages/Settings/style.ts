@@ -9,21 +9,21 @@ export const SettingsContent = styled.div`
     height: 97vh;
     margin: 10px auto;
     padding: 10px;
-    background-color: #363636;
+    background-color:  ${({ theme }) => theme.div};
     border-radius: 15px;
 
     .configMenu {
         width: 30%;
         height: 100%;
         list-style: none;
-        border-right: 1px solid #303030;
+        border-right: 1px solid ${({ theme }) => theme.body};
     }
 
     .configMenu > svg {
         width: 44px;
         height: 44px;
         margin-bottom: 20px;
-        color: white;
+        color: ${({ theme }) => theme.text};
         transition: 0.3s;
         cursor: pointer;
     }
@@ -39,9 +39,10 @@ export const SettingsContent = styled.div`
         text-decoration: none;
         margin-top: 15px;
         width: 98%;
+        color: ${({ theme }) => theme.buttonMenuText};
         border-top-left-radius: 50px;
         border-bottom-left-radius: 50px;
-        background-color: #303030;
+        background-color: ${({ theme }) => theme.bgButtonMenu};
         padding: 10px;
         cursor: pointer;
     }

@@ -1,6 +1,15 @@
 import { GeneralMenuStyled } from "./style"
 
-function General() {
+interface GeneralProps {
+    themeToggler: (target: string) => void
+}
+
+function General({ themeToggler }: GeneralProps) {
+    const handleThemeToggle = (target: string) => {
+        
+        themeToggler(target)
+    }
+
     return(
         <>
             <GeneralMenuStyled>
@@ -10,7 +19,7 @@ function General() {
                             <div className="radio-container">
                                 <label htmlFor="radio">
                                     <span>Dark</span>
-                                    <input type="radio" id="radio" name="radio" />
+                                    <input type="radio" id="radio" name="radio" onClick={() => handleThemeToggle('dark')} />
                                     <div className="custom-radio">
                                     <span></span>
                                     </div>
@@ -19,7 +28,7 @@ function General() {
                             <div className="radio-container">
                                 <label htmlFor="radio1">
                                     <span>Light</span>
-                                    <input type="radio" id="radio1" name="radio" />
+                                    <input type="radio" id="radio1" name="radio" onClick={() => handleThemeToggle('light')} />
                                     <div className="custom-radio">
                                     <span></span>
                                     </div>  

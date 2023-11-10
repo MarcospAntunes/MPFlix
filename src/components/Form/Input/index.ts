@@ -5,8 +5,8 @@ const InputStyled = styled.input`
     border: none;
     margin: 10px 0;
     padding: 10px;
-    background-color: #303030;
-    color: white;
+    background-color: ${({theme}) => theme.body};
+    color: ${({theme}) => theme.text};
     transition: 0.3s;
     width: 250px;
 

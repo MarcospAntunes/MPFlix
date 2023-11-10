@@ -17,7 +17,7 @@ export const ModalStyled = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #363636;
+    background: ${({theme}) => theme.div};
     border-radius: 10px;
     
     .ConteudoModal {
@@ -37,7 +37,7 @@ export const ModalStyled = styled.div`
             right: 10px;
             padding: 5px;
             border: 2px solid #bf4343;
-            background-color: #363636;
+            background-color: ${({theme}) => theme.div};
             border-radius: 50%;
         }
 
@@ -45,6 +45,7 @@ export const ModalStyled = styled.div`
             position: absolute;
             width: 42px;
             height: 42px;
+            color: ${({theme}) => theme.buttonText};
             cursor: pointer;
             right: 0;
         }
@@ -65,7 +66,7 @@ export const ModalStyled = styled.div`
             }
 
             hr {
-                border: 1px solid #8f8d8d;
+                border: 1px solid ${({theme}) => theme.body};
             }
 
             button > svg {

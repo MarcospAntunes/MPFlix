@@ -24,9 +24,9 @@ const GlobalStyles = createGlobalStyle`
     }
 
     body {
-        background-color: #303030;
+        background-color: ${({ theme }) => theme.body};
         font-family: Arial, Helvetica, sans-serif;
-        color: white;
+        color: ${({ theme }) => theme.text};
         overflow-x: hidden;
         width: 100vw;
     }

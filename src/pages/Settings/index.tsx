@@ -5,14 +5,18 @@ import { IoChevronBackCircleOutline } from 'react-icons/io5'
 import General from './settingsComponents/General'
 import Account from './settingsComponents/Account'
 
-function Settings(): JSX.Element {
+interface settingsProps {
+    themeToggler: () => void
+}
+
+function Settings({ themeToggler }: settingsProps): JSX.Element {
     const [window, setWindow] = useState<JSX.Element>()
     return (
         <>
             <SettingsContent>
                 <menu className='configMenu'>
                     <IoChevronBackCircleOutline onClick={() => history.back()} />
-                    <li onClick={() => setWindow(<General />)}>General<AiOutlineRight/></li>
+                    <li onClick={() => setWindow(<General themeToggler={themeToggler} />)}>General<AiOutlineRight/></li>
                     <li onClick={() => setWindow(<Account />)}>Account<AiOutlineRight/></li>    
                 </menu>
                 <section className='configWindow'>

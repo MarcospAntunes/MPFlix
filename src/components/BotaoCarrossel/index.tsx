@@ -1,6 +1,5 @@
-
-import styles from './BotaoCarrossel.module.css'
 import { ReactNode } from 'react'
+import { ButtonCarrossel, ButtonCarrosselOff } from './style'
  
 
 interface BotaoCarrosselProps {
@@ -9,12 +8,10 @@ interface BotaoCarrosselProps {
   larguraDaTela: number
 }
 function BotaoCarrossel( {children, onClick, larguraDaTela}: BotaoCarrosselProps ): JSX.Element  {
-  const estilo = larguraDaTela <= 984 ?  styles.botaoOff : styles.botaoCarrossel
+  const estilo = larguraDaTela <= 984 ?  <ButtonCarrosselOff /> : <ButtonCarrossel onClick={onClick}>{children}</ButtonCarrossel>
 
   return (
-    <button className={estilo} onClick={onClick}>{children}</button>
-    
-    
+    estilo
   )
 }
 

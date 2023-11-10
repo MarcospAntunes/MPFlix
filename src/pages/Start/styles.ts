@@ -8,9 +8,9 @@ const Section = styled.section`
     gap: 20px;
     width: 500px;
     height: 500px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: ${({theme}) => theme.div};
     border-radius: 15px;
-    color: rgb(255, 255, 255);
+    color: ${({theme}) => theme.text};
     text-align: center;
 
     p {

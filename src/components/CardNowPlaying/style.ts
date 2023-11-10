@@ -18,7 +18,7 @@ export const ContainerCardNowPlaying = styled.div`
         cursor: pointer;
 
         &:hover {
-            background-color: #363636;
+            background-color: ${({theme}) => theme.div};
         }
     }
 
@@ -36,7 +36,7 @@ export const ContainerCardNowPlaying = styled.div`
 
     .voto {
         border: 2px solid #bf4343;
-        background-color: #363636;
+        background-color: ${({theme}) => theme.div};
         border-radius: 50%;
         padding: 5px;
     }

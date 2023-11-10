@@ -4,10 +4,10 @@ const Botao = styled.button`
     width: 100px;
     height: 40px;
     margin: 10px;
-    background-color: rgb(255, 255, 255);
+    background-color: ${({theme}) => theme.bgButton};
     border-radius: 10px;
     border: none;
-    color: black;
+    color: ${({theme}) => theme.buttonTextAlternative};
     cursor: pointer;
     transition: 0.3s;
 

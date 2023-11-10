@@ -52,7 +52,7 @@ export const FooterStyled = styled.footer`
   margin-left: 350px;
   bottom: 0;
   text-align: center;
-  background-color: #3030304b;
+  background-color: ${({theme}) => theme.bgTransparent};
   backdrop-filter: blur(5px);
 
   a {

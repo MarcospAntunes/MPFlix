@@ -5,7 +5,7 @@ export const AccountMenuStyled = styled.menu`
     list-style: none;
     
     & > li {
-        border-bottom: 1px solid #303030;
+        border-bottom: 1px solid ${({theme}) => theme.body};
         width: 100%;
         margin: 20px 0;
         padding: 10px;
@@ -75,10 +75,10 @@ export const AccountMenuStyled = styled.menu`
             height: 40px;
             margin: 10px;
             margin-left: calc(50% - 400px);
-            background-color: rgb(255, 255, 255);
+            background-color: ${({theme}) => theme.bgButton};
             border-radius: 10px;
             border: none;
-            color: black;
+            color: ${({theme}) => theme.buttonTextAlternative};
             cursor: pointer;
             transition: 0.3s;
             padding: 10px;
@@ -95,7 +95,7 @@ export const AccountMenuStyled = styled.menu`
         width: 34px;
         height: 34px;
         margin-left: 5px;
-        color: white;
+        color: ${({theme}) => theme.bgButton};
         transition: 0.3s;
         cursor: pointer;
     }
@@ -110,17 +110,17 @@ export const AccountMenuStyled = styled.menu`
         height: 40px;
         margin: 10px;
         margin-left: calc(50% - 100px);
-        background-color: rgb(255, 255, 255);
+        background-color: ${({theme}) => theme.bgButton};
         border-radius: 10px;
         border: none;
-        color: black;
+        color: ${({theme}) => theme.buttonTextAlternative};
         cursor: pointer;
         transition: 0.3s;
 
         &:hover {
             transition: 0.3s;
             background-color: rgb(130, 0, 0);
-            color: white
+            color: ${({theme}) => theme.buttonText};
         }
     }
 

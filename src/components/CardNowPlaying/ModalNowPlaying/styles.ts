@@ -34,6 +34,7 @@ export const ModalBannerStyled = styled.div`
             position: absolute;
             width: 42px;
             height: 42px;
+            color: ${({theme}) => theme.buttonText};
             cursor: pointer;
             right: 0;
         }

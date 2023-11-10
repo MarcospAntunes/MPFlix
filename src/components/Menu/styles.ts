@@ -8,7 +8,7 @@ export const MenuStyled = styled.menu`
     height: 100%;
     padding: 15px 0px 0px 15px;
     margin-right: 15px;
-    background-color: #363636;
+    background-color: ${({theme}) => theme.div};
     font-size: 18px;
     z-index: 1;
     list-style: none;
@@ -51,7 +51,7 @@ export const MenuStyled = styled.menu`
     }
 
     nav a {
-        color: white;
+        color: ${({theme}) => theme.text};
         text-decoration: none;
         margin-top: 15px;
         width: 100%;
@@ -69,8 +69,8 @@ export const MenuStyled = styled.menu`
     }
 
     .active {
-        color: #bf4343;
-        background-color: #303030;
+        color: ${({theme}) => theme.buttonMenuText};
+        background-color: ${({theme}) => theme.bgButtonMenu};
     }
 
     .active .icons {
@@ -78,7 +78,7 @@ export const MenuStyled = styled.menu`
     }
 
     .logout {
-        color: white;
+        color: ${({theme}) => theme.text};
         text-decoration: none;
         margin-top: 15px;
         width: 100%;

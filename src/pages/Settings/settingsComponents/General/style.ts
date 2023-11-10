@@ -5,7 +5,7 @@ export const GeneralMenuStyled = styled.menu`
     list-style: none;
     
     & > li {
-        border-bottom: 1px solid #303030;
+        border-bottom: 1px solid ${({ theme }) => theme.body};
         width: 100%;
         margin: 20px 0;
         padding: 10px;
@@ -35,7 +35,7 @@ export const GeneralMenuStyled = styled.menu`
     }
 
     .custom-radio {
-        border: 1px solid #fff;
+        border: 1px solid ${({ theme }) => theme.radioButton};
         width: 22px;
         height: 21px;
         display: grid;
@@ -46,19 +46,19 @@ export const GeneralMenuStyled = styled.menu`
     .custom-radio,
     span {
         transition: 0.3s ease;
-        color: #fff;
+        color: ${({ theme }) => theme.text};
     }
 
     .custom-radio span {
         content: '';
         width: 18px;
         height: 15px;
-        background: #fff;
+        background: ${({ theme }) => theme.radioButton};
         border-radius: 50%;
     }
 
     input[type='radio']:checked + .custom-radio {
-        border-color: white;
+        border-color: ${({ theme }) => theme.radioButton};
     }
 
     input[type='radio']:checked + .custom-radio span {

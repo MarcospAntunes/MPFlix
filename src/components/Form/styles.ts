@@ -8,7 +8,7 @@ export const ContainerForm = styled.div`
     max-width: 400px;
     max-height: 600px;
     border-radius: 15px;
-    background-color: #363636;
+    background-color: ${({theme}) => theme.div};
 
     @media screen and (max-width: 500px) {
         max-width: 300px;
@@ -30,10 +30,10 @@ export const FormStyled = styled.form`
 
     input[type='submit'] {
         max-width: 150px;
-        background-color: rgb(255, 255, 255);
+        background-color: ${({theme}) => theme.bgButton};
         border-radius: 15px;
         border: none;
-        color: black;
+        color: ${({theme}) => theme.buttonTextAlternative};
         cursor: pointer;
         transition: 0.3s;
         margin: 10px 20%;

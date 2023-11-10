@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const DivBusca = styled.div`
     width: 300px;
     height: 40px;
-    background-color: #363636;
+    background-color: ${({theme}) => theme.div};
     border-radius: 50px;
     margin: 10px 10px 10px 0px;
 
@@ -16,7 +16,7 @@ export const DivBusca = styled.div`
         height: 100%;
         width: 260px;
         border-radius: 50px;
-        color: white;
+        color: ${({theme}) => theme.text};
 
         &:focus {
             box-shadow: 0 0 0 0;
@@ -29,6 +29,7 @@ export const DivBusca = styled.div`
         width: 20px;
         height: 20px;
         margin: 10px;
+        color: ${({theme}) => theme.buttonMenuText};
         cursor: pointer;
     }
 
