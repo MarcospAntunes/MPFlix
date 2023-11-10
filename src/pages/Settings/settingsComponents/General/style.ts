@@ -64,4 +64,35 @@ export const GeneralMenuStyled = styled.menu`
     input[type='radio']:checked + .custom-radio span {
         background: #bf4343;
     }
+
+    @media screen and (max-width: 500px) {
+
+        & > li {
+            width: 120%;
+        }
+
+        & > li > h2{
+            text-align: center;
+        } 
+
+        .radioButtons {
+            gap: 15px;
+        }
+
+        .radio-container label {
+            column-gap: 10px;
+           
+        }
+
+        .custom-radio {
+            width: 15px;
+            height: 14px;
+        }
+
+        .custom-radio span {
+            width: 11px;
+            height: 10px;
+        }
+
+    }
 `

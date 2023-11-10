@@ -58,4 +58,18 @@ export const SettingsContent = styled.div`
         height: 100%;
     }
 
+    @media screen and (max-width: 500px) {
+        justify-content: start;
+        align-items: start;
+        height: 100%;
+
+        .configMenu {
+            height: 100vh;
+        }
+        
+        .configWindow {
+            align-items: start;
+        }
+    }
+
 `   

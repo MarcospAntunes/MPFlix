@@ -86,18 +86,20 @@ function Account(): JSX.Element {
           <p>Photo:</p> <br />
           <span className="containerPhotoUser">
             <img id="userPhoto" src={photoUrl ? photoUrl : defaultPhoto} alt="User Photo" />
-            <label htmlFor="archive" id="labelArchive">
-              Add new photo
-            </label>
-            <InputStyled
-              type="file"
-              accept="image/*"
-              onChange={handlePhotoChange}
-              name="archive"
-              id="archive"
-            />
-            <p>{archive != null ? archive.value : ""}</p>
-            <Botao onClick={saveChanges}>Upload photo</Botao>
+            <div id='ContainerButton'>
+              <label htmlFor="archive" id="labelArchive">
+                Add new photo
+              </label>
+              <InputStyled
+                type="file"
+                accept="image/*"
+                onChange={handlePhotoChange}
+                name="archive"
+                id="archive"
+              />
+              <p>{archive != null ? archive.value : ""}</p>
+              <Botao onClick={saveChanges}>Upload photo</Botao>
+            </div>
           </span>
           <p>Name:</p>
           <span className="containerInput">
@@ -133,11 +135,11 @@ function Account(): JSX.Element {
             />
           </span>
           <br />
-          <input type="submit" value="Change" onClick={saveChanges} />
+          <input className='edit' type="submit" value="Change" onClick={saveChanges} />
         </li>
         <li>
           <h2>Delete Account</h2>
-          <Botao onClick={deleteAccount}>Delete account</Botao>
+          <Botao className='edit' onClick={deleteAccount}>Delete account</Botao>
           <p id="attention">
             ATTENTION: after deleting the account, it will not be possible to
             recover it!
