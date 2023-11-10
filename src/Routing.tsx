@@ -28,7 +28,6 @@ function Routing() {
   const [theme, setTheme] = useState('dark')
   const themeToggler = (target?: string) => {
     target === 'dark' ? setTheme('dark') : setTheme('light')
-    console.log(target)
   }
   return (
     <>
