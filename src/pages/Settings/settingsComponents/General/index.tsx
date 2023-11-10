@@ -6,7 +6,6 @@ interface GeneralProps {
 
 function General({ themeToggler }: GeneralProps) {
     const handleThemeToggle = (target: string) => {
-        
         themeToggler(target)
     }
 
@@ -19,7 +18,7 @@ function General({ themeToggler }: GeneralProps) {
                             <div className="radio-container">
                                 <label htmlFor="radio">
                                     <span>Dark</span>
-                                    <input type="radio" id="radio" name="radio" onClick={() => handleThemeToggle('dark')} />
+                                    <input type="radio" id="radio" name="radio" onChange={() => handleThemeToggle('dark')} />
                                     <div className="custom-radio">
                                     <span></span>
                                     </div>
@@ -28,7 +27,7 @@ function General({ themeToggler }: GeneralProps) {
                             <div className="radio-container">
                                 <label htmlFor="radio1">
                                     <span>Light</span>
-                                    <input type="radio" id="radio1" name="radio" onClick={() => handleThemeToggle('light')} />
+                                    <input type="radio" id="radio1" name="radio" onChange={() => handleThemeToggle('light')} />
                                     <div className="custom-radio">
                                     <span></span>
                                     </div>  
