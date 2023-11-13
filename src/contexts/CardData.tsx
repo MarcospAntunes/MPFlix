@@ -1,15 +1,5 @@
 import { createContext, useState } from 'react';
-
-interface CardDataProps {
-  id: number
-  genre_ids: number[] 
-  poster: string 
-  title: string 
-  release_date: string 
-  overview: string 
-  vote_average: number
-  setClickedCard: (data: CardDataProps | null) => void;
-}
+import { CardDataProps } from '../interfaces/cardData';
 
 interface CardDataContextType {
   clickedCardData: CardDataProps | null;
@@ -27,6 +17,7 @@ export function CardDataProvider({ children }: any) {
 
   const setClickedCard = (data: CardDataProps | null) => {
     setClickedCardData(data);
+    
   };
 
   const setOpenModal = (isOpen: boolean) => {
