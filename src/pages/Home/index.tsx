@@ -9,11 +9,15 @@ import Carrossel from "../../components/Carrossel"
 import MenuMobile from "../../components/MenuMobile"
 import defaultPhoto from '../../assets/user.png'
 import filterMoviesByGenre, { genreIdsToNames } from "../../utils/filerMoviesByGenre"
-import { SectionNowPlaying, FooterStyled, ImgStyled, MainHome } from "./styles"
+import { SectionNowPlaying } from "./styles"
 import useAuth from "../../hooks/useAuth"
 import CardNowPlaying from "../../components/CardNowPlaying"
 import { numeroAleatorio } from "../../utils/numeroAleatorio"
 import ModalMovie from "../../components/Card/ModalMovie"
+import { MainHomeAndFavorites } from "../../components/Containers/containerMain"
+import { ImgStyled } from "../../components/UserImg"
+import { FooterStyled } from "../../components/Footer"
+import { movie } from "../../interfaces/movie"
 
 
 
@@ -21,7 +25,7 @@ function Home(): JSX.Element {
   const [movieTrendingData, setMovieTrendingData] = useState<any[]>([])
   const [movieDiscoverData, setMovieDiscoverData] = useState<any[]>([])
   const [allMovies, setAllMovies] = useState<any[]>([])
-  const [movieNowPlayingData, setMovieNowPlayingData] = useState<any>([])
+  const [movieNowPlayingData, setMovieNowPlayingData] = useState<any[]>([])
   useEffect(() => {
     getTrendingMovieData("movie", setMovieTrendingData)
     getDiscoverMovieData("movie", setMovieDiscoverData)
@@ -34,13 +38,12 @@ function Home(): JSX.Element {
     genreMovies[genreIdsToNames[genreId]] = filterMoviesByGenre(parseInt(genreId), allMovies)
   }
 
-  const filterMovieNowPlayingData = movieNowPlayingData.filter((element: any, index: number) => index !== numeroAleatorio )
+  const filterMovieNowPlayingData = movieNowPlayingData.filter((index: number) => index !== numeroAleatorio )
   const movieNowPlaying = filterMovieNowPlayingData.slice(0, 4)
 
   const [menuIsVisible, setMenuIsVisible] = useState(false)
 
   const user: any = useAuth()
-
   function verificaFoto() {
     let photo: string
     if(user.user.photoUrl) {
@@ -54,10 +57,10 @@ function Home(): JSX.Element {
   return (
     <>
       <ContainerDivConteudoPrincipal>
-        <ImgStyled src={verificaFoto()} alt="" onClick={() => setMenuIsVisible(true)} />
+        <ImgStyled src={verificaFoto()} alt="usePhoto" onClick={() => setMenuIsVisible(true)} />
         <MenuMobile menuIsVisible={menuIsVisible} setMenuIsVisible={setMenuIsVisible} />
         <Menu />
-        <MainHome>
+        <MainHomeAndFavorites>
           <CaixaDePesquisa />
           {movieTrendingData === null || movieDiscoverData === null || allMovies === null ? (
             <p>Loading...</p>
@@ -66,7 +69,7 @@ function Home(): JSX.Element {
               <SectionNowPlaying>
                 <Banner />
                 <aside>
-                  {movieNowPlaying.map((movie: any, index: number) => (
+                  {movieNowPlaying.map((movie: movie, index: number) => (
                     <CardNowPlaying
                       key={`${movie.id}-${index}`}
                       id={movie.id} 
@@ -81,7 +84,7 @@ function Home(): JSX.Element {
 
               <section> {/* Seção dos filmes */}
                 <Carrossel secao = 'Trending'>
-                  {movieTrendingData.map((movie: any, index) => (
+                  {movieTrendingData.map((movie: movie, index) => (
                     <Card
                       key={`${movie.id}-${index}`}
                       id = {movie.id}
@@ -95,7 +98,7 @@ function Home(): JSX.Element {
                   ))}
                 </Carrossel>
                 <Carrossel secao = 'Discover'>
-                  {movieDiscoverData.map((movie: any, index) => (
+                  {movieDiscoverData.map((movie: movie, index) => (
                     <Card
                       key={`${movie.id}-${index}`}
                       id = {movie.id}
@@ -109,7 +112,7 @@ function Home(): JSX.Element {
                   ))}
                 </Carrossel>
                 <Carrossel secao = 'Action'>
-                  {genreMovies.action.map((movie: any, index) => (
+                  {genreMovies.action.map((movie: movie, index) => (
                     <Card
                       key={`${movie.id}-${index}`}
                       id = {movie.id}
@@ -123,7 +126,7 @@ function Home(): JSX.Element {
                   ))}
                 </Carrossel>
                 <Carrossel secao = 'Adeventure'>
-                  {genreMovies.adventure.map((movie: any, index) => (
+                  {genreMovies.adventure.map((movie: movie, index) => (
                     <Card
                       key={`${movie.id}-${index}`}
                       id = {movie.id}
@@ -137,7 +140,7 @@ function Home(): JSX.Element {
                   ))}
                 </Carrossel>
                 <Carrossel secao = 'Animation'>
-                  {genreMovies.animation.map((movie: any, index) => (
+                  {genreMovies.animation.map((movie: movie, index) => (
                     <Card
                       key={`${movie.id}-${index}`}
                       id = {movie.id}
@@ -151,7 +154,7 @@ function Home(): JSX.Element {
                   ))}
                 </Carrossel>
                 <Carrossel secao = 'Comedy'>
-                  {genreMovies.comedy.map((movie: any, index) => (
+                  {genreMovies.comedy.map((movie: movie, index) => (
                     <Card
                       key={`${movie.id}-${index}`}
                       id = {movie.id}
@@ -165,7 +168,7 @@ function Home(): JSX.Element {
                   ))}
                 </Carrossel>
                 <Carrossel secao = 'Crime'>
-                  {genreMovies.crime.map((movie: any, index) => (
+                  {genreMovies.crime.map((movie: movie, index) => (
                     <Card
                       key={`${movie.id}-${index}`}
                       id = {movie.id}
@@ -179,7 +182,7 @@ function Home(): JSX.Element {
                   ))}
                 </Carrossel>
                 <Carrossel secao = 'Drama'>
-                  {genreMovies.drama.map((movie: any, index) => (
+                  {genreMovies.drama.map((movie: movie, index) => (
                     <Card
                       key={`${movie.id}-${index}`}
                       id = {movie.id}
@@ -193,7 +196,7 @@ function Home(): JSX.Element {
                   ))}
                 </Carrossel>
                 <Carrossel secao = 'Horror'>
-                  {genreMovies.horror.map((movie: any, index) => (
+                  {genreMovies.horror.map((movie: movie, index) => (
                     <Card
                       key={`${movie.id}-${index}`}
                       id = {movie.id}
@@ -207,7 +210,7 @@ function Home(): JSX.Element {
                   ))}
                 </Carrossel>
                 <Carrossel secao = 'Science Fiction'>
-                  {genreMovies.scienceFiction.map((movie: any, index) => (
+                  {genreMovies.scienceFiction.map((movie: movie, index) => (
                     <Card
                       key={`${movie.id}-${index}`}
                       id = {movie.id}
@@ -225,7 +228,7 @@ function Home(): JSX.Element {
             </>
           
           )}
-        </MainHome>
+        </MainHomeAndFavorites>
         <FooterStyled>
           <h2>Developed by Marcos Antunes</h2>
           <h2>Design based on design made by <a href="https://dribbble.com/apurple" target="_blank">aPurple</a></h2>

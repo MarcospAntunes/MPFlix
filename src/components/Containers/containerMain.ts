@@ -9,4 +9,14 @@ const ContainerMain = styled.main`
     height: 100vh;
 `
 
+export const MainHomeAndFavorites = styled.main`
+  margin-left: 400px;
+
+  @media screen and (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+`
+
 export { ContainerMain }

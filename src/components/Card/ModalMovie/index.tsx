@@ -6,6 +6,7 @@ import { BackgroundModal, ModalStyled } from './styles'
 import { useFavorite } from '../../../hooks/useFavorite'
 import { MdFavorite, MdFavoriteBorder } from 'react-icons/md'
 import { useCardData } from '../../../hooks/useCard'
+import { movie } from '../../../interfaces/movie'
 
 function ModalMovie(): JSX.Element | null {
     const { clickedCardData, setOpenModal, modalOpen }: any = useCardData();
@@ -26,14 +27,14 @@ function ModalMovie(): JSX.Element | null {
     const { favorite, addFavorite } = useFavorite()
 
     if(modalOpen && clickedCardData) {
-        const { id, genre_ids, title, release_date, overview, vote_average }: any = clickedCardData;
+        const { id, genre_ids, title, release_date, overview, vote_average, poster }: any = clickedCardData;
 
         const genres = movieGenreData.map((genre) => genre_ids.find((id: number) => genre.id == id))
         const genresId: any[] = genres.filter((list:any) => list !== undefined)
-        const genre = movieGenreData.filter((genre: any) => genre.id === genresId.find((id) => id == genre.id))
+        const genre = movieGenreData.filter((genre: movie) => genre.id === genresId.find((id) => id == genre.id))
         
         const genreName = genre.map((key) => key.name)
-        const isFavorite = favorite.some((fav: any) => fav.id === id)
+        const isFavorite = favorite.some((fav: movie) => fav.id === id)
 
         return (
             <BackgroundModal>
@@ -57,12 +58,12 @@ function ModalMovie(): JSX.Element | null {
                                 {isFavorite ?
                                     <MdFavorite
                                         className="favorite favorited"
-                                        onClick={() => addFavorite({ id, genre_ids, title, release_date, overview, vote_average })}
+                                        onClick={() => addFavorite({ id, genre_ids, title, release_date, overview, vote_average, poster })}
                                     />
                                 :
                                     <MdFavoriteBorder
                                         className="favorite"
-                                        onClick={() => addFavorite({ id, genre_ids, title, release_date, overview, vote_average })}
+                                        onClick={() => addFavorite({ id, genre_ids, title, release_date, overview, vote_average, poster })}
                                     />}
                             </div>
                         </div>
