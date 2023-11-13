@@ -12,6 +12,7 @@ import { CardDataProvider } from "./contexts/CardData"
 import { useState } from "react"
 import { ThemeProvider } from "styled-components"
 import { darkTheme, lightTheme } from "./themes"
+import Favorites from "./pages/Favorites"
 
 interface PrivateProps {
   Item: any
@@ -42,6 +43,7 @@ function Routing() {
                   <Route path="/register" element={<Register />}></Route>
                   <Route path="/login" element={<Login />}></Route>
                   <Route path="/home" element={<Private Item={Home} themeToggler={themeToggler} />} />
+                  <Route path="/favorites" element={<Private Item={Favorites} themeToggler={themeToggler} />}></Route>
                   <Route path="/settings" element={<Private Item={Settings} themeToggler={themeToggler} />} />
                 </Routes>
               </CardDataProvider>
