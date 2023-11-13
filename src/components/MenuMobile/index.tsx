@@ -61,7 +61,7 @@ function MenuMobile({ menuIsVisible, setMenuIsVisible }: MenuMobileProps) {
                 <nav>
                     <NavLink to={'/home'}><AiFillHome className="icons" activeclassname={CSSMathValue.toString()}/>Home</NavLink>
                     <NavLink to={'/browse'}><AiOutlineGlobal className="icons" activeclassname={CSSMathValue.toString()} />Browse</NavLink>
-                    <NavLink to={'/watch-List'}><MdFavorite className="icons" activeclassname={CSSMathValue.toString()} />Watch List</NavLink>
+                    <NavLink to={'/favorites'}><MdFavorite className="icons" activeclassname={CSSMathValue.toString()} />Favorites</NavLink>
                     <NavLink to={'/history'}><AiOutlineHistory className="icons" activeclassname={CSSMathValue.toString()} />History</NavLink>
                     <br />
                     <p>General</p>
