@@ -27,7 +27,6 @@ function Login() {
       return
     }
     navigate('/home')
-    window.location.reload()
   }
 
   return (
