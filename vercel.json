@@ -1,12 +1,10 @@
 {
-    "rewrites": [
-      {
-        "source": "/:path((?!api/).*)",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/:path(api/.*)",
-        "destination": "/api"
-      }
+    "routes": [
+      { "src": "/", "dest": "/" },
+      { "src": "/login", "dest": "/" },
+      { "src": "/register", "dest": "/" },
+      { "src": "/home", "dest": "/" },
+      { "src": "/favorites", "dest": "/" },
+      { "src": "/settings", "dest": "/" }
     ]
   }
