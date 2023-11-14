@@ -97,8 +97,8 @@ function Account(): JSX.Element {
                 name="archive"
                 id="archive"
               />
-              <p>{archive != null ? archive.value : ""}</p>
               <Botao onClick={saveChanges}>Upload photo</Botao>
+              <p>{archive != null ? archive.value : ""}</p>
             </div>
           </span>
           <p>Name:</p>

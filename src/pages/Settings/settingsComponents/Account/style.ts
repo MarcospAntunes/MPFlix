@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const AccountMenuStyled = styled.menu`
-    width: 50%;
     list-style: none;
     
     & > li {
@@ -14,10 +13,6 @@ export const AccountMenuStyled = styled.menu`
 
     & span {
         margin: 10px;
-    }
-
-    & > li > * {
-        margin-left: 50px;
     }
 
     & > li > h2{
@@ -46,7 +41,7 @@ export const AccountMenuStyled = styled.menu`
             width: 150px;
             height: 100px;
             margin: 10px;
-            margin-left: calc(50% - 400px);
+            margin-left: calc(50% - 330px);
         }
         button {
             width: 150px;
@@ -54,15 +49,17 @@ export const AccountMenuStyled = styled.menu`
         }
 
         p {
-            margin-left: calc(50% - 400px);
+           margin: auto;
         }
 
         #ContainerButton {
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             align-items: center;
-            gap: 5px;
+            flex-wrap: wrap;
+            gap: 20px;
             width: 100%;
+            margin-left: calc(50% - 100px);
             font-size: 14px;
             text-align: center;
         }
@@ -74,7 +71,7 @@ export const AccountMenuStyled = styled.menu`
         #labelArchive {
             height: 40px;
             margin: 10px;
-            margin-left: calc(50% - 400px);
+            
             background-color: ${({theme}) => theme.bgButton};
             border-radius: 10px;
             border: none;
@@ -124,7 +121,7 @@ export const AccountMenuStyled = styled.menu`
         }
     }
 
-    & button {
+    & .edit {
         margin-left: calc(50% - 100px);
     }
 
