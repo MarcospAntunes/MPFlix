@@ -8,7 +8,7 @@ import { getDiscoverMovieData, getTrendingMovieData, getAllMovies, getNowPlaying
 import Carrossel from "../../components/Carrossel"
 import MenuMobile from "../../components/MenuMobile"
 import defaultPhoto from '../../assets/user.png'
-import filterMoviesByGenre, { genreIdsToNames } from "../../utils/filerMoviesByGenre"
+import filterMoviesByGenre, { genreIdsToNames } from "../../utils/filterMoviesByGenre"
 import { SectionNowPlaying } from "./styles"
 import useAuth from "../../hooks/useAuth"
 import CardNowPlaying from "../../components/CardNowPlaying"
