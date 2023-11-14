@@ -69,7 +69,7 @@ export const MenuStyled = styled.menu`
     }
 
     .active {
-        color: ${({theme}) => theme.buttonMenuText};
+        color: #bf4343;
         background-color: ${({theme}) => theme.bgButtonMenu};
     }
 

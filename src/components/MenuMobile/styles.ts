@@ -16,7 +16,7 @@ export const MenuMobileStyled = styled.menu<MenuMobileStyledProps>`
     display: flex;
     flex-direction: column;
     padding: 15px 0px 0px 15px;
-    background-color: #363636;
+    background-color: ${({theme}) => theme.div};
     font-size: 18px;
     opacity: 0;
     pointer-events: none;
@@ -67,7 +67,7 @@ export const MenuMobileStyled = styled.menu<MenuMobileStyledProps>`
     }
 
     nav a {
-        color: white;
+        color: ${({theme}) => theme.text};
         text-decoration: none;
         margin-top: 15px;
         width: 100%;
@@ -85,7 +85,7 @@ export const MenuMobileStyled = styled.menu<MenuMobileStyledProps>`
     }
 
     .logout {
-        color: white;
+        color: ${({theme}) => theme.text};
         text-decoration: none;
         margin-top: 15px;
         width: 100%;
@@ -96,7 +96,7 @@ export const MenuMobileStyled = styled.menu<MenuMobileStyledProps>`
 
     .active {
         color: #bf4343;
-        background-color: #303030;
+        background-color: ${({theme}) => theme.body};
     }
 
     .active .icons {

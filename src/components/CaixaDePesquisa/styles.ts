@@ -36,7 +36,7 @@ export const DivBusca = styled.div`
     @media screen and (max-width: 500px) {
         width: 250px;
         height: 40px;
-        background-color: #363636;
+        background-color: ${({theme}) => theme.div};
         border-radius: 50px;
         margin: 20px 10px 10px 80px;
 
@@ -49,7 +49,7 @@ export const DivBusca = styled.div`
             height: 100%;
             width: 200px;
             border-radius: 50px;
-            color: white;
+            color: ${({theme}) => theme.text};
 
             &:focus {
                 box-shadow: 0 0 0 0;
