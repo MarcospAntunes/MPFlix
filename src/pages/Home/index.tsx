@@ -1,6 +1,6 @@
 import Banner from "../../components/Banner"
 import CaixaDePesquisa from "../../components/CaixaDePesquisa"
-import { ContainerDivConteudoPrincipal } from "../../components/Containers/ContainerDiv"
+import { ContainerCentralizado, ContainerDivConteudoPrincipal } from "../../components/Containers/ContainerDiv"
 import Menu from "../../components/Menu"
 import { useState, useEffect } from 'react'
 import Card from "../../components/Card"
@@ -18,6 +18,7 @@ import { MainHomeAndFavorites } from "../../components/Containers/containerMain"
 import { ImgStyled } from "../../components/UserImg"
 import { FooterStyled } from "../../components/Footer"
 import { movie } from "../../interfaces/movie"
+import LoadSpinner from "../../components/LoadSpinner"
 
 
 
@@ -26,12 +27,6 @@ function Home(): JSX.Element {
   const [movieDiscoverData, setMovieDiscoverData] = useState<any[]>([])
   const [allMovies, setAllMovies] = useState<any[]>([])
   const [movieNowPlayingData, setMovieNowPlayingData] = useState<any[]>([])
-  useEffect(() => {
-    getTrendingMovieData("movie", setMovieTrendingData)
-    getDiscoverMovieData("movie", setMovieDiscoverData)
-    getAllMovies("movie", setAllMovies)
-    getNowPlayingMovieData("movie", setMovieNowPlayingData)
-  }, [])
 
   const genreMovies: { [key: string]: any[] } = {}
   for(const genreId in genreIdsToNames) {
@@ -54,6 +49,26 @@ function Home(): JSX.Element {
     return photo
 }
 
+const [dataLoaded, setDataLoaded] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        await Promise.all([
+          getTrendingMovieData("movie", setMovieTrendingData),
+          getDiscoverMovieData("movie", setMovieDiscoverData),
+          getAllMovies("movie", setAllMovies),
+          getNowPlayingMovieData("movie", setMovieNowPlayingData)
+        ]);
+        setDataLoaded(true);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
       <ContainerDivConteudoPrincipal>
@@ -62,8 +77,11 @@ function Home(): JSX.Element {
         <Menu />
         <MainHomeAndFavorites>
           <CaixaDePesquisa />
-          {movieTrendingData === null || movieDiscoverData === null || allMovies === null ? (
-            <p>Loading...</p>
+          {!dataLoaded ? (
+            <ContainerCentralizado style={{width: "calc(100vw - 350px)"}}>
+              <LoadSpinner />
+            </ContainerCentralizado>
+            
           ) : (
             <>
               <SectionNowPlaying>
