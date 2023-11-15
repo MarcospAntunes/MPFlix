@@ -61,10 +61,17 @@ export const DivBanner = styled.div`
             width: 200px;
             height: 300px;
         }
+        .nowPlaying {
+            position: relative;
+        }
 
         .nowPlaying h2 {
-        font-size: 14px;
-        
-    }
+            font-size: 14px;
+            width: 170px;
+        }
+
+        .nowPlaying button {
+            top: 230px;
+        }
     }
 `
