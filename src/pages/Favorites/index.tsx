@@ -54,7 +54,7 @@ function Favorites() {
                         </FavoriteListStyled>
                         
                     :
-                        <h2>Não há favoritos!</h2>
+                        <h2>There are no favorites!</h2>
                         
                     }
                 </>
