@@ -34,6 +34,10 @@ const ContainerCentralizado = styled.div`
     width: 100vw;
     height: 100vh;
 
+    @media screen and (max-width: 500px) {
+        width: 100vw !important;
+    }
+
 `
 
 export { 
