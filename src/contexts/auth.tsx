@@ -27,10 +27,10 @@ export const AuthProvider = ({ children }: any) => {
                 localStorage.setItem('user_token', JSON.stringify({email, token}))
                 return
             } else {
-                return "E-mail ou senha incorretos"
+                return "Incorrect email or password"
             }
         } else {
-            return "usuário não cadastrado"
+            return "Unregistered user"
         }
     }
 
@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }: any) => {
         const hasUser = usersStorage?.filter((user: any) => user.email === email)
 
         if(hasUser?.length) {
-            return "Já tem uma conta com esse endereço de E-mail!"
+            return "There is an account with that email address!"
         }
 
         let newUser
