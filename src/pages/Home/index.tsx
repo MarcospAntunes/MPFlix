@@ -19,6 +19,7 @@ import { ImgStyled } from "../../components/UserImg"
 import { FooterStyled } from "../../components/Footer"
 import { movie } from "../../interfaces/movie"
 import LoadSpinner from "../../components/LoadSpinner"
+import { Link } from "react-router-dom"
 
 
 
@@ -51,6 +52,8 @@ function Home(): JSX.Element {
 
 const [dataLoaded, setDataLoaded] = useState(false);
 
+const [search, setSearch] = useState('')
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -67,7 +70,7 @@ const [dataLoaded, setDataLoaded] = useState(false);
     };
 
     fetchData();
-  }, []);
+  }, [dataLoaded]);
 
   return (
     <>
@@ -76,7 +79,7 @@ const [dataLoaded, setDataLoaded] = useState(false);
         <MenuMobile menuIsVisible={menuIsVisible} setMenuIsVisible={setMenuIsVisible} />
         <Menu />
         <MainHomeAndFavorites>
-          <CaixaDePesquisa />
+          <Link to={'/browse'}><CaixaDePesquisa search={search} setSearch={setSearch} /></Link>
           {!dataLoaded ? (
             <ContainerCentralizado style={{width: "calc(100vw - 350px)"}}>
               <LoadSpinner />
