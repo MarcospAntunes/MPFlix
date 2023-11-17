@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
-import { getVideosMovieData } from "../../../../services/api"
+import { getVideosMovieData } from "../../services/api"
 
 interface IframeVIdeoProps {
     id: number
+    autoplay?: string
 }
 
-function IframeVideo({ id }: IframeVIdeoProps): JSX.Element {
+function IframeVideo({ id, autoplay }: IframeVIdeoProps): JSX.Element {
     const [VideosMovieData, setVideosMovieData] = useState<any>([])
     useEffect(() => {
         getVideosMovieData("movie", setVideosMovieData, id)
@@ -17,7 +18,7 @@ function IframeVideo({ id }: IframeVIdeoProps): JSX.Element {
     })
 
     return (
-        <iframe src={`https://www.youtube.com/embed/${key[0]}?autoplay=1`} title="" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+        <iframe src={`https://www.youtube.com/embed/${key[0]}?autoplay=1`} title="" frameBorder="0" allow={`accelerometer; ${autoplay}; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share`} allowFullScreen></iframe>
     )
 }
 

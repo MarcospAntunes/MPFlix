@@ -1,5 +1,5 @@
 import { AiOutlineCloseCircle } from 'react-icons/ai'
-import IframeVideo from "./IframeVideo"
+import IframeVideo from "../../IframeVideo"
 import { BackgroundModal, ModalBannerStyled } from './styles'
 
 interface ModalBannerProps {
@@ -19,6 +19,7 @@ function ModalBanner({id, setOpenModal, isOpen}: ModalBannerProps) {
                         <AiOutlineCloseCircle className="closeModal" onClick={setOpenModal} />
                         <IframeVideo
                             id ={id}
+                            autoplay='autoplay'
                         />
                     </div>
                     

@@ -1,5 +1,5 @@
 import { AiOutlineCloseCircle } from 'react-icons/ai'
-import IframeVideo from "./IframeVideo"
+import IframeVideo from "../../IframeVideo"
 import { useEffect, useState } from "react"
 import { getMovieGenreData } from "../../../services/api"
 import { BackgroundModal, ModalStyled } from './styles'
