@@ -1,4 +1,4 @@
-import { AiFillHome, AiOutlineGlobal, AiOutlineHistory } from "react-icons/ai"
+import { AiFillHome, AiOutlineGlobal } from "react-icons/ai"
 import { IoLogOutSharp, IoSettingsSharp } from "react-icons/io5"
 import { MdFavorite } from "react-icons/md"
 import { SlOptionsVertical } from "react-icons/sl"
@@ -62,7 +62,7 @@ function MenuMobile({ menuIsVisible, setMenuIsVisible }: MenuMobileProps) {
                     <NavLink to={'/home'}><AiFillHome className="icons" activeclassname={CSSMathValue.toString()}/>Home</NavLink>
                     <NavLink to={'/browse'}><AiOutlineGlobal className="icons" activeclassname={CSSMathValue.toString()} />Browse</NavLink>
                     <NavLink to={'/favorites'}><MdFavorite className="icons" activeclassname={CSSMathValue.toString()} />Favorites</NavLink>
-                    <NavLink to={'/history'}><AiOutlineHistory className="icons" activeclassname={CSSMathValue.toString()} />History</NavLink>
+                    
                     <br />
                     <p>General</p>
                     <br />
