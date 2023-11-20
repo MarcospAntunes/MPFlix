@@ -44,11 +44,7 @@ export const AuthProvider = ({ children }: any) => {
 
         let newUser
 
-        if(usersStorage) {
-            newUser = [...usersStorage, {name, email, password}]
-        } else {
-            newUser = [{name, email, password}]
-        }
+        usersStorage ? newUser = [...usersStorage, {name, email, password}] : newUser = [{name, email, password}]
 
         localStorage.setItem('users_db', JSON.stringify(newUser))
 

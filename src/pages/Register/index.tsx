@@ -6,9 +6,7 @@ import { ParagraphError } from "./styles"
 import { useState } from 'react'
 import useAuth from "../../hooks/useAuth"
 import ErrorMessage from "../../components/Form/ErrorMessage"
-
-const formulario:HTMLFormElement = document.querySelector('.formulario')!
-
+import { handleRegister } from "../../utils/validaFormFunctions"
 
 function Register() {
   const [name, setName] = useState("")
@@ -19,39 +17,11 @@ function Register() {
   const [error, setError] = useState("")
   const navigate = useNavigate()
 
-  console.log(passwordConf)
-  console.log(formulario)
-
   const { register }: any = useAuth()
-
-  const handleRegister = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
-    e.preventDefault()
-    
-    if(!email || !emailConf || !password || !passwordConf || !name) {
-      setError("Fill in all fields")
-      return
-    } else if (email !== emailConf) {
-      setError("Emails are not the same")
-      return
-    } else if (password !== passwordConf) {
-      setError("Passwords are not the same")
-    }
-
-    const res = register(name, email, password)
-
-    if (res) {
-      setError(res)
-      return
-    }
-
-    alert("User registered successfully!")
-    navigate("/login")
-  }
-
+  
   return (
     <>
       <ContainerCentralizado>
-
         <Form action="" method="post">
           <h1>Register</h1> <br />
 
@@ -104,11 +74,10 @@ function Register() {
           <InputStyled 
             type="submit" 
             value="Register"
-            onClick={(e) => handleRegister(e)}
+            onClick={(e) => handleRegister({e, email, emailConf, password, passwordConf, name, setError, register, navigate})}
           />
           <p style={{textAlign: "center"}}>Already have an account? <Link to={'/login'}>Click here</Link> and login!</p>
         </Form>
-
       </ContainerCentralizado>
     </>
   )

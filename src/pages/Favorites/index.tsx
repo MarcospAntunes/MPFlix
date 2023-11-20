@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import Menu from '../../components/Menu'
 import MenuMobile from '../../components/MenuMobile'
-import defaultPhoto from '../../assets/user.png'
 import useAuth from '../../hooks/useAuth'
 import { useFavorite } from '../../hooks/useFavorite'
 import { ContainerDivConteudoPrincipal } from '../../components/Containers/ContainerDiv'
@@ -12,27 +11,18 @@ import { CardDataProps } from '../../interfaces/cardData'
 import FavoriteList from '../../components/FavoriteList'
 import FavoriteModalMovie from '../../components/FavoriteList/FavoriteModalMovie'
 import { FavoriteListStyled, FavoriteSection } from './styles'
+import { verificaFoto } from '../../utils/userFunctions'
 
 function Favorites() {
     const [menuIsVisible, setMenuIsVisible] = useState(false)
     const user: any = useAuth()
     const { favorite } = useFavorite()
-    function verificaFoto() {
-        let photo: string
-        if(user.user.photoUrl) {
-            photo = user.user.photoUrl
-        } else {
-            photo = defaultPhoto
-        }
-        return photo
-    }
 
   return (
     <ContainerDivConteudoPrincipal>
-        <ImgStyled src={verificaFoto()} alt="userPhoto" onClick={() => setMenuIsVisible(true)} />
+        <ImgStyled src={verificaFoto(user)} alt="userPhoto" onClick={() => setMenuIsVisible(true)} />
         <MenuMobile menuIsVisible={menuIsVisible} setMenuIsVisible={setMenuIsVisible} />
         <Menu />
-
         <MainHomeAndFavorites>
             <FavoriteSection>
                 <>
@@ -58,7 +48,6 @@ function Favorites() {
                         
                     }
                 </>
-                
             </FavoriteSection>
             <FavoriteModalMovie />
         </MainHomeAndFavorites>

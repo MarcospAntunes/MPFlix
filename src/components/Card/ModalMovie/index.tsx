@@ -66,8 +66,7 @@ function ModalMovie(): JSX.Element | null {
                                         onClick={() => addFavorite({ id, genre_ids, title, release_date, overview, vote_average, poster })}
                                     />}
                             </div>
-                        </div>
-                        
+                        </div>    
                     </div>
                 </ModalStyled>
             </BackgroundModal>

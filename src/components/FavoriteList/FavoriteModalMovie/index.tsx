@@ -15,10 +15,6 @@ function FavoriteModalMovie(): JSX.Element | null {
         setOpenModal(false)
     }
 
-    
-
-    
-
     const [movieGenreData, setMovieGenreData] = useState<any[]>([])
     useEffect(() => {
         getMovieGenreData("movie", setMovieGenreData)
@@ -66,8 +62,7 @@ function FavoriteModalMovie(): JSX.Element | null {
                                         onClick={() => addFavorite({ id, genre_ids, title, release_date, overview, vote_average, poster })}
                                     />}
                             </div>
-                        </div>
-                        
+                        </div> 
                     </div>
                 </ModalStyled>
             </BackgroundModal>

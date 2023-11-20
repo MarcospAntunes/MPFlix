@@ -23,7 +23,6 @@ function CaixaDePesquisa({ search, setSearch }: CaixaDePesquisaProps): JSX.Eleme
                 value={search} 
                 onChange={(e) => setSearch(e.target.value)} 
             />
-
         </DivBusca>
     )
 

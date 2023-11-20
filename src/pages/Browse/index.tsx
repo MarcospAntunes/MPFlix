@@ -9,10 +9,10 @@ import { ImgStyled } from "../../components/UserImg"
 import useAuth from "../../hooks/useAuth"
 import { getAllMovies } from "../../services/api"
 import { useState, useEffect, useMemo } from 'react'
-import defaultPhoto from '../../assets/user.png'
 import { movie } from "../../interfaces/movie"
 import Card from "../../components/Card"
 import { ListMoviesBrowse } from "./styles"
+import { verificaFoto } from "../../utils/userFunctions"
 
 function Browse(): JSX.Element {
     const [allMovies, setAllMovies] = useState<any[]>([])
@@ -20,36 +20,23 @@ function Browse(): JSX.Element {
     const [search, setSearch] = useState('')
 
     const user: any = useAuth()
-    function verificaFoto() {
-        let photo: string
-        if(user.user.photoUrl) {
-            photo = user.user.photoUrl
-        } else {
-            photo = defaultPhoto
-        }
-        return photo
-    }
-    getAllMovies("movie", setAllMovies)
 
+    getAllMovies("movie", setAllMovies)
     const moviesSearched = useMemo(() => {
         const lowerBusca = search.toLowerCase()
         
         return allMovies.filter((movie) => movie.title.toLowerCase().includes(lowerBusca))
     }, [allMovies, search]) 
 
-    
-
     useEffect(() => {
         const pesquisa: HTMLInputElement | null = document.querySelector('#textBusca')
         pesquisa !== null ? pesquisa.focus() : '' 
     }, [])
 
-    
-
     return (
         <>
         <ContainerDivConteudoPrincipal>
-            <ImgStyled src={verificaFoto()} alt="usePhoto" onClick={() => setMenuIsVisible(true)} />
+            <ImgStyled src={verificaFoto(user)} alt="usePhoto" onClick={() => setMenuIsVisible(true)} />
             <MenuMobile menuIsVisible={menuIsVisible} setMenuIsVisible={setMenuIsVisible} />
             <Menu />
             <MainHomeAndFavorites>

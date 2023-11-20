@@ -7,7 +7,6 @@ import Card from "../../components/Card"
 import { getDiscoverMovieData, getTrendingMovieData, getAllMovies, getNowPlayingMovieData } from "../../services/api"
 import Carrossel from "../../components/Carrossel"
 import MenuMobile from "../../components/MenuMobile"
-import defaultPhoto from '../../assets/user.png'
 import filterMoviesByGenre, { genreIdsToNames } from "../../utils/filterMoviesByGenre"
 import { SectionNowPlaying } from "./styles"
 import useAuth from "../../hooks/useAuth"
@@ -20,8 +19,7 @@ import { FooterStyled } from "../../components/Footer"
 import { movie } from "../../interfaces/movie"
 import LoadSpinner from "../../components/LoadSpinner"
 import { Link } from "react-router-dom"
-
-
+import { verificaFoto } from "../../utils/userFunctions"
 
 function Home(): JSX.Element {
   const [movieTrendingData, setMovieTrendingData] = useState<any[]>([])
@@ -40,19 +38,10 @@ function Home(): JSX.Element {
   const [menuIsVisible, setMenuIsVisible] = useState(false)
 
   const user: any = useAuth()
-  function verificaFoto() {
-    let photo: string
-    if(user.user.photoUrl) {
-        photo = user.user.photoUrl
-    } else {
-        photo = defaultPhoto
-    }
-    return photo
-}
 
-const [dataLoaded, setDataLoaded] = useState(false);
+  const [dataLoaded, setDataLoaded] = useState(false);
 
-const [search, setSearch] = useState('')
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
     const fetchData = async () => {
@@ -75,7 +64,7 @@ const [search, setSearch] = useState('')
   return (
     <>
       <ContainerDivConteudoPrincipal>
-        <ImgStyled src={verificaFoto()} alt="usePhoto" onClick={() => setMenuIsVisible(true)} />
+        <ImgStyled src={verificaFoto(user)} alt="usePhoto" onClick={() => setMenuIsVisible(true)} />
         <MenuMobile menuIsVisible={menuIsVisible} setMenuIsVisible={setMenuIsVisible} />
         <Menu />
         <MainHomeAndFavorites>

@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { useState } from 'react'
 import useAuth from "../../hooks/useAuth"
 import ErrorMessage from "../../components/Form/ErrorMessage"
+import { handleLogin } from "../../utils/validaFormFunctions"
 
 function Login() {
   const { login }: any = useAuth()
@@ -13,22 +14,6 @@ function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
-
-  const handleLogin = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
-    e.preventDefault()
-    if(!email || !password) {
-      setError('Fill in all fields')
-      return
-    }
-    const res = login(email, password)
-
-    if(res) {
-      setError(res)
-      return
-    }
-    navigate('/home')
-    window.location.reload()
-  }
 
   return (
     <>
@@ -55,7 +40,7 @@ function Login() {
           <InputStyled 
             type="submit" 
             value="Login" 
-            onClick={(e) => handleLogin(e)}
+            onClick={(e) => handleLogin({ e, setError, email, password, login, navigate })}
             
           />
 

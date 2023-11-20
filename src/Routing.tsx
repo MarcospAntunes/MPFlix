@@ -52,7 +52,6 @@ function Routing() {
             </FavoritesProvider>
           </BrowserRouter>
         </ThemeProvider>
-        
       </AuthProvider>
     </>
   )

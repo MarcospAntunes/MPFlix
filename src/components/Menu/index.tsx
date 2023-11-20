@@ -3,45 +3,22 @@ import { AiFillHome, AiOutlineGlobal } from 'react-icons/ai'
 import { MdFavorite } from 'react-icons/md'
 import { SlOptionsVertical } from 'react-icons/sl'
 import { IoSettingsSharp, IoLogOutSharp } from 'react-icons/io5'
-import defaultPhoto from '../../assets/user.png'
 import { MenuStyled } from "./styles";
 import useAuth from "../../hooks/useAuth";
+import { verificaFoto, verificaNome } from "../../utils/userFunctions";
 
 function Menu(): JSX.Element {
     const { logOut }: any = useAuth()
     const navigate = useNavigate()
     const user: any = useAuth()
-    function verificaNome() {
-        let partsOfNameUser: string[]
-        let firstAndLastName: string
-        if(user.user.name) {
-            partsOfNameUser = user.user.name.split(' ')
-            firstAndLastName = `${partsOfNameUser[0]} ${partsOfNameUser[partsOfNameUser.length - 1]}`
-        } else {
-            firstAndLastName = 'Sem nome'
-        }
-        return firstAndLastName
-    }
-    function verificaFoto() {
-        let photo: string
-        if(user.user.photoUrl) {
-            photo = user.user.photoUrl
-        } else {
-            photo = defaultPhoto
-        }
-        return photo
-    }
     
-
-    
-
     return(
         <MenuStyled>
             <li>
                 <figure className="userPerfil">  {/* img de perfil do usuario */}
-                    <img src={verificaFoto()} alt="perfil" className="userPhoto" />
+                    <img src={verificaFoto(user)} alt="perfil" className="userPhoto" />
                     <figcaption>
-                        <span>Welcome</span> <br /> {verificaNome()}! {/* Nome do usuario */}
+                        <span>Welcome</span> <br /> {verificaNome(user)}! {/* Nome do usuario */}
                     </figcaption>
                     <SlOptionsVertical />
                 </figure>
@@ -65,9 +42,6 @@ function Menu(): JSX.Element {
                     </span>
                 </nav>
             </li>
-
-            
-
         </MenuStyled>
     )
 }

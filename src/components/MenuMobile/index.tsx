@@ -3,51 +3,28 @@ import { IoLogOutSharp, IoSettingsSharp } from "react-icons/io5"
 import { MdFavorite } from "react-icons/md"
 import { SlOptionsVertical } from "react-icons/sl"
 import { NavLink, useNavigate } from "react-router-dom"
-import defaultPhoto from '../../assets/user.png'
 import { MenuMobileStyled } from "./styles"
 import useAuth from "../../hooks/useAuth"
+import { verificaFoto, verificaNome } from "../../utils/userFunctions"
 
 interface MenuMobileProps {
     menuIsVisible: boolean
     setMenuIsVisible: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-
 function MenuMobile({ menuIsVisible, setMenuIsVisible }: MenuMobileProps) {
 
     const { logOut }: any = useAuth()
     const navigate = useNavigate()
     const user: any = useAuth()
-    function verificaNome() {
-        let partsOfNameUser: string[]
-        let firstAndLastName: string
-        if(user.user.name) {
-            partsOfNameUser = user.user.name.split(' ')
-            firstAndLastName = `${partsOfNameUser[0]} ${partsOfNameUser[partsOfNameUser.length - 1]}`
-        } else {
-            firstAndLastName = 'Sem nome'
-        }
-        return firstAndLastName
-    }
-
-    function verificaFoto() {
-        let photo: string
-        if(user.user.photoUrl) {
-            photo = user.user.photoUrl
-        } else {
-            photo = defaultPhoto
-        }
-        return photo
-    }
-
+    
     return(
         <MenuMobileStyled isvisible={menuIsVisible ? menuIsVisible.toString() : undefined}>
             <li>
-                
                 <figure className="userPerfil">  {/* img de perfil do usuario */}
-                    <img src={verificaFoto()} alt="perfil" className="userPhoto" onClick={() => setMenuIsVisible(false)} />
+                    <img src={verificaFoto(user)} alt="perfil" className="userPhoto" onClick={() => setMenuIsVisible(false)} />
                     <figcaption>
-                        <span>Welcome</span> <br /> {verificaNome()}! {/* Nome do usuario */}
+                        <span>Welcome</span> <br /> {verificaNome(user)}! {/* Nome do usuario */}
                     </figcaption>
                     <SlOptionsVertical />
                 </figure>
@@ -71,9 +48,6 @@ function MenuMobile({ menuIsVisible, setMenuIsVisible }: MenuMobileProps) {
                     </span>
                 </nav>
             </li>
-
-            
-
         </MenuMobileStyled>
     )
 }

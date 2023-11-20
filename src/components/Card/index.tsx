@@ -24,11 +24,8 @@ function Card({id, genre_ids, poster, title, release_date, overview, vote_averag
         <>
             <motion.li className="itens" style={{height: '100%'}}>
             <ImgStyled src={`https://image.tmdb.org/t/p/w300/${poster}`} onClick={handleCardClick}/>
-            </motion.li>
-            
-            
+            </motion.li>   
         </>
-        
     )
 }
 

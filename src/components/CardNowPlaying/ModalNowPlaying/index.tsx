@@ -21,8 +21,7 @@ function ModalBanner({id, setOpenModal, isOpen}: ModalBannerProps) {
                             id ={id}
                             autoplay='autoplay'
                         />
-                    </div>
-                    
+                    </div>             
                 </ModalBannerStyled>
             </BackgroundModal>
         )

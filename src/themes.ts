@@ -9,7 +9,6 @@ export const darkTheme = {
     buttonMenuText: 'white',
     radioButton: 'white',
     bgTransparent: '#3030304b'
-
 }
 
 export const lightTheme = {
