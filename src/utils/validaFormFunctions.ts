@@ -75,6 +75,7 @@ export const handleLogin = ({ e, setError, email, password, login, navigate }: h
       return
     } else if (password !== passwordConf) {
       setError("Passwords are not the same")
+      return
     }
 
     const res = register(name, email, password)
