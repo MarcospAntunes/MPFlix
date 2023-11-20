@@ -4,7 +4,6 @@ import { ContainerCentralizado, ContainerDivConteudoPrincipal } from "../../comp
 import Menu from "../../components/Menu"
 import { useState, useEffect } from 'react'
 import Card from "../../components/Card"
-import { getDiscoverMovieData, getTrendingMovieData, getAllMovies, getNowPlayingMovieData } from "../../services/api"
 import Carrossel from "../../components/Carrossel"
 import MenuMobile from "../../components/MenuMobile"
 import filterMoviesByGenre, { genreIdsToNames } from "../../utils/filterMoviesByGenre"
@@ -20,6 +19,7 @@ import { movie } from "../../interfaces/movie"
 import LoadSpinner from "../../components/LoadSpinner"
 import { Link } from "react-router-dom"
 import { verificaFoto } from "../../utils/userFunctions"
+import { fetchData } from "../../services/fetchData"
 
 function Home(): JSX.Element {
   const [movieTrendingData, setMovieTrendingData] = useState<any[]>([])
@@ -44,21 +44,7 @@ function Home(): JSX.Element {
   const [search, setSearch] = useState('')
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        await Promise.all([
-          getTrendingMovieData("movie", setMovieTrendingData),
-          getDiscoverMovieData("movie", setMovieDiscoverData),
-          getAllMovies("movie", setAllMovies),
-          getNowPlayingMovieData("movie", setMovieNowPlayingData)
-        ]);
-        setDataLoaded(true);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
+    fetchData({ setMovieTrendingData,  setMovieDiscoverData, setAllMovies, setMovieNowPlayingData, setDataLoaded });
   }, [dataLoaded]);
 
   return (
@@ -73,7 +59,6 @@ function Home(): JSX.Element {
             <ContainerCentralizado style={{width: "calc(100vw - 350px)"}}>
               <LoadSpinner />
             </ContainerCentralizado>
-            
           ) : (
             <>
               <SectionNowPlaying>
@@ -236,7 +221,6 @@ function Home(): JSX.Element {
                 <ModalMovie />
               </section>
             </>
-          
           )}
         </MainHomeAndFavorites>
         <FooterStyled>
