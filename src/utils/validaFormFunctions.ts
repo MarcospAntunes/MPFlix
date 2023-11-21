@@ -21,7 +21,6 @@ interface handleRegisterProps {
     navigate: NavigateFunction
 }
 
-export function VerificaSeCampoEmailEhIgual() {
 export const handleLogin = ({ e, setError, email, password, login, navigate }: handleLoginProps) => {
     e.preventDefault()
     if(!email || !password) {
