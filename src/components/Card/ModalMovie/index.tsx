@@ -15,10 +15,6 @@ function ModalMovie(): JSX.Element | null {
         setOpenModal(false)
     }
 
-    
-
-    
-
     const [movieGenreData, setMovieGenreData] = useState<any[]>([])
     useEffect(() => {
         getMovieGenreData("movie", setMovieGenreData)

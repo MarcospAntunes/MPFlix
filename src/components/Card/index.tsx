@@ -1,18 +1,9 @@
 import { motion } from 'framer-motion'
 import { ImgStyled } from "./styles"
 import { useCardData } from "../../hooks/useCard"
+import { CardDataProps } from '../../interfaces/cardData'
 
-interface CardProps {
-    id: number
-    genre_ids: number[]
-    poster: string
-    title: string
-    release_date: string
-    overview: string
-    vote_average: number
-}
-
-function Card({id, genre_ids, poster, title, release_date, overview, vote_average}: CardProps): JSX.Element {
+function Card({id, genre_ids, poster, title, release_date, overview, vote_average}: CardDataProps): JSX.Element {
     const { setOpenModal, setClickedCard }: any = useCardData()
 
     const handleCardClick = () => {

@@ -1,27 +1,19 @@
 import { NavigateFunction } from "react-router-dom"
 
-interface handleLoginProps {
+interface handleRegisterOrLoginProps {
     e: React.MouseEvent<HTMLInputElement, MouseEvent> 
-    setError: React.Dispatch<React.SetStateAction<string>>
     email: string
+    emailConf?: string
     password: string
-    login: any
+    passwordConf?: string
+    name?: string
+    setError: React.Dispatch<React.SetStateAction<string>>
+    register?: any
+    login?: any
     navigate: NavigateFunction
 }
 
-interface handleRegisterProps {
-    e: React.MouseEvent<HTMLInputElement, MouseEvent> 
-    email: string
-    emailConf: string
-    password: string
-    passwordConf: string
-    name: string
-    setError: React.Dispatch<React.SetStateAction<string>>
-    register: any
-    navigate: NavigateFunction
-}
-
-export const handleLogin = ({ e, setError, email, password, login, navigate }: handleLoginProps) => {
+export const handleLogin = ({ e, setError, email, password, login, navigate }:  handleRegisterOrLoginProps) => {
     e.preventDefault()
     if(!email || !password) {
       setError('Fill in all fields')
@@ -37,7 +29,7 @@ export const handleLogin = ({ e, setError, email, password, login, navigate }: h
     window.location.reload()
   }
 
-  export const handleRegister = ({ e, email, emailConf, password, passwordConf, name, setError, register, navigate }: handleRegisterProps) => {
+  export const handleRegister = ({ e, email, emailConf, password, passwordConf, name, setError, register, navigate }:  handleRegisterOrLoginProps) => {
     e.preventDefault()
     
     if(!email || !emailConf || !password || !passwordConf || !name) {

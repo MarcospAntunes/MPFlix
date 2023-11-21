@@ -33,14 +33,6 @@ function Account(): JSX.Element {
     });
   };
 
-  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setUser({
-      ...user,
-      [name]: value,
-    });
-  };
-
   const handlePhotoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files![0];
 
@@ -126,7 +118,7 @@ function Account(): JSX.Element {
               name="password"
               value={user.password}
               minLength={8}
-              onChange={handlePasswordChange}
+              onChange={handleInputChange}
               required
             />
             <AiOutlineEdit

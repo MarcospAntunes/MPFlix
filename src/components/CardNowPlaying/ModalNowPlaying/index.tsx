@@ -14,8 +14,7 @@ function ModalBanner({id, setOpenModal, isOpen}: ModalBannerProps) {
         return (
             <BackgroundModal>
                 <ModalBannerStyled>
-                    <div className="ConteudoModal">
-                        
+                    <div className="ConteudoModal">  
                         <AiOutlineCloseCircle className="closeModal" onClick={setOpenModal} />
                         <IframeVideo
                             id ={id}

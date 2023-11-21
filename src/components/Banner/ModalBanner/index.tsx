@@ -19,10 +19,9 @@ function ModalBanner({movieNowPlayingData, setOpenModal, isOpen}: ModalBannerPro
                         
                         <AiOutlineCloseCircle className="closeModal" onClick={setOpenModal} />
                         <IframeVideo
-                                    id ={id[numeroAleatorio]}
-                                    autoplay='autoplay'
-                                />
-                        
+                            id ={id[numeroAleatorio]}
+                            autoplay='autoplay'
+                        />
                     </div>
                     
                 </ModalBannerStyled>

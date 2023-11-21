@@ -6,5 +6,5 @@ export interface CardDataProps {
     release_date: string 
     overview: string 
     vote_average: number
-    setClickedCard: (data: CardDataProps | null) => void;
+    setClickedCard?: (data: CardDataProps | null) => void;
   }
