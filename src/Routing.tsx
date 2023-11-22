@@ -14,6 +14,7 @@ import { ThemeProvider } from "styled-components"
 import { darkTheme, lightTheme } from "./themes"
 import Favorites from "./pages/Favorites"
 import Browse from "./pages/Browse"
+import Error404 from "./pages/404"
 
 interface PrivateProps {
   Item: any
@@ -41,6 +42,7 @@ function Routing() {
                 <GlobalStyles />
                 <Routes>
                   <Route path="/" element={<Start />}></Route>
+                  <Route path="*" element={<Error404 />}></Route>
                   <Route path="/register" element={<Register />}></Route>
                   <Route path="/login" element={<Login />}></Route>
                   <Route path="/home" element={<Private Item={Home} themeToggler={themeToggler} />}></Route>
