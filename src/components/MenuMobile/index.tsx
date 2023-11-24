@@ -41,8 +41,11 @@ function MenuMobile({ menuIsVisible, setMenuIsVisible }: MenuMobileProps) {
                     <NavLink to={'/favorites'}><MdFavorite className="icons" activeclassname={CSSMathValue.toString()} />Favorites</NavLink>
                     
                     <br />
+
                     <p>General</p>
+
                     <br />
+                    
                     <NavLink to={'/settings'}><IoSettingsSharp className="icons" activeclassname={CSSMathValue.toString()} />Setting</NavLink>
                     <span className="logout" onClick={() => [logOut(), navigate('/')] }><IoLogOutSharp className="icons" activeclassname={CSSMathValue.toString()}  />Logout
                     </span>

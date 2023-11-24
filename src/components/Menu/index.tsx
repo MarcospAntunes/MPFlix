@@ -35,8 +35,11 @@ function Menu(): JSX.Element {
                     <NavLink to={'/favorites'}><MdFavorite className="icons" activeclassname={CSSMathValue.toString()} />favorites</NavLink>
                     
                     <br />
+
                     <p>General</p>
+
                     <br />
+                    
                     <NavLink to={'/settings'}><IoSettingsSharp className="icons" activeclassname={CSSMathValue.toString()} />Setting</NavLink>
                     <span className="logout" onClick={() => [logOut(), navigate('/')] }><IoLogOutSharp className="icons" activeclassname={CSSMathValue.toString()}  />Logout
                     </span>

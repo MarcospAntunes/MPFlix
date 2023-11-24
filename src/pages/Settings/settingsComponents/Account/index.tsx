@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { AiOutlineEdit } from 'react-icons/ai';
 import { InputStyled } from '../../../../components/Form/Input';
 import { Botao } from '../../../../components/Botao';
@@ -6,69 +6,19 @@ import useAuth from '../../../../hooks/useAuth';
 import { AccountMenuStyled } from './style';
 import { useNavigate } from 'react-router-dom'; 
 import defaultPhoto from '../../../../assets/user.png'
+import { deleteAccount, enableEdition, handleInputChange, handlePhotoChange, saveChanges } from '../../../../utils/accountActions';
 
 function Account(): JSX.Element {
   const userData: any = useAuth();
   const { name, password, email, photoUrl } = userData.user;
   const archive: any = document.querySelector("#archive")!;
   const navigate = useNavigate();
-
-  function enableEdition(target: HTMLInputElement) {
-    target.disabled = false;
-    target.focus();
-  }
-
   const [user, setUser] = useState({
     name,
     email,
     password,
     photoUrl,
   });
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setUser({
-      ...user,
-      [name]: value,
-    });
-  };
-
-  const handlePhotoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files![0];
-
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const photoUrl = e.target!.result;
-        setUser({ ...user, photoUrl });
-
-        const usersDb = JSON.parse(localStorage.getItem('users_db')!) || [];
-        const updatedUsers = usersDb.map((u: any) =>
-          u.email === user.email ? { ...u, photoUrl } : u
-        );
-        localStorage.setItem('users_db', JSON.stringify(updatedUsers));
-      };
-
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const saveChanges = () => {
-    const usersDb = JSON.parse(localStorage.getItem('users_db')!) || [];
-    const updatedUsers = usersDb.map((u: any) =>
-      u.email === user.email ? user : u
-    );
-    localStorage.setItem('users_db', JSON.stringify(updatedUsers));
-    window.location.reload();
-  };
-
-  const deleteAccount = () => {
-    const usersDb = JSON.parse(localStorage.getItem('users_db')!) || [];
-    const updatedUsers = usersDb.filter((u: any) => u.email !== user.email);
-    localStorage.setItem('users_db', JSON.stringify(updatedUsers));
-    navigate('/login'); 
-
-  };
 
   return (
     <>
@@ -85,11 +35,11 @@ function Account(): JSX.Element {
               <InputStyled
                 type="file"
                 accept="image/*"
-                onChange={handlePhotoChange}
+                onChange={(event) => handlePhotoChange({event, user, setUser})}
                 name="archive"
                 id="archive"
               />
-              <Botao onClick={saveChanges}>Upload photo</Botao>
+              <Botao onClick={() => saveChanges({user})}>Upload photo</Botao>
               <p>{archive != null ? archive.value : ""}</p>
             </div>
           </span>
@@ -100,7 +50,7 @@ function Account(): JSX.Element {
               type="text"
               name="name"
               value={user.name}
-              onChange={handleInputChange}
+              onChange={(event) => handleInputChange({event, user, setUser})}
               required
               disabled
             />
@@ -118,8 +68,9 @@ function Account(): JSX.Element {
               name="password"
               value={user.password}
               minLength={8}
-              onChange={handleInputChange}
+              onChange={(event) => handleInputChange({event, user, setUser})}
               required
+              disabled
             />
             <AiOutlineEdit
               className="editButton"
@@ -127,11 +78,11 @@ function Account(): JSX.Element {
             />
           </span>
           <br />
-          <input className='edit' type="submit" value="Change" onClick={saveChanges} />
+          <input className='edit' type="submit" value="Change" onClick={() => saveChanges({user})} />
         </li>
         <li>
           <h2>Delete Account</h2>
-          <Botao className='edit' onClick={deleteAccount}>Delete account</Botao>
+          <Botao className='edit' onClick={() => deleteAccount({user, navigate})}>Delete account</Botao>
           <p id="attention">
             ATTENTION: after deleting the account, it will not be possible to
             recover it!

@@ -32,9 +32,7 @@ function Banner(): JSX.Element {
                     setOpenModal = {() => setOpenModal(!openModal)}
                     isOpen = {openModal}
                 />
-            </DivBanner>
-            
-               
+            </DivBanner>     
         </>           
     )
 }

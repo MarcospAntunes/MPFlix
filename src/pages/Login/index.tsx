@@ -41,14 +41,12 @@ function Login() {
             type="submit" 
             value="Login" 
             onClick={(e) => handleLogin({ e, setError, email, password, login, navigate })}
-            
           />
 
           <ErrorMessage>{error}</ErrorMessage>
 
           <p style={{textAlign: 'center'}}>Don't have account? <Link to={'/register'}>Click here</Link> and create an account!</p>
         </Form>
-
       </ContainerCentralizado>
     </>
   )

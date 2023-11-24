@@ -7,6 +7,7 @@ import { useFavorite } from '../../../hooks/useFavorite'
 import { MdFavorite, MdFavoriteBorder } from 'react-icons/md'
 import { useCardData } from '../../../hooks/useCard'
 import { movie } from '../../../interfaces/movie'
+import returnGenres from '../../../utils/returnGenres'
 
 function ModalMovie(): JSX.Element | null {
     const { clickedCardData, setOpenModal, modalOpen }: any = useCardData();
@@ -24,22 +25,16 @@ function ModalMovie(): JSX.Element | null {
 
     if(modalOpen && clickedCardData) {
         const { id, genre_ids, title, release_date, overview, vote_average, poster }: any = clickedCardData;
-
-        const genres = movieGenreData.map((genre) => genre_ids.find((id: number) => genre.id == id))
-        const genresId: any[] = genres.filter((list:any) => list !== undefined)
-        const genre = movieGenreData.filter((genre: movie) => genre.id === genresId.find((id) => id == genre.id))
-        
-        const genreName = genre.map((key) => key.name)
         const isFavorite = favorite.some((fav: movie) => fav.id === id)
-
+        const genres = returnGenres({movieGenreData, genre_ids})
+        
         return (
             <BackgroundModal>
                 <ModalStyled >
                     <div className="ConteudoModal">
                         <AiOutlineCloseCircle className="closeModal" onClick={closeModal} />
-                        <IframeVideo
-                            id ={id!}
-                        />
+                        <IframeVideo id ={id!} />
+
                         <div className="average">{vote_average!.toFixed(1)}</div>
                         
                         <div key={id} className="Overview">
@@ -47,7 +42,7 @@ function ModalMovie(): JSX.Element | null {
                             <p>{overview}</p>
                             <br /><hr /><br />
                             <h2>Info on {title}</h2>
-                            <p>Genres: {genreName.join(", ")}</p>
+                            <p>Genres: {genres}</p>
                             <p>Release date: {release_date.replace(new RegExp("-", "g"), "/")}</p>
 
                             <div className="favoriteContainer">
@@ -68,9 +63,7 @@ function ModalMovie(): JSX.Element | null {
             </BackgroundModal>
         )
     }
-
     return null
 }
-
 
 export default ModalMovie

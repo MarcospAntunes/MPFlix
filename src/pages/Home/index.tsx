@@ -26,6 +26,10 @@ function Home(): JSX.Element {
   const [movieDiscoverData, setMovieDiscoverData] = useState<any[]>([])
   const [allMovies, setAllMovies] = useState<any[]>([])
   const [movieNowPlayingData, setMovieNowPlayingData] = useState<any[]>([])
+  const [menuIsVisible, setMenuIsVisible] = useState(false)
+  const [dataLoaded, setDataLoaded] = useState(false);
+  const [search, setSearch] = useState('')
+  const user: any = useAuth()
 
   const genreMovies: { [key: string]: any[] } = {}
   for(const genreId in genreIdsToNames) {
@@ -34,14 +38,6 @@ function Home(): JSX.Element {
 
   const filterMovieNowPlayingData = movieNowPlayingData.filter((index: number) => index !== numeroAleatorio )
   const movieNowPlaying = filterMovieNowPlayingData.slice(0, 4)
-
-  const [menuIsVisible, setMenuIsVisible] = useState(false)
-
-  const user: any = useAuth()
-
-  const [dataLoaded, setDataLoaded] = useState(false);
-
-  const [search, setSearch] = useState('')
 
   useEffect(() => {
     fetchData({ setMovieTrendingData,  setMovieDiscoverData, setAllMovies, setMovieNowPlayingData, setDataLoaded });
@@ -227,8 +223,7 @@ function Home(): JSX.Element {
           <h2>Developed by Marcos Antunes</h2>
           <h2>Design based on design made by <a href="https://dribbble.com/apurple" target="_blank">aPurple</a></h2>
         </FooterStyled>
-      </ContainerDivConteudoPrincipal>
-      
+      </ContainerDivConteudoPrincipal>   
     </>
   )
 }

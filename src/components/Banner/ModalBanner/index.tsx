@@ -16,14 +16,12 @@ function ModalBanner({movieNowPlayingData, setOpenModal, isOpen}: ModalBannerPro
             <BackgroundModal>
                 <ModalBannerStyled>
                     <div className="ConteudoModal">
-                        
                         <AiOutlineCloseCircle className="closeModal" onClick={setOpenModal} />
                         <IframeVideo
                             id ={id[numeroAleatorio]}
                             autoplay='autoplay'
                         />
                     </div>
-                    
                 </ModalBannerStyled>
             </BackgroundModal>
         )
