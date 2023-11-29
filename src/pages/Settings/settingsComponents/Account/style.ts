@@ -202,4 +202,35 @@ export const AccountMenuStyled = styled.menu`
         }
     }
 
+    @media screen and (width: 540px) and (height: 720px) {
+        & input[type="submit"], .edit  { 
+            margin-left: calc(50% - 50px);
+        }
+
+       #userPhoto {
+        margin-left: calc(50% - 115px) !important;
+       }
+    }
+
+    @media screen and (width: 280px) and (height: 653px) { 
+        #labelArchive {
+            width: 80px !important;
+            
+        }
+
+        .containerPhotoUser {
+            button {
+                width: 70px !important;
+            }
+        }
+
+        .containerInput input {
+            width: 150px !important;
+        }
+
+        .edit {
+            margin-left: calc(70% - 72px) !important;
+        }
+    }
+
 `

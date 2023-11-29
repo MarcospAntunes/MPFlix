@@ -16,14 +16,27 @@ const ContainerDivParaTituloDosVideos = styled.div`
     
     margin-top: 60px;
     height: 10px;
+
     @media screen and (max-width: 500px) {
         margin-left: 20px;
         height: 50px;
     }
 
     @media screen and (min-width: 1265px) {
-        width: calc(100% - 93.3%)
+        width: calc(100% - 93%);
     } 
+
+    @media screen and (width: 1280px) and (height: 800px) {
+        width: calc(100% - 96%);
+    }
+    
+    @media screen and (width: 1664px) and (height: 1011px) {
+        width: calc(100% - 94%) !important;
+    }
+
+    @media screen and (width: 1424px) and (height: 861px) {
+        width: calc(100% - 95%) !important;
+    }
     
 `
 

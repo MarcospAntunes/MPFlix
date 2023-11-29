@@ -73,4 +73,14 @@ export const SettingsContent = styled.div`
         }
     }
 
+    @media screen and (width: 280px) and (height: 653px) { 
+        .configMenu > li > svg { display: none; }
+     }
+
+    @media screen and (width: 1024px) and (height: 600px) { height: 130vh; }
+
+    @media screen and (width: 540px) and (height: 720px) { height: 115vh; }
+
+    
+
 `   

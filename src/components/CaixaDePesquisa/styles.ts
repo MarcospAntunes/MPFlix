@@ -65,4 +65,18 @@ export const DivBusca = styled.div`
             cursor: pointer;
         }
   }
+
+  @media screen and (width: 280px) and (height: 653px) {
+    width: 190px;
+    height: 35px;
+
+    svg {
+        width: 15px;
+        height: 15px;
+    }
+
+    input {
+        width: 150px;
+    }
+  }
 `

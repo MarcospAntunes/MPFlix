@@ -16,4 +16,9 @@ export const ImgStyled = styled.img`
         width: 150px;
         height: 200px;
     }
+
+    @media screen and (max-width: 820px) {
+        width: 100px;
+        height: 150px;
+    }
 `

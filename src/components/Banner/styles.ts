@@ -53,7 +53,7 @@ export const DivBanner = styled.div`
     }
 
     @media screen and (max-width: 500px) {
-        margin: 50px 0px 20px 50px;
+        
         width: 85px;
         height: 300px;
 
@@ -72,6 +72,19 @@ export const DivBanner = styled.div`
 
         .nowPlaying button {
             top: 230px;
+        }
+    }
+
+
+    @media screen and (max-width: 1024px) {
+        & img {
+            width: auto !important;
+        }
+    }
+
+    @media screen and (width: 1024px) and (height: 600px) {
+        & img {
+            width: 100% !important;
         }
     }
 `

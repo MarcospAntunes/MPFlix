@@ -89,9 +89,6 @@ export const MenuStyled = styled.menu`
     }
 
     @media screen and (max-width: 500px) {
-        & {
-            display: none;
-        }
+        & { display: none; }
     }
-    
 `
