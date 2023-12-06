@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import BotaoCarrossel from '../BotaoCarrossel';
 import { FaGreaterThan, FaLessThan } from 'react-icons/fa';
 import { ContainerDivParaTituloDosVideos } from '../Containers/ContainerDiv';
+import { ResizeCarrosselWidth, handleScroll } from '../../utils/resizeCarrosselFunction';
 
 interface CarrosselProps {
   children: any;
@@ -11,40 +12,15 @@ interface CarrosselProps {
 }
 
 function Carrossel({ children, secao }: CarrosselProps) {
-  const carrosel = useRef<any>();
+  const carrossel = useRef<any>();
   const [width, setWidth] = useState<number>(0);
   const [larguraDaTela, setLarguraDaTela] = useState(window.innerWidth);
   const [listaWidth, setListaWidth] = useState<number>(0);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setLarguraDaTela(window.innerWidth);
-      setListaWidth(carrosel.current?.scrollWidth || 0);
-    };
-
-    const handleMutation = () => {
-      setListaWidth(carrosel.current?.scrollWidth || 0);
-    };
-
-    const resizeObserver = new ResizeObserver(handleMutation);
-
-    window.addEventListener('resize', handleResize);
-    resizeObserver.observe(carrosel.current);
-
-    setListaWidth(carrosel.current?.scrollWidth || 0);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      resizeObserver.disconnect();
-    };
-  }, []);
-
-  function handleScroll(offset: number) {
-    carrosel.current.scrollLeft += offset;
-  }
+  ResizeCarrosselWidth({setLarguraDaTela, setListaWidth, carrossel, useEffect})
 
   useEffect(() => {
-    setWidth(listaWidth - carrosel.current?.offsetWidth);
+    setWidth(listaWidth - carrossel.current?.offsetWidth);
   }, [larguraDaTela, listaWidth]);
 
   return (
@@ -54,25 +30,25 @@ function Carrossel({ children, secao }: CarrosselProps) {
         <div>
           <BotaoCarrossel
             larguraDaTela={larguraDaTela}
-            onClick={() => handleScroll(-carrosel.current.offsetWidth)}
+            onClick={() => handleScroll(-carrossel.current.offsetWidth, carrossel)}
           >
             <FaLessThan />
           </BotaoCarrossel>
           <BotaoCarrossel
             larguraDaTela={larguraDaTela}
-            onClick={() => handleScroll(carrosel.current.offsetWidth)}
+            onClick={() => handleScroll(carrossel.current.offsetWidth, carrossel)}
           >
             <FaGreaterThan />
           </BotaoCarrossel>
         </div>
       </ContainerDivParaTituloDosVideos>
       {larguraDaTela >= 984 ? (
-        <div ref={carrosel} className={styles.carrosselDesktop}>
+        <div ref={carrossel} className={styles.carrosselDesktop}>
           <ul className={`${styles.inner}`}>{children}</ul>
         </div>
       ) : (
         <motion.div
-          ref={carrosel}
+          ref={carrossel}
           className={styles.carrosselMobile}
           whileTap={{ cursor: "grabbing" }}
         >
