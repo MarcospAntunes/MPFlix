@@ -96,7 +96,7 @@ export const ModalStyled = styled.div`
         }
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 540px) {
         left: 50%;
         iframe {
             width: 350px !important;

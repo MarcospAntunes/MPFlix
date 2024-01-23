@@ -12,7 +12,7 @@ export const ImgStyled = styled.img`
         transition: .3s;
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 540px) {
         width: 150px;
         height: 200px;
     }

@@ -56,7 +56,7 @@ function Carrossel({ children, secao }: CarrosselProps) {
             className={`${styles.inner}`}
             drag="x"
             dragConstraints={{ right: 0, left: -width }}
-            initial={{ x: 930 }}
+            initial={{ x: 100 }}
             animate={{ x: 0 }}
             transition={{ duration: 0.3 }}
           >

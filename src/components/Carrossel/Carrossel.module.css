@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   width: 100% !important;
-  max-width: 4.8%;
+  
   min-height: 300px;
   overflow: hidden;
   transition: ease-in;
@@ -14,8 +14,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100% !important;
-    max-width: 10%;
     min-height: 200px;
     overflow: hidden;
     cursor: grab;
@@ -28,7 +26,7 @@
   flex-direction: row;
   flex-wrap: nowrap;
   gap: 15px;
-  width: 100%;
+  width: calc(100vw - 350px);
   height: 200px;
   margin: 40px 0 120px 0;
   text-align: center;
@@ -36,25 +34,12 @@
   
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 540px) {
   .carrosselMobile {
     margin-left: 20px;
   }
   .inner { 
-    margin: 20px 0px 80px 0px;
-    height: 110px;
+    margin: 0;
+    width: 100vw;
   }
-}
-
-@media screen and (min-width: 850px) and (max-width: 984px) {
-
-  .carrosselMobile {
-    max-width: 16%;
-  }
-}
-
-@media screen and (min-width: 1265px) {
-  .carrosselDesktop {
-    max-width: 7.2%;
-  } 
 }

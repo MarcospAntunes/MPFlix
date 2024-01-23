@@ -14,7 +14,7 @@ export const FooterStyled = styled.footer`
     color: #5e5eca;
   }
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 540px) {
     margin-left: 0;
     width: 100vw;
     font-size: 12px;

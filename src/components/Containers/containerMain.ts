@@ -10,9 +10,8 @@ const ContainerMain = styled.main`
 `
 
 export const MainHomeAndFavorites = styled.main`
-  margin-left: 400px;
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 540px) {
     display: flex;
     flex-direction: column;
     margin: 0;

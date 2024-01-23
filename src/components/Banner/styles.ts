@@ -52,9 +52,9 @@ export const DivBanner = styled.div`
         }
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 540px) {
         
-        width: 85px;
+        width: 200px;
         height: 300px;
 
         img {
@@ -75,10 +75,27 @@ export const DivBanner = styled.div`
         }
     }
 
+    @media screen and (width: 820px) and (height: 1180px) {
+        .nowPlaying button {
+            top: 42vh !important;
+        }
+    }
 
-    @media screen and (max-width: 1024px) {
+
+    @media screen and (min-width: 541px) and (max-width: 1024px) and (min-height: 601px) {
+        width: 300px;
+        height: 500px;
         & img {
             width: auto !important;
+        }
+        .nowPlaying button {
+            top: 48vh;
+        }
+    }
+
+    @media screen and (min-width: 820px) and (max-width: 1024px) and (min-height: 601px) {
+        .nowPlaying button {
+            top: 35vh;
         }
     }
 

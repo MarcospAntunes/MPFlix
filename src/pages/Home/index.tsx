@@ -48,7 +48,10 @@ function Home(): JSX.Element {
       <ContainerDivConteudoPrincipal>
         <ImgStyled src={verificaFoto(user)} alt="usePhoto" onClick={() => setMenuIsVisible(true)} />
         <MenuMobile menuIsVisible={menuIsVisible} setMenuIsVisible={setMenuIsVisible} />
-        <Menu />
+        <header>
+          <Menu />
+        </header>
+        
         <MainHomeAndFavorites>
           <Link to={'/browse'}><CaixaDePesquisa search={search} setSearch={setSearch} /></Link>
           {!dataLoaded ? (

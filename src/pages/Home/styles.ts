@@ -17,8 +17,20 @@ export const SectionNowPlaying = styled.section`
     margin-left: 1.75%;
   }
 
-  @media screen and (min-width: 281px) and (max-width: 500px) {
+  @media screen and (max-width: 540px) {
     flex-direction: row;
     margin-left: 2%;
+    width: 100vw;
+    align-items: center;
+
+    & aside {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 541px) and (max-width: 1024px) {
+    & aside {
+      display: none;
+    }
   }
 `

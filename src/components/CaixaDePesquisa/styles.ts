@@ -33,7 +33,7 @@ export const DivBusca = styled.div`
         cursor: pointer;
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 540px) {
         width: 250px;
         height: 40px;
         background-color: ${({theme}) => theme.div};

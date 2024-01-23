@@ -22,7 +22,9 @@ function Favorites() {
     <ContainerDivConteudoPrincipal>
         <ImgStyled src={verificaFoto(user)} alt="userPhoto" onClick={() => setMenuIsVisible(true)} />
         <MenuMobile menuIsVisible={menuIsVisible} setMenuIsVisible={setMenuIsVisible} />
-        <Menu />
+        <header>
+            <Menu />
+        </header>
         <MainHomeAndFavorites>
             <FavoriteSection>
                 <>

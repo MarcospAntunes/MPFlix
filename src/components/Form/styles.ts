@@ -10,7 +10,7 @@ export const ContainerForm = styled.div`
     border-radius: 15px;
     background-color: ${({theme}) => theme.div};
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 540px) {
         max-width: 300px;
         max-height: 520px;
     }
@@ -54,7 +54,7 @@ export const FormStyled = styled.form`
         color: #407299;
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 540px) {
         h1 {
             font-size: 28px;
         }

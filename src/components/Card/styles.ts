@@ -12,13 +12,13 @@ export const ImgStyled = styled.img`
         transition: .3s;
     }
 
-    @media screen and (max-width: 500px) {
-        width: 150px;
-        height: 200px;
+    @media screen and (max-width: 540px) {
+        width: 150px !important; 
+        height: 200px !important;
     }
 
     @media screen and (max-width: 820px) {
-        width: 100px;
-        height: 150px;
+        width: 200px;
+        height: 250px;
     }
 `

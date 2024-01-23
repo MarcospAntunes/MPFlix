@@ -38,7 +38,9 @@ function Browse(): JSX.Element {
         <ContainerDivConteudoPrincipal>
             <ImgStyled src={verificaFoto(user)} alt="usePhoto" onClick={() => setMenuIsVisible(true)} />
             <MenuMobile menuIsVisible={menuIsVisible} setMenuIsVisible={setMenuIsVisible} />
-            <Menu />
+            <header>
+                <Menu />
+            </header>
             <MainHomeAndFavorites>
             <CaixaDePesquisa search={search} setSearch={setSearch} />
             <section>
