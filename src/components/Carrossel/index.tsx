@@ -15,13 +15,12 @@ function Carrossel({ children, secao }: CarrosselProps) {
   const carrossel = useRef<any>();
   const [width, setWidth] = useState<number>(0);
   const [larguraDaTela, setLarguraDaTela] = useState(window.innerWidth);
-  const [listaWidth, setListaWidth] = useState<number>(0);
 
-  ResizeCarrosselWidth({setLarguraDaTela, setListaWidth, carrossel, useEffect})
+  ResizeCarrosselWidth({setLarguraDaTela, carrossel, useEffect})
 
   useEffect(() => {
-    setWidth(listaWidth - carrossel.current?.offsetWidth);
-  }, [listaWidth]);
+    setWidth(carrossel.current?.scrollWidth - carrossel.current?.offsetWidth);
+  });
 
   return (
     <>
