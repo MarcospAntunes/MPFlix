@@ -14,7 +14,7 @@ export const MainHomeAndFavorites = styled.main`
   @media screen and (max-width: 540px) {
     display: flex;
     flex-direction: column;
-    margin: 0;
+    margin-bottom: 50px;
   }
 `
 

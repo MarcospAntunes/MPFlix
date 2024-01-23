@@ -34,6 +34,7 @@ const ContainerDivParaTituloDosVideos = styled.div`
     @media screen and (max-width: 540px) {
         margin-left: 20px;
         height: 50px;
+        width: 100vw;
     }
     
 `
