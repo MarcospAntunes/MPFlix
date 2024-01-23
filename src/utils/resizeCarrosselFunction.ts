@@ -27,7 +27,7 @@ function ResizeCarrosselWidth({setLarguraDaTela, setListaWidth, carrossel, useEf
           window.removeEventListener('resize', handleResize);
           resizeObserver.disconnect();
         };
-      }, []);
+      }, [carrossel, setLarguraDaTela, setListaWidth]);
 }
 
 function handleScroll(offset: number, carrossel: React.MutableRefObject<any>) {
