@@ -31,7 +31,12 @@ function ResizeCarrosselWidth({setLarguraDaTela, setListaWidth, carrossel, useEf
 }
 
 function handleScroll(offset: number, carrossel: React.MutableRefObject<any>) {
-    carrossel.current.scrollLeft += offset;
+  const newScrollLeft = carrossel.current.scrollLeft + offset;
+  const maxScrollLeft = carrossel.current.scrollWidth - carrossel.current.clientWidth;
+
+  if (newScrollLeft >= 0 && newScrollLeft <= maxScrollLeft) {
+      carrossel.current.scrollLeft += offset;
   }
+}
 
 export {ResizeCarrosselWidth, handleScroll}

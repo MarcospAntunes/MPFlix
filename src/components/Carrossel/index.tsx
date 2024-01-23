@@ -16,13 +16,11 @@ function Carrossel({ children, secao }: CarrosselProps) {
   const [width, setWidth] = useState<number>(0);
   const [larguraDaTela, setLarguraDaTela] = useState(window.innerWidth);
   const [listaWidth, setListaWidth] = useState<number>(0);
-  const [initial, setInitial] = useState(100)
 
   ResizeCarrosselWidth({setLarguraDaTela, setListaWidth, carrossel, useEffect})
 
   useEffect(() => {
     setWidth(listaWidth - carrossel.current?.offsetWidth);
-    setInitial(100);
   }, [listaWidth]);
 
   return (
@@ -58,7 +56,7 @@ function Carrossel({ children, secao }: CarrosselProps) {
             className={`${styles.inner}`}
             drag="x"
             dragConstraints={{ right: 0, left: -width }}
-            initial={{ x: initial }}
+            initial={{ x: 100 }}
             animate={{ x: 0 }}
             transition={{ duration: 0.3 }}
           >
