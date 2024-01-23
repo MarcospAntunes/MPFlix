@@ -16,7 +16,7 @@ function Carrossel({ children, secao }: CarrosselProps) {
   const [width, setWidth] = useState<number>(0);
   const [larguraDaTela, setLarguraDaTela] = useState(window.innerWidth);
 
-  ResizeCarrosselWidth({setLarguraDaTela, carrossel, useEffect})
+  ResizeCarrosselWidth({setLarguraDaTela, useEffect})
 
   useEffect(() => {
     setWidth(carrossel.current?.scrollWidth - carrossel.current?.offsetWidth);
