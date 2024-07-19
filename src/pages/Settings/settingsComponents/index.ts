@@ -1,4 +1,4 @@
 import Account from "./Account";
 import General from "./General";
 
-export { Account, General }
+export { Account, General };

@@ -1,13 +1,7 @@
-import { ReactNode } from 'react'
 import { ButtonCarrossel, ButtonCarrosselOff } from './BotaoCarrossel.style'
+import BotaoCarrosselProps from './BotaoCarrosselProps.type'
  
-
-interface BotaoCarrosselProps {
-  children: ReactNode
-  onClick: React.MouseEventHandler<HTMLButtonElement>
-  larguraDaTela: number
-}
-function BotaoCarrossel( {children, onClick, larguraDaTela}: BotaoCarrosselProps ): JSX.Element  {
+function BotaoCarrossel({ children, onClick, larguraDaTela }: BotaoCarrosselProps): JSX.Element  {
   const estilo = larguraDaTela <= 984 ?  <ButtonCarrosselOff /> : <ButtonCarrossel onClick={onClick}>{children}</ButtonCarrossel>
 
   return (

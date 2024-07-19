@@ -7,13 +7,4 @@ import Settings from "./Settings";
 import Start from "./Start";
 import Error404 from "./404";
 
-export {
-    Home,
-    Browse,
-    Favorites,
-    Login,
-    Register,
-    Settings,
-    Start,
-    Error404
-}
+export { Home, Browse, Favorites, Login, Register, Settings, Start, Error404 };

@@ -4,11 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import {BotaoCarrossel, ContainerDivParaTituloDosVideos } from '../index';
 import { FaGreaterThan, FaLessThan } from 'react-icons/fa';
 import { ResizeCarrosselWidth, handleScroll } from '../../utils';
-
-interface CarrosselProps {
-  children: any;
-  secao: string;
-}
+import CarrosselProps from './Carrossel.type';
 
 function Carrossel({ children, secao }: CarrosselProps) {
   const carrossel = useRef<any>();

@@ -3,10 +3,10 @@ import { CardDataContext, CardDataProvider } from "./CardData";
 import FavoritesProvider, { FavoritesContext } from "./Favorites";
 
 export {
-    AuthContext,
-    FavoritesContext,
-    CardDataContext,
-    AuthProvider,
-    CardDataProvider,
-    FavoritesProvider,
-}
+  AuthContext,
+  FavoritesContext,
+  CardDataContext,
+  AuthProvider,
+  CardDataProvider,
+  FavoritesProvider,
+};

@@ -4,25 +4,25 @@ import { numeroAleatorio } from "../../../utils"
 import { BackgroundModal, ModalBannerStyled } from './ModalBaner.style'
 import ModalBannerProps from './ModalBanner.type'
 
-function ModalBanner({movieNowPlayingData, setOpenModal, isOpen}: ModalBannerProps) {
-    const id = movieNowPlayingData.map((video: any) => video.id)
-    if(isOpen) {
-        return (
-            <BackgroundModal>
-                <ModalBannerStyled>
-                    <div className="ConteudoModal">
-                        <AiOutlineCloseCircle className="closeModal" onClick={setOpenModal} />
-                        <IframeVideo
-                            id ={id[numeroAleatorio]}
-                            autoplay='autoplay'
-                        />
-                    </div>
-                </ModalBannerStyled>
-            </BackgroundModal>
-        )
-    }
+function ModalBanner({ movieNowPlayingData, setOpenModal, isOpen }: ModalBannerProps) {
+  const id = movieNowPlayingData.map((video: any) => video.id)
+  if(isOpen) {
+    return (
+      <BackgroundModal>
+        <ModalBannerStyled>
+          <div className="ConteudoModal">
+            <AiOutlineCloseCircle className="closeModal" onClick={setOpenModal} />
+            <IframeVideo
+              id ={id[numeroAleatorio]}
+              autoplay='autoplay'
+            />
+          </div>
+        </ModalBannerStyled>
+      </BackgroundModal>
+    )
+  }
 
-    return null
+  return null
 }
 
 

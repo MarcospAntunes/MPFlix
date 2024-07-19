@@ -1,62 +1,60 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const BackgroundModal = styled.div`
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
-`
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+`;
 
 export const ModalBannerStyled = styled.div`
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #363636;
-    border-radius: 10px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #363636;
+  border-radius: 10px;
 
+  .ConteudoModal {
+    display: flex;
+    flex-direction: column;
+
+    iframe {
+      background-color: gray;
+      border-radius: 10px;
+      width: 660px;
+      height: 415px;
+    }
+
+    .closeModal {
+      position: absolute;
+      width: 42px;
+      height: 42px;
+      color: ${({ theme }) => theme.buttonText};
+      cursor: pointer;
+      right: 0;
+    }
+  }
+
+  @media screen and (max-width: 540px) {
+    left: 50%;
 
     .ConteudoModal {
-        display: flex;
-        flex-direction: column;
+      display: flex;
+      flex-direction: column;
 
-        iframe {
-            background-color: gray;
-            border-radius: 10px;
-            width: 660px; 
-            height: 415px; 
-        }
+      iframe {
+        width: 350px;
+        height: 350px;
+      }
 
-        .closeModal {
-            position: absolute;
-            width: 42px;
-            height: 42px;
-            color: ${({theme}) => theme.buttonText};
-            cursor: pointer;
-            right: 0;
-        }
+      .closeModal {
+        width: 32px;
+        height: 32px;
+      }
     }
-
-    @media screen and (max-width: 540px) {
-        
-        left: 50%;
-
-        .ConteudoModal {
-        display: flex;
-        flex-direction: column;
-
-            iframe {
-                width: 350px;
-                height: 350px;
-            }
-
-            .closeModal {
-                width: 32px;
-                height: 32px;
-            }
-        }
-    }
-`
+  }
+`;

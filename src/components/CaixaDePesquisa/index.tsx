@@ -1,29 +1,24 @@
 import { BiSearch } from 'react-icons/bi'
 import { DivBusca } from './CaixaDePesquisa.style'
-
-interface CaixaDePesquisaProps {
-    search: string
-    setSearch: React.Dispatch<React.SetStateAction<string>>
-}
+import CaixaDePesquisaProps from './CaixaDePesquisa.type'
 
 function chamarInput(): void {
-    const chamarInput: HTMLInputElement = document.querySelector('#textBusca')!
-    chamarInput.focus()
+  const chamarInput: HTMLInputElement = document.querySelector('#textBusca')!
+  chamarInput.focus()
 }
 
 function CaixaDePesquisa({ search, setSearch }: CaixaDePesquisaProps): JSX.Element {
-    
     return(
-        <DivBusca>
-            <BiSearch className="btnBusca" onClick={() => chamarInput()}/>
-            <input 
-                type="text" 
-                id="textBusca" 
-                placeholder="Search here"
-                value={search} 
-                onChange={(e) => setSearch(e.target.value)} 
-            />
-        </DivBusca>
+      <DivBusca>
+        <BiSearch className="btnBusca" onClick={() => chamarInput()}/>
+        <input 
+          type="text" 
+          id="textBusca" 
+          placeholder="Search here"
+          value={search} 
+          onChange={(e) => setSearch(e.target.value)} 
+        />
+      </DivBusca>
     )
 
 }

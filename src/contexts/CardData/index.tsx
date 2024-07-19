@@ -9,8 +9,7 @@ export function CardDataProvider({ children }: any) {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
 
   const setClickedCard = (data: CardDataProps | null) => {
-    setClickedCardData(data);
-    
+  setClickedCardData(data);
   };
 
   const setOpenModal = (isOpen: boolean) => {

@@ -3,25 +3,25 @@
   align-items: center;
   justify-content: center;
   width: 100% !important;
-  
+
   min-height: 300px;
   overflow: hidden;
   transition: ease-in;
   scroll-behavior: smooth;
-} 
+}
 
 .carrosselMobile {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 200px;
-    overflow: hidden;
-    cursor: grab;
-    transition: ease-in;
-    scroll-behavior: smooth;
-} 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  overflow: hidden;
+  cursor: grab;
+  transition: ease-in;
+  scroll-behavior: smooth;
+}
 
-.inner { 
+.inner {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -31,14 +31,15 @@
   margin: 40px 0 120px 0;
   text-align: center;
   list-style: none;
-  
+
 }
 
 @media screen and (max-width: 540px) {
   .carrosselMobile {
     margin-left: 20px;
   }
-  .inner { 
+
+  .inner {
     margin: 0;
     width: 100vw;
   }

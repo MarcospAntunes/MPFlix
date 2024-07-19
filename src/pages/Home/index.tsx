@@ -50,190 +50,188 @@ function Home(): JSX.Element {
   }, [dataLoaded]);
 
   return (
-    <>
-      <ContainerDivConteudoPrincipal>
-        <ImgStyled src={verificaFoto(user)} alt="usePhoto" onClick={() => setMenuIsVisible(true)} />
-        <MenuMobile menuIsVisible={menuIsVisible} setMenuIsVisible={setMenuIsVisible} />
-        <header>
-          <Menu />
-        </header>
-        
-        <MainHomeAndFavorites>
-          <Link to={'/browse'}><CaixaDePesquisa search={search} setSearch={setSearch} /></Link>
-          {!dataLoaded ? (
-            <ContainerCentralizado style={{width: "calc(100vw - 350px)"}}>
-              <LoadSpinner />
-            </ContainerCentralizado>
-          ) : (
-            <>
-              <SectionNowPlaying>
-                <Banner />
-                <aside>
-                  {movieNowPlaying.map((movie: movie, index: number) => (
-                    <CardNowPlaying
-                      key={`${movie.id}-${index}`}
-                      id={movie.id} 
-                      poster_path={movie.poster_path}
-                      title={movie.title}
-                      vote_average={movie.vote_average}
-                      release_date={movie.release_date}
-                    />
-                  ))}
-                </aside>
-              </SectionNowPlaying>
+    <ContainerDivConteudoPrincipal>
+      <ImgStyled src={verificaFoto(user)} alt="usePhoto" onClick={() => setMenuIsVisible(true)} />
+      <MenuMobile menuIsVisible={menuIsVisible} setMenuIsVisible={setMenuIsVisible} />
+      <header>
+        <Menu />
+      </header>
+      
+      <MainHomeAndFavorites>
+        <Link to={'/browse'}><CaixaDePesquisa search={search} setSearch={setSearch} /></Link>
+        {!dataLoaded ? (
+          <ContainerCentralizado style={{width: "calc(100vw - 350px)"}}>
+            <LoadSpinner />
+          </ContainerCentralizado>
+        ) : (
+          <>
+            <SectionNowPlaying>
+              <Banner />
+              <aside>
+                {movieNowPlaying.map((movie: movie, index: number) => (
+                  <CardNowPlaying
+                    key={`${movie.id}-${index}`}
+                    id={movie.id} 
+                    poster_path={movie.poster_path}
+                    title={movie.title}
+                    vote_average={movie.vote_average}
+                    release_date={movie.release_date}
+                  />
+                ))}
+              </aside>
+            </SectionNowPlaying>
 
-              <section> {/* Seção dos filmes */}
-                <Carrossel secao = 'Trending'>
-                  {movieTrendingData.map((movie: movie, index) => (
-                    <Card
-                      key={`${movie.id}-${index}`}
-                      id = {movie.id}
-                      genre_ids = {movie.genre_ids}
-                      poster = {movie.poster_path}
-                      title = {movie.title}
-                      release_date = {movie.release_date}
-                      overview = {movie.overview}
-                      vote_average = {movie.vote_average}
-                    /> 
-                  ))}
-                </Carrossel>
-                <Carrossel secao = 'Discover'>
-                  {movieDiscoverData.map((movie: movie, index) => (
-                    <Card
-                      key={`${movie.id}-${index}`}
-                      id = {movie.id}
-                      genre_ids = {movie.genre_ids}
-                      poster = {movie.poster_path}
-                      title = {movie.title}
-                      release_date = {movie.release_date}
-                      overview = {movie.overview}
-                      vote_average = {movie.vote_average}
-                    /> 
-                  ))}
-                </Carrossel>
-                <Carrossel secao = 'Action'>
-                  {genreMovies.action.map((movie: movie, index) => (
-                    <Card
-                      key={`${movie.id}-${index}`}
-                      id = {movie.id}
-                      genre_ids = {movie.genre_ids}
-                      poster = {movie.poster_path}
-                      title = {movie.title}
-                      release_date = {movie.release_date}
-                      overview = {movie.overview}
-                      vote_average = {movie.vote_average}
-                    /> 
-                  ))}
-                </Carrossel>
-                <Carrossel secao = 'Adeventure'>
-                  {genreMovies.adventure.map((movie: movie, index) => (
-                    <Card
-                      key={`${movie.id}-${index}`}
-                      id = {movie.id}
-                      genre_ids = {movie.genre_ids}
-                      poster = {movie.poster_path}
-                      title = {movie.title}
-                      release_date = {movie.release_date}
-                      overview = {movie.overview}
-                      vote_average = {movie.vote_average}
-                    /> 
-                  ))}
-                </Carrossel>
-                <Carrossel secao = 'Animation'>
-                  {genreMovies.animation.map((movie: movie, index) => (
-                    <Card
-                      key={`${movie.id}-${index}`}
-                      id = {movie.id}
-                      genre_ids = {movie.genre_ids}
-                      poster = {movie.poster_path}
-                      title = {movie.title}
-                      release_date = {movie.release_date}
-                      overview = {movie.overview}
-                      vote_average = {movie.vote_average}
-                    /> 
-                  ))}
-                </Carrossel>
-                <Carrossel secao = 'Comedy'>
-                  {genreMovies.comedy.map((movie: movie, index) => (
-                    <Card
-                      key={`${movie.id}-${index}`}
-                      id = {movie.id}
-                      genre_ids = {movie.genre_ids}
-                      poster = {movie.poster_path}
-                      title = {movie.title}
-                      release_date = {movie.release_date}
-                      overview = {movie.overview}
-                      vote_average = {movie.vote_average}
-                    /> 
-                  ))}
-                </Carrossel>
-                <Carrossel secao = 'Crime'>
-                  {genreMovies.crime.map((movie: movie, index) => (
-                    <Card
-                      key={`${movie.id}-${index}`}
-                      id = {movie.id}
-                      genre_ids = {movie.genre_ids}
-                      poster = {movie.poster_path}
-                      title = {movie.title}
-                      release_date = {movie.release_date}
-                      overview = {movie.overview}
-                      vote_average = {movie.vote_average}
-                    /> 
-                  ))}
-                </Carrossel>
-                <Carrossel secao = 'Drama'>
-                  {genreMovies.drama.map((movie: movie, index) => (
-                    <Card
-                      key={`${movie.id}-${index}`}
-                      id = {movie.id}
-                      genre_ids = {movie.genre_ids}
-                      poster = {movie.poster_path}
-                      title = {movie.title}
-                      release_date = {movie.release_date}
-                      overview = {movie.overview}
-                      vote_average = {movie.vote_average}
-                    /> 
-                  ))}
-                </Carrossel>
-                <Carrossel secao = 'Horror'>
-                  {genreMovies.horror.map((movie: movie, index) => (
-                    <Card
-                      key={`${movie.id}-${index}`}
-                      id = {movie.id}
-                      genre_ids = {movie.genre_ids}
-                      poster = {movie.poster_path}
-                      title = {movie.title}
-                      release_date = {movie.release_date}
-                      overview = {movie.overview}
-                      vote_average = {movie.vote_average}
-                    /> 
-                  ))}
-                </Carrossel>
-                <Carrossel secao = 'Science Fiction'>
-                  {genreMovies.scienceFiction.map((movie: movie, index) => (
-                    <Card
-                      key={`${movie.id}-${index}`}
-                      id = {movie.id}
-                      genre_ids = {movie.genre_ids}
-                      poster = {movie.poster_path}
-                      title = {movie.title}
-                      release_date = {movie.release_date}
-                      overview = {movie.overview}
-                      vote_average = {movie.vote_average}
-                    /> 
-                  ))}
-                </Carrossel>
-                <ModalMovie />
-              </section>
-            </>
-          )}
-        </MainHomeAndFavorites>
-        <FooterStyled>
-          <h2>Developed by Marcos Antunes</h2>
-          <h2>Design based on design made by <a href="https://dribbble.com/apurple" target="_blank">aPurple</a></h2>
-        </FooterStyled>
-      </ContainerDivConteudoPrincipal>   
-    </>
+            <section> {/* Seção dos filmes */}
+              <Carrossel secao = 'Trending'>
+                {movieTrendingData.map((movie: movie, index) => (
+                  <Card
+                    key={`${movie.id}-${index}`}
+                    id = {movie.id}
+                    genre_ids = {movie.genre_ids}
+                    poster = {movie.poster_path}
+                    title = {movie.title}
+                    release_date = {movie.release_date}
+                    overview = {movie.overview}
+                    vote_average = {movie.vote_average}
+                  /> 
+                ))}
+              </Carrossel>
+              <Carrossel secao = 'Discover'>
+                {movieDiscoverData.map((movie: movie, index) => (
+                  <Card
+                    key={`${movie.id}-${index}`}
+                    id = {movie.id}
+                    genre_ids = {movie.genre_ids}
+                    poster = {movie.poster_path}
+                    title = {movie.title}
+                    release_date = {movie.release_date}
+                    overview = {movie.overview}
+                    vote_average = {movie.vote_average}
+                  /> 
+                ))}
+              </Carrossel>
+              <Carrossel secao = 'Action'>
+                {genreMovies.action.map((movie: movie, index) => (
+                  <Card
+                    key={`${movie.id}-${index}`}
+                    id = {movie.id}
+                    genre_ids = {movie.genre_ids}
+                    poster = {movie.poster_path}
+                    title = {movie.title}
+                    release_date = {movie.release_date}
+                    overview = {movie.overview}
+                    vote_average = {movie.vote_average}
+                  /> 
+                ))}
+              </Carrossel>
+              <Carrossel secao = 'Adeventure'>
+                {genreMovies.adventure.map((movie: movie, index) => (
+                  <Card
+                    key={`${movie.id}-${index}`}
+                    id = {movie.id}
+                    genre_ids = {movie.genre_ids}
+                    poster = {movie.poster_path}
+                    title = {movie.title}
+                    release_date = {movie.release_date}
+                    overview = {movie.overview}
+                    vote_average = {movie.vote_average}
+                  /> 
+                ))}
+              </Carrossel>
+              <Carrossel secao = 'Animation'>
+                {genreMovies.animation.map((movie: movie, index) => (
+                  <Card
+                    key={`${movie.id}-${index}`}
+                    id = {movie.id}
+                    genre_ids = {movie.genre_ids}
+                    poster = {movie.poster_path}
+                    title = {movie.title}
+                    release_date = {movie.release_date}
+                    overview = {movie.overview}
+                    vote_average = {movie.vote_average}
+                  /> 
+                ))}
+              </Carrossel>
+              <Carrossel secao = 'Comedy'>
+                {genreMovies.comedy.map((movie: movie, index) => (
+                  <Card
+                    key={`${movie.id}-${index}`}
+                    id = {movie.id}
+                    genre_ids = {movie.genre_ids}
+                    poster = {movie.poster_path}
+                    title = {movie.title}
+                    release_date = {movie.release_date}
+                    overview = {movie.overview}
+                    vote_average = {movie.vote_average}
+                  /> 
+                ))}
+              </Carrossel>
+              <Carrossel secao = 'Crime'>
+                {genreMovies.crime.map((movie: movie, index) => (
+                  <Card
+                    key={`${movie.id}-${index}`}
+                    id = {movie.id}
+                    genre_ids = {movie.genre_ids}
+                    poster = {movie.poster_path}
+                    title = {movie.title}
+                    release_date = {movie.release_date}
+                    overview = {movie.overview}
+                    vote_average = {movie.vote_average}
+                  /> 
+                ))}
+              </Carrossel>
+              <Carrossel secao = 'Drama'>
+                {genreMovies.drama.map((movie: movie, index) => (
+                  <Card
+                    key={`${movie.id}-${index}`}
+                    id = {movie.id}
+                    genre_ids = {movie.genre_ids}
+                    poster = {movie.poster_path}
+                    title = {movie.title}
+                    release_date = {movie.release_date}
+                    overview = {movie.overview}
+                    vote_average = {movie.vote_average}
+                  /> 
+                ))}
+              </Carrossel>
+              <Carrossel secao = 'Horror'>
+                {genreMovies.horror.map((movie: movie, index) => (
+                  <Card
+                    key={`${movie.id}-${index}`}
+                    id = {movie.id}
+                    genre_ids = {movie.genre_ids}
+                    poster = {movie.poster_path}
+                    title = {movie.title}
+                    release_date = {movie.release_date}
+                    overview = {movie.overview}
+                    vote_average = {movie.vote_average}
+                  /> 
+                ))}
+              </Carrossel>
+              <Carrossel secao = 'Science Fiction'>
+                {genreMovies.scienceFiction.map((movie: movie, index) => (
+                  <Card
+                    key={`${movie.id}-${index}`}
+                    id = {movie.id}
+                    genre_ids = {movie.genre_ids}
+                    poster = {movie.poster_path}
+                    title = {movie.title}
+                    release_date = {movie.release_date}
+                    overview = {movie.overview}
+                    vote_average = {movie.vote_average}
+                  /> 
+                ))}
+              </Carrossel>
+              <ModalMovie />
+            </section>
+          </>
+        )}
+      </MainHomeAndFavorites>
+      <FooterStyled>
+        <h2>Developed by Marcos Antunes</h2>
+        <h2>Design based on design made by <a href="https://dribbble.com/apurple" target="_blank">aPurple</a></h2>
+      </FooterStyled>
+    </ContainerDivConteudoPrincipal>   
   )
 }
 

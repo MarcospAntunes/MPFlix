@@ -4,20 +4,20 @@ import { useCardData } from "../../hooks"
 import { CardDataProps } from '../../interfaces'
 
 function Card({id, genre_ids, poster, title, release_date, overview, vote_average}: CardDataProps): JSX.Element {
-    const { setOpenModal, setClickedCard }: any = useCardData()
+  const { setOpenModal, setClickedCard }: any = useCardData()
 
-    const handleCardClick = () => {
-        setClickedCard({id, genre_ids, poster, title, release_date, overview, vote_average})
-        setOpenModal(true)
-    }
+  const handleCardClick = () => {
+    setClickedCard({id, genre_ids, poster, title, release_date, overview, vote_average})
+    setOpenModal(true)
+  }
 
-    return(
-        <>
-            <motion.li className="itens" style={{height: '100%'}}>
-            <ImgStyled src={`https://image.tmdb.org/t/p/w300/${poster}`} onClick={handleCardClick}/>
-            </motion.li>   
-        </>
-    )
+  return(
+    <>
+      <motion.li className="itens" style={{height: '100%'}}>
+      <ImgStyled src={`https://image.tmdb.org/t/p/w300/${poster}`} onClick={handleCardClick}/>
+      </motion.li>   
+    </>
+  )
 }
 
 export default Card

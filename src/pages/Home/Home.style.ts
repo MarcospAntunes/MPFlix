@@ -1,5 +1,4 @@
-import styled from "styled-components"
-
+import styled from "styled-components";
 
 export const SectionNowPlaying = styled.section`
   width: calc(100vw - 350px);
@@ -33,4 +32,4 @@ export const SectionNowPlaying = styled.section`
       display: none;
     }
   }
-`
+`;

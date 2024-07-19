@@ -4,11 +4,11 @@ export const FavoritesContext = createContext<any>("")
 FavoritesContext.displayName = "myFavorites"
 
 export default function FavoritesProvider({ children }: any) { 
-    const [favorite, setFavorite] = useState([])
+  const [favorite, setFavorite] = useState([])
 
-    return (
-        <FavoritesContext.Provider value={{ favorite, setFavorite }}>
-            {children}
-        </FavoritesContext.Provider>
-    )
+  return (
+    <FavoritesContext.Provider value={{ favorite, setFavorite }}>
+      {children}
+    </FavoritesContext.Provider>
+  )
 }
