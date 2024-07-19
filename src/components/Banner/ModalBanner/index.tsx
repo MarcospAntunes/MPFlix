@@ -5,7 +5,7 @@ import { BackgroundModal, ModalBannerStyled } from './ModalBaner.style'
 import ModalBannerProps from './ModalBanner.type'
 
 function ModalBanner({ movieNowPlayingData, setOpenModal, isOpen }: ModalBannerProps) {
-  const id = movieNowPlayingData.map((video: any) => video.id)
+  const id = movieNowPlayingData.map((video) => video.id)
   if(isOpen) {
     return (
       <BackgroundModal>

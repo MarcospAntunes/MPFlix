@@ -4,7 +4,7 @@ import { useState } from 'react'
 import CardNowPlayingProps from "./CaradNowPlaying.type"
 
 function CardNowPlaying({ id, poster_path, title, vote_average, release_date}: CardNowPlayingProps): JSX.Element {
-  const [openModal, setOpenModal] = useState(false)
+  const [openModal, setOpenModal] = useState<boolean>(false)
 
   return (
     <ContainerCardNowPlaying>

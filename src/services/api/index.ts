@@ -1,11 +1,12 @@
 import axios from "axios";
+import { movie } from "../../interfaces";
 
 const api_key = "4fdd778d99f4d99cdcd4b7b84dafb119";
 
 // Seção Trending
 export async function getTrendingMovieData(
   type: string,
-  setMovieTrendingData: any
+  setMovieTrendingData: React.Dispatch<React.SetStateAction<movie[]>>
 ): Promise<void> {
   try {
     const response = await axios.get(
@@ -101,7 +102,7 @@ export async function getAllMovies(
 // Videos dos filmes
 export async function getVideosMovieData(
   type: string,
-  setVideosMovieData: any,
+  setVideosMovieData: React.Dispatch<React.SetStateAction<movie[]>>,
   movie_id: number
 ): Promise<void> {
   try {

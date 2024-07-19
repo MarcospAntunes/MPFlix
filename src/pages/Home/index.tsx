@@ -31,9 +31,9 @@ function Home(): JSX.Element {
   const [movieDiscoverData, setMovieDiscoverData] = useState<movie[]>([])
   const [allMovies, setAllMovies] = useState<movie[]>([])
   const [movieNowPlayingData, setMovieNowPlayingData] = useState<movie[]>([])
-  const [menuIsVisible, setMenuIsVisible] = useState(false)
-  const [dataLoaded, setDataLoaded] = useState(false);
-  const [search, setSearch] = useState('')
+  const [menuIsVisible, setMenuIsVisible] = useState<boolean>(false)
+  const [dataLoaded, setDataLoaded] = useState<boolean>(false);
+  const [search, setSearch] = useState<string>('')
   const user: any = useAuth()
 
   const genreMovies: { [key: string]: any[] } = {}

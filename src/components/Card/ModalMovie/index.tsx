@@ -12,12 +12,12 @@ function ModalMovie(): JSX.Element | null {
   const { clickedCardData, setOpenModal, modalOpen }: any = useCardData();
 
   const closeModal = () => {
-      setOpenModal(false)
+    setOpenModal(false)
   }
 
   const [movieGenreData, setMovieGenreData] = useState<any[]>([])
   useEffect(() => {
-      getMovieGenreData("movie", setMovieGenreData)
+    getMovieGenreData("movie", setMovieGenreData)
   }, [])
 
   const { favorite, addFavorite } = useFavorite()

@@ -1,20 +1,20 @@
 import { NavigateFunction } from "react-router-dom";
 
-interface functionsProps {
+interface functionsProps<T> {
   event?: React.ChangeEvent<HTMLInputElement>;
   setUser?: React.Dispatch<
     React.SetStateAction<{
-      name: any;
-      email: any;
-      password: any;
-      photoUrl: any;
+      name: string;
+      email: string;
+      password: string;
+      photoUrl: T;
     }>
   >;
   user?: {
-    name: any;
-    email: any;
-    password: any;
-    photoUrl: any;
+    name: string;
+    email: string;
+    password: string;
+    photoUrl: T;
   };
   navigate?: NavigateFunction;
 }

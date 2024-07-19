@@ -1,5 +1,7 @@
+import { movie } from "../../../interfaces";
+
 interface ModalBannerProps {
-  movieNowPlayingData: any[];
+  movieNowPlayingData: movie[];
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   isOpen: boolean;
 }

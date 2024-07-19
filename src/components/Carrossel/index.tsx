@@ -10,7 +10,7 @@ import { movie } from '../../interfaces';
 function Carrossel({ secao, data }: CarrosselProps) {
   const carrossel = useRef<any>();
   const [width, setWidth] = useState<number>(0);
-  const [larguraDaTela, setLarguraDaTela] = useState(window.innerWidth);
+  const [larguraDaTela, setLarguraDaTela] = useState<number>(window.innerWidth);
 
   ResizeCarrosselWidth({setLarguraDaTela, useEffect})
 

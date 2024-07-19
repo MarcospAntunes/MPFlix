@@ -3,18 +3,17 @@ import { useEffect, useState } from "react"
 import ModalBanner from "./ModalBanner"
 import { numeroAleatorio } from "../../utils"
 import { DivBanner } from "./Banner.style"
-
-
+import { movie } from "../../interfaces"
 
 function Banner(): JSX.Element {
-  const [movieNowPlayingData, setMovieNowPlayingData] = useState<any>([])
+  const [movieNowPlayingData, setMovieNowPlayingData] = useState<movie[]>([])
   const [openModal, setOpenModal] = useState(false)
 
   useEffect(() => {
   getNowPlayingMovieData("movie", setMovieNowPlayingData)
     }, [])
 
-    const poster = movieNowPlayingData.map((poster: any) => {
+    const poster = movieNowPlayingData.map((poster) => {
       return poster.poster_path
     })
 

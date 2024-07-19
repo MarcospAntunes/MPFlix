@@ -11,7 +11,7 @@ import { MenuMobileProps } from "./MenuMobile.type"
 function MenuMobile({ menuIsVisible, setMenuIsVisible }: MenuMobileProps) {
   const { logOut }: any = useAuth()
   const navigate = useNavigate()
-  const user: any = useAuth()
+  const user = useAuth()
   
   return(
     <MenuMobileStyled isvisible={menuIsVisible ? menuIsVisible.toString() : undefined}>

@@ -13,7 +13,7 @@ function FavoriteList({id, genre_ids, poster, title, release_date, overview, vot
   return(
     <>
       <li className="itens" style={{height: '100%'}}>
-      <ImgStyled src={`https://image.tmdb.org/t/p/w300/${poster}`} onClick={handleCardClick}/>
+        <ImgStyled src={`https://image.tmdb.org/t/p/w300/${poster}`} onClick={handleCardClick}/>
       </li>
     </>
   )

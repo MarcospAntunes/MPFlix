@@ -10,7 +10,7 @@ import { verificaFoto, verificaNome } from "../../utils/userFunctions";
 function Menu(): JSX.Element {
   const { logOut }: any = useAuth()
   const navigate = useNavigate()
-  const user: any = useAuth()
+  const user = useAuth()
   
   return(
     <MenuStyled>

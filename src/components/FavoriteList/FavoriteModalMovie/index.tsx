@@ -27,7 +27,7 @@ function FavoriteModalMovie(): JSX.Element | null {
     
     const genres = returnGenres({movieGenreData, genre_ids})
 
-    const isFavorite = favorite.some((fav: movie) => fav.id === id)
+    const isFavorite: boolean = favorite.some((fav: movie) => fav.id === id)
 
     return (
       <BackgroundModal>
