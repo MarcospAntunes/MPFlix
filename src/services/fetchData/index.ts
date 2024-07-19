@@ -1,4 +1,4 @@
-import { getAllMovies, getDiscoverMovieData, getNowPlayingMovieData, getTrendingMovieData } from "./api";
+import { getAllMovies, getDiscoverMovieData, getNowPlayingMovieData, getTrendingMovieData } from "../api";
 
 interface fetchDataProps {
     setMovieTrendingData: React.Dispatch<React.SetStateAction<any[]>>

@@ -1,9 +1,5 @@
-import { movie } from "../interfaces/movie"
-
-interface returnGenresProps {
-    movieGenreData: any[]
-    genre_ids: any
-}
+import { movie } from "../../interfaces/movie"
+import returnGenresProps from "./returnGenres.type"
 
 function returnGenres({movieGenreData, genre_ids}: returnGenresProps) {
     const genres = movieGenreData.map((genre) => genre_ids.find((id: number) => genre.id == id))

@@ -1,5 +1,5 @@
 import ModalBanner from "./ModalNowPlaying"
-import { ContainerCardNowPlaying } from "./style"
+import { ContainerCardNowPlaying } from "./CardNowPlaying.style"
 import { useState } from 'react'
 
 interface CardNowPlayingProps {

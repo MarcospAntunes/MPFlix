@@ -1,15 +1,6 @@
-import { ImgStyled } from "./styles"
-import { useCardData } from "../../hooks/useCard"
-
-interface CardProps {
-    id: number
-    genre_ids: number[]
-    poster: string
-    title: string
-    release_date: string
-    overview: string
-    vote_average: number
-}
+import { ImgStyled } from "./FavoriteList.style"
+import { useCardData } from "../../hooks"
+import CardProps from "./favoriteList.type"
 
 function FavoriteList({id, genre_ids, poster, title, release_date, overview, vote_average}: CardProps): JSX.Element {
     const { setOpenModal, setClickedCard }: any = useCardData()

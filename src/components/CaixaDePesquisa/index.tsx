@@ -1,5 +1,5 @@
 import { BiSearch } from 'react-icons/bi'
-import { DivBusca } from './styles'
+import { DivBusca } from './CaixaDePesquisa.style'
 
 interface CaixaDePesquisaProps {
     search: string

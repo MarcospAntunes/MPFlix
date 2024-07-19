@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { AiOutlineEdit } from 'react-icons/ai';
-import { InputStyled } from '../../../../components/Form/Input';
-import { Botao } from '../../../../components/Botao';
-import useAuth from '../../../../hooks/useAuth';
-import { AccountMenuStyled } from './style';
+import { InputStyled, Botao } from '../../../../components';
+import { useAuth } from '../../../../hooks';
+import { AccountMenuStyled } from './Account.style';
 import { useNavigate } from 'react-router-dom'; 
 import defaultPhoto from '../../../../assets/user.png'
-import { deleteAccount, enableEdition, handleInputChange, handlePhotoChange, saveChanges } from '../../../../utils/accountActions';
+import { deleteAccount, enableEdition, handleInputChange, handlePhotoChange, saveChanges } from '../../../../utils';
 
 function Account(): JSX.Element {
   const userData: any = useAuth();

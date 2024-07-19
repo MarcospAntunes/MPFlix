@@ -3,8 +3,8 @@ import { AiFillHome, AiOutlineGlobal } from 'react-icons/ai'
 import { MdFavorite } from 'react-icons/md'
 import { SlOptionsVertical } from 'react-icons/sl'
 import { IoSettingsSharp, IoLogOutSharp } from 'react-icons/io5'
-import { MenuStyled } from "./styles";
-import useAuth from "../../hooks/useAuth";
+import { MenuStyled } from "./Menu.style";
+import { useAuth } from "../../hooks";
 import { verificaFoto, verificaNome } from "../../utils/userFunctions";
 
 function Menu(): JSX.Element {

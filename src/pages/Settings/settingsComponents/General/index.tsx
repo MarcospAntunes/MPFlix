@@ -1,4 +1,4 @@
-import { GeneralMenuStyled } from "./style"
+import { GeneralMenuStyled } from "./General.style"
 
 interface GeneralProps {
     themeToggler: (target: string) => void

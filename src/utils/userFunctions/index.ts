@@ -1,4 +1,4 @@
-import defaultPhoto from '../assets/user.png'
+import defaultPhoto from '../../assets/user.png'
 
 export function verificaFoto(user: any) {
     const photo: string = user.user.photoUrl ? user.user.photoUrl : defaultPhoto

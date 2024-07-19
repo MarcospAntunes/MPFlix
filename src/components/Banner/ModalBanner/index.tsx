@@ -1,13 +1,8 @@
 import { AiOutlineCloseCircle } from 'react-icons/ai'
 import IframeVideo from "../../IframeVideo"
-import { numeroAleatorio } from "../../../utils/numeroAleatorio"
-import { BackgroundModal, ModalBannerStyled } from './styles'
-
-interface ModalBannerProps {
-    movieNowPlayingData: any[] 
-    setOpenModal: React.Dispatch<React.SetStateAction<boolean>>
-    isOpen: boolean
-}
+import { numeroAleatorio } from "../../../utils"
+import { BackgroundModal, ModalBannerStyled } from './ModalBaner.style'
+import ModalBannerProps from './ModalBanner.type'
 
 function ModalBanner({movieNowPlayingData, setOpenModal, isOpen}: ModalBannerProps) {
     const id = movieNowPlayingData.map((video: any) => video.id)

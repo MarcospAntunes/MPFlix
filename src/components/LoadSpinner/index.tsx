@@ -1,4 +1,4 @@
-import { LoadSpinnerStyled } from "./style"
+import { LoadSpinnerStyled } from "./LoadSpinner.style"
 
 function LoadSpinner() {
     return(

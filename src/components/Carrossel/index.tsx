@@ -1,10 +1,9 @@
 import { motion } from 'framer-motion';
 import styles from './Carrossel.module.css';
 import { useEffect, useRef, useState } from 'react';
-import BotaoCarrossel from '../BotaoCarrossel';
+import {BotaoCarrossel, ContainerDivParaTituloDosVideos } from '../index';
 import { FaGreaterThan, FaLessThan } from 'react-icons/fa';
-import { ContainerDivParaTituloDosVideos } from '../Containers/ContainerDiv';
-import { ResizeCarrosselWidth, handleScroll } from '../../utils/resizeCarrosselFunction';
+import { ResizeCarrosselWidth, handleScroll } from '../../utils';
 
 interface CarrosselProps {
   children: any;

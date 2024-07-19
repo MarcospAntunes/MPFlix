@@ -1,18 +1,20 @@
-import CaixaDePesquisa from "../../components/CaixaDePesquisa"
-import ModalMovie from "../../components/Card/ModalMovie"
-import { ContainerDivConteudoPrincipal } from "../../components/Containers/ContainerDiv"
-import { MainHomeAndFavorites } from "../../components/Containers/containerMain"
-import { FooterStyled } from "../../components/Footer"
-import Menu from "../../components/Menu"
-import MenuMobile from "../../components/MenuMobile"
-import { ImgStyled } from "../../components/UserImg"
-import useAuth from "../../hooks/useAuth"
+import { useAuth } from "../../hooks/"
 import { getAllMovies } from "../../services/api"
 import { useState, useEffect, useMemo } from 'react'
 import { movie } from "../../interfaces/movie"
-import Card from "../../components/Card"
-import { ListMoviesBrowse } from "./styles"
-import { verificaFoto } from "../../utils/userFunctions"
+import { ListMoviesBrowse } from "./Browse.style"
+import { verificaFoto } from "../../utils"
+import { 
+    CaixaDePesquisa, 
+    ModalMovie, 
+    ContainerDivConteudoPrincipal, 
+    MainHomeAndFavorites, 
+    FooterStyled, 
+    Menu, 
+    MenuMobile, 
+    ImgStyled,
+    Card 
+} from "../../components"
 
 function Browse(): JSX.Element {
     const [allMovies, setAllMovies] = useState<any[]>([])

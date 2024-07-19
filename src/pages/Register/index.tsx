@@ -1,12 +1,9 @@
 import { Link, useNavigate } from "react-router-dom"
-import { ContainerCentralizado } from "../../components/Containers/ContainerDiv"
-import Form from "../../components/Form"  
-import { InputStyled } from "../../components/Form/Input"
-import { ParagraphError } from "./styles"
+import { ParagraphError } from "./Register.style"
 import { useState } from 'react'
-import useAuth from "../../hooks/useAuth"
-import ErrorMessage from "../../components/Form/ErrorMessage"
-import { handleRegister } from "../../utils/validaFormFunctions"
+import { useAuth } from "../../hooks"
+import { handleRegister } from "../../utils"
+import { ContainerCentralizado, Form, InputStyled, ErrorMessage } from "../../components"
 
 function Register() {
   const [name, setName] = useState("")

@@ -1,9 +1,8 @@
-import {useState} from 'react'
-import { SettingsContent } from './style'
+import { useState } from 'react'
+import { SettingsContent } from './Settings.style'
 import { AiOutlineRight } from 'react-icons/ai'
 import { IoChevronBackCircleOutline } from 'react-icons/io5'
-import General from './settingsComponents/General'
-import Account from './settingsComponents/Account'
+import { General, Account } from './settingsComponents'
 
 interface settingsProps {
     themeToggler: () => void

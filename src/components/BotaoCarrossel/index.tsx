@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { ButtonCarrossel, ButtonCarrosselOff } from './style'
+import { ButtonCarrossel, ButtonCarrosselOff } from './BotaoCarrossel.style'
  
 
 interface BotaoCarrosselProps {

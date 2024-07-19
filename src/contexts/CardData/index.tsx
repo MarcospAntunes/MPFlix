@@ -1,13 +1,6 @@
 import { createContext, useState } from 'react';
-import { CardDataProps } from '../interfaces/cardData';
-
-interface CardDataContextType {
-  clickedCardData: CardDataProps | null;
-  setOpenModal: (isOpen: boolean) => void;
-  openModal: () => void;
-  modalOpen: boolean;
-  setClickedCard: (data: CardDataProps | null) => void;
-}
+import { CardDataProps } from '../../interfaces';
+import CardDataContextType from './CardData.type';
 
 export const CardDataContext = createContext<CardDataContextType | null>(null);
 

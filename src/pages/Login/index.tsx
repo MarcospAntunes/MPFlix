@@ -1,11 +1,13 @@
-import { ContainerCentralizado } from "../../components/Containers/ContainerDiv"
-import { InputStyled } from "../../components/Form/Input"
-import Form from "../../components/Form"
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from 'react'
-import useAuth from "../../hooks/useAuth"
-import ErrorMessage from "../../components/Form/ErrorMessage"
-import { handleLogin } from "../../utils/validaFormFunctions"
+import { useAuth } from "../../hooks"
+import { handleLogin } from "../../utils"
+import { 
+  ContainerCentralizado, 
+  Form, 
+  InputStyled, 
+  ErrorMessage 
+} from "../../components"
 
 function Login() {
   const { login }: any = useAuth()

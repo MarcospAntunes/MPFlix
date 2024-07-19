@@ -1,6 +1,5 @@
 import { useContext } from "react";
-import { CardDataContext } from "../contexts/CardData";
-
+import { CardDataContext } from "../../contexts";
 
 export function useCardData() {
     const context = useContext(CardDataContext);

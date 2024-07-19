@@ -1,20 +1,20 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Start from "./pages/Start"
-import Register from "./pages/Register"
-import Login from "./pages/Login"
-import Home from "./pages/Home"
 import GlobalStyles from "./GlobalStyles"
-import { AuthProvider } from "./contexts/auth"
-import useAuth from "./hooks/useAuth"
-import Settings from "./pages/Settings"
-import FavoritesProvider from "./contexts/Favorites"
-import { CardDataProvider } from "./contexts/CardData"
 import { useState } from "react"
 import { ThemeProvider } from "styled-components"
 import { darkTheme, lightTheme } from "./themes"
-import Favorites from "./pages/Favorites"
-import Browse from "./pages/Browse"
-import Error404 from "./pages/404"
+import { AuthProvider, FavoritesProvider, CardDataProvider } from "./contexts"
+import { useAuth } from "./hooks"
+import { 
+  Browse, 
+  Favorites, 
+  Home, 
+  Login, 
+  Register, 
+  Settings, 
+  Start, 
+  Error404 
+} from "./pages"
 
 interface PrivateProps {
   Item: any

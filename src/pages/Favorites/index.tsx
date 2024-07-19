@@ -1,17 +1,18 @@
 import { useState } from 'react'
-import Menu from '../../components/Menu'
-import MenuMobile from '../../components/MenuMobile'
-import useAuth from '../../hooks/useAuth'
-import { useFavorite } from '../../hooks/useFavorite'
-import { ContainerDivConteudoPrincipal } from '../../components/Containers/ContainerDiv'
-import { MainHomeAndFavorites } from '../../components/Containers/containerMain'
-import { ImgStyled } from '../../components/UserImg'
-import { FooterStyled } from '../../components/Footer'
+import { useAuth, useFavorite } from '../../hooks'
 import { CardDataProps } from '../../interfaces/cardData'
-import FavoriteList from '../../components/FavoriteList'
-import FavoriteModalMovie from '../../components/FavoriteList/FavoriteModalMovie'
-import { FavoriteListStyled, FavoriteSection } from './styles'
-import { verificaFoto } from '../../utils/userFunctions'
+import { FavoriteListStyled, FavoriteSection } from './Favorites.style'
+import { verificaFoto } from '../../utils'
+import { 
+    MenuMobile, 
+    Menu,
+    ContainerDivConteudoPrincipal, 
+    MainHomeAndFavorites, 
+    ImgStyled, 
+    FooterStyled, 
+    FavoriteList, 
+    FavoriteModalMovie 
+} from "./../../components"
 
 function Favorites() {
     const [menuIsVisible, setMenuIsVisible] = useState(false)

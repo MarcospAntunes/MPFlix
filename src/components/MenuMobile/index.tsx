@@ -3,9 +3,9 @@ import { IoLogOutSharp, IoSettingsSharp } from "react-icons/io5"
 import { MdFavorite } from "react-icons/md"
 import { SlOptionsVertical } from "react-icons/sl"
 import { NavLink, useNavigate } from "react-router-dom"
-import { MenuMobileStyled } from "./styles"
-import useAuth from "../../hooks/useAuth"
-import { verificaFoto, verificaNome } from "../../utils/userFunctions"
+import { MenuMobileStyled } from "./MenuMobile.style"
+import { useAuth } from "../../hooks"
+import { verificaFoto, verificaNome } from "../../utils"
 
 interface MenuMobileProps {
     menuIsVisible: boolean

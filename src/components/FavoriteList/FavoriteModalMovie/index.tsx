@@ -2,12 +2,11 @@ import { AiOutlineCloseCircle } from 'react-icons/ai'
 import IframeVideo from "../../IframeVideo"
 import { useEffect, useState } from "react"
 import { getMovieGenreData } from "../../../services/api"
-import { BackgroundModal, ModalStyled } from './styles'
-import { useFavorite } from '../../../hooks/useFavorite'
+import { BackgroundModal, ModalStyled } from './FavoriteModalMovie.style'
+import { useFavorite, useCardData } from '../../../hooks'
 import { MdFavorite, MdFavoriteBorder } from 'react-icons/md'
-import { useCardData } from '../../../hooks/useCard'
 import { movie } from '../../../interfaces/movie'
-import returnGenres from '../../../utils/returnGenres'
+import { returnGenres } from '../../../utils'
 
 function FavoriteModalMovie(): JSX.Element | null {
     const { clickedCardData, setOpenModal, modalOpen }: any = useCardData();

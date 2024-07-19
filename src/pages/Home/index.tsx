@@ -1,25 +1,31 @@
-import Banner from "../../components/Banner"
-import CaixaDePesquisa from "../../components/CaixaDePesquisa"
-import { ContainerCentralizado, ContainerDivConteudoPrincipal } from "../../components/Containers/ContainerDiv"
-import Menu from "../../components/Menu"
 import { useState, useEffect } from 'react'
-import Card from "../../components/Card"
-import Carrossel from "../../components/Carrossel"
-import MenuMobile from "../../components/MenuMobile"
-import filterMoviesByGenre, { genreIdsToNames } from "../../utils/filterMoviesByGenre"
-import { SectionNowPlaying } from "./styles"
-import useAuth from "../../hooks/useAuth"
-import CardNowPlaying from "../../components/CardNowPlaying"
-import { numeroAleatorio } from "../../utils/numeroAleatorio"
-import ModalMovie from "../../components/Card/ModalMovie"
-import { MainHomeAndFavorites } from "../../components/Containers/containerMain"
-import { ImgStyled } from "../../components/UserImg"
-import { FooterStyled } from "../../components/Footer"
+import { SectionNowPlaying } from "./Home.style"
+import { useAuth } from "../../hooks"
 import { movie } from "../../interfaces/movie"
-import LoadSpinner from "../../components/LoadSpinner"
 import { Link } from "react-router-dom"
-import { verificaFoto } from "../../utils/userFunctions"
-import { fetchData } from "../../services/fetchData"
+import { fetchData } from "../../services"
+import { 
+  verificaFoto, 
+  numeroAleatorio, 
+  filterMoviesByGenre, 
+  genreIdsToNames 
+} from "../../utils"
+import {
+  Banner, 
+  CaixaDePesquisa,
+  ContainerCentralizado, 
+  ContainerDivConteudoPrincipal,
+  Menu, 
+  Card, 
+  Carrossel, 
+  MenuMobile, 
+  CardNowPlaying, 
+  MainHomeAndFavorites, 
+  ImgStyled, 
+  FooterStyled,  
+  LoadSpinner,
+  ModalMovie
+} from "../../components"
 
 function Home(): JSX.Element {
   const [movieTrendingData, setMovieTrendingData] = useState<any[]>([])

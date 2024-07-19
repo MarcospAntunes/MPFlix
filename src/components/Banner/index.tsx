@@ -1,8 +1,8 @@
 import { getNowPlayingMovieData } from "../../services/api"
 import { useEffect, useState } from "react"
 import ModalBanner from "./ModalBanner"
-import { numeroAleatorio } from "../../utils/numeroAleatorio"
-import { DivBanner } from "./styles"
+import { numeroAleatorio } from "../../utils"
+import { DivBanner } from "./Banner.style"
 
 
 

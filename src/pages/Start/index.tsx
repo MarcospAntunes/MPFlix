@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
-import { Botao } from '../../components/Botao'
-import { ContainerMain } from '../../components/Containers/containerMain'
-import { Section } from './styles'
+import { Botao, ContainerMain } from '../../components'
+import { Section } from './Start.style'
 
 function Start(): JSX.Element {
     return(

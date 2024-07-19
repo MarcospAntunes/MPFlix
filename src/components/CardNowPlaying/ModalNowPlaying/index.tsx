@@ -1,6 +1,6 @@
 import { AiOutlineCloseCircle } from 'react-icons/ai'
 import IframeVideo from "../../IframeVideo"
-import { BackgroundModal, ModalBannerStyled } from './styles'
+import { BackgroundModal, ModalBannerStyled } from './ModalNowPlaying.style'
 
 interface ModalBannerProps {
     id: number 

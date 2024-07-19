@@ -1,4 +1,4 @@
-import { ErrorContainer } from "./style"
+import { ErrorContainer } from "./404.style"
 
 function Error404() {
     return (
