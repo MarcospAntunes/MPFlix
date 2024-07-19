@@ -15,8 +15,7 @@ import {
   CaixaDePesquisa,
   ContainerCentralizado, 
   ContainerDivConteudoPrincipal,
-  Menu, 
-  Card, 
+  Menu,
   Carrossel, 
   MenuMobile, 
   CardNowPlaying, 
@@ -28,10 +27,10 @@ import {
 } from "../../components"
 
 function Home(): JSX.Element {
-  const [movieTrendingData, setMovieTrendingData] = useState<any[]>([])
-  const [movieDiscoverData, setMovieDiscoverData] = useState<any[]>([])
-  const [allMovies, setAllMovies] = useState<any[]>([])
-  const [movieNowPlayingData, setMovieNowPlayingData] = useState<any[]>([])
+  const [movieTrendingData, setMovieTrendingData] = useState<movie[]>([])
+  const [movieDiscoverData, setMovieDiscoverData] = useState<movie[]>([])
+  const [allMovies, setAllMovies] = useState<movie[]>([])
+  const [movieNowPlayingData, setMovieNowPlayingData] = useState<movie[]>([])
   const [menuIsVisible, setMenuIsVisible] = useState(false)
   const [dataLoaded, setDataLoaded] = useState(false);
   const [search, setSearch] = useState('')
@@ -42,7 +41,7 @@ function Home(): JSX.Element {
     genreMovies[genreIdsToNames[genreId]] = filterMoviesByGenre(parseInt(genreId), allMovies)
   }
 
-  const filterMovieNowPlayingData = movieNowPlayingData.filter((index: number) => index !== numeroAleatorio )
+  const filterMovieNowPlayingData = movieNowPlayingData.filter(({}, index: number) => index !== numeroAleatorio )
   const movieNowPlaying = filterMovieNowPlayingData.slice(0, 4)
 
   useEffect(() => {
@@ -82,146 +81,16 @@ function Home(): JSX.Element {
             </SectionNowPlaying>
 
             <section> {/* Seção dos filmes */}
-              <Carrossel secao = 'Trending'>
-                {movieTrendingData.map((movie: movie, index) => (
-                  <Card
-                    key={`${movie.id}-${index}`}
-                    id = {movie.id}
-                    genre_ids = {movie.genre_ids}
-                    poster = {movie.poster_path}
-                    title = {movie.title}
-                    release_date = {movie.release_date}
-                    overview = {movie.overview}
-                    vote_average = {movie.vote_average}
-                  /> 
-                ))}
-              </Carrossel>
-              <Carrossel secao = 'Discover'>
-                {movieDiscoverData.map((movie: movie, index) => (
-                  <Card
-                    key={`${movie.id}-${index}`}
-                    id = {movie.id}
-                    genre_ids = {movie.genre_ids}
-                    poster = {movie.poster_path}
-                    title = {movie.title}
-                    release_date = {movie.release_date}
-                    overview = {movie.overview}
-                    vote_average = {movie.vote_average}
-                  /> 
-                ))}
-              </Carrossel>
-              <Carrossel secao = 'Action'>
-                {genreMovies.action.map((movie: movie, index) => (
-                  <Card
-                    key={`${movie.id}-${index}`}
-                    id = {movie.id}
-                    genre_ids = {movie.genre_ids}
-                    poster = {movie.poster_path}
-                    title = {movie.title}
-                    release_date = {movie.release_date}
-                    overview = {movie.overview}
-                    vote_average = {movie.vote_average}
-                  /> 
-                ))}
-              </Carrossel>
-              <Carrossel secao = 'Adeventure'>
-                {genreMovies.adventure.map((movie: movie, index) => (
-                  <Card
-                    key={`${movie.id}-${index}`}
-                    id = {movie.id}
-                    genre_ids = {movie.genre_ids}
-                    poster = {movie.poster_path}
-                    title = {movie.title}
-                    release_date = {movie.release_date}
-                    overview = {movie.overview}
-                    vote_average = {movie.vote_average}
-                  /> 
-                ))}
-              </Carrossel>
-              <Carrossel secao = 'Animation'>
-                {genreMovies.animation.map((movie: movie, index) => (
-                  <Card
-                    key={`${movie.id}-${index}`}
-                    id = {movie.id}
-                    genre_ids = {movie.genre_ids}
-                    poster = {movie.poster_path}
-                    title = {movie.title}
-                    release_date = {movie.release_date}
-                    overview = {movie.overview}
-                    vote_average = {movie.vote_average}
-                  /> 
-                ))}
-              </Carrossel>
-              <Carrossel secao = 'Comedy'>
-                {genreMovies.comedy.map((movie: movie, index) => (
-                  <Card
-                    key={`${movie.id}-${index}`}
-                    id = {movie.id}
-                    genre_ids = {movie.genre_ids}
-                    poster = {movie.poster_path}
-                    title = {movie.title}
-                    release_date = {movie.release_date}
-                    overview = {movie.overview}
-                    vote_average = {movie.vote_average}
-                  /> 
-                ))}
-              </Carrossel>
-              <Carrossel secao = 'Crime'>
-                {genreMovies.crime.map((movie: movie, index) => (
-                  <Card
-                    key={`${movie.id}-${index}`}
-                    id = {movie.id}
-                    genre_ids = {movie.genre_ids}
-                    poster = {movie.poster_path}
-                    title = {movie.title}
-                    release_date = {movie.release_date}
-                    overview = {movie.overview}
-                    vote_average = {movie.vote_average}
-                  /> 
-                ))}
-              </Carrossel>
-              <Carrossel secao = 'Drama'>
-                {genreMovies.drama.map((movie: movie, index) => (
-                  <Card
-                    key={`${movie.id}-${index}`}
-                    id = {movie.id}
-                    genre_ids = {movie.genre_ids}
-                    poster = {movie.poster_path}
-                    title = {movie.title}
-                    release_date = {movie.release_date}
-                    overview = {movie.overview}
-                    vote_average = {movie.vote_average}
-                  /> 
-                ))}
-              </Carrossel>
-              <Carrossel secao = 'Horror'>
-                {genreMovies.horror.map((movie: movie, index) => (
-                  <Card
-                    key={`${movie.id}-${index}`}
-                    id = {movie.id}
-                    genre_ids = {movie.genre_ids}
-                    poster = {movie.poster_path}
-                    title = {movie.title}
-                    release_date = {movie.release_date}
-                    overview = {movie.overview}
-                    vote_average = {movie.vote_average}
-                  /> 
-                ))}
-              </Carrossel>
-              <Carrossel secao = 'Science Fiction'>
-                {genreMovies.scienceFiction.map((movie: movie, index) => (
-                  <Card
-                    key={`${movie.id}-${index}`}
-                    id = {movie.id}
-                    genre_ids = {movie.genre_ids}
-                    poster = {movie.poster_path}
-                    title = {movie.title}
-                    release_date = {movie.release_date}
-                    overview = {movie.overview}
-                    vote_average = {movie.vote_average}
-                  /> 
-                ))}
-              </Carrossel>
+              <Carrossel secao = 'Trending' data={movieTrendingData} />
+              <Carrossel secao = 'Discover' data={movieDiscoverData} />
+              <Carrossel secao = 'Action' data={genreMovies.action} />
+              <Carrossel secao = 'Adeventure' data={genreMovies.adventure} />
+              <Carrossel secao = 'Animation' data={genreMovies.animation} />
+              <Carrossel secao = 'Comedy' data={genreMovies.comedy} />
+              <Carrossel secao = 'Crime' data={genreMovies.crime} />
+              <Carrossel secao = 'Drama' data={genreMovies.drama} />
+              <Carrossel secao = 'Horror' data={genreMovies.horror} />
+              <Carrossel secao = 'Science Fiction' data={genreMovies.scienceFiction} />
               <ModalMovie />
             </section>
           </>

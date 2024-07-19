@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion';
 import styles from './Carrossel.module.css';
 import { useEffect, useRef, useState } from 'react';
-import {BotaoCarrossel, ContainerDivParaTituloDosVideos } from '../index';
+import {BotaoCarrossel, Card, ContainerDivParaTituloDosVideos } from '../index';
 import { FaGreaterThan, FaLessThan } from 'react-icons/fa';
 import { ResizeCarrosselWidth, handleScroll } from '../../utils';
 import CarrosselProps from './Carrossel.type';
+import { movie } from '../../interfaces';
 
-function Carrossel({ children, secao }: CarrosselProps) {
+function Carrossel({ secao, data }: CarrosselProps) {
   const carrossel = useRef<any>();
   const [width, setWidth] = useState<number>(0);
   const [larguraDaTela, setLarguraDaTela] = useState(window.innerWidth);
@@ -38,7 +39,20 @@ function Carrossel({ children, secao }: CarrosselProps) {
       </ContainerDivParaTituloDosVideos>
       {larguraDaTela >= 984 ? (
         <div ref={carrossel} className={styles.carrosselDesktop}>
-          <ul className={`${styles.inner}`}>{children}</ul>
+          <ul className={`${styles.inner}`}>
+            {data.map((movie: movie, index) => (
+              <Card
+                key={`${movie.id}-${index}`}
+                id = {movie.id}
+                genre_ids = {movie.genre_ids}
+                poster = {movie.poster_path}
+                title = {movie.title}
+                release_date = {movie.release_date}
+                overview = {movie.overview}
+                vote_average = {movie.vote_average}
+              /> 
+            ))}
+            </ul>
         </div>
       ) : (
         <motion.div
@@ -54,7 +68,18 @@ function Carrossel({ children, secao }: CarrosselProps) {
             animate={{ x: 0 }}
             transition={{ duration: 0.3 }}
           >
-            {children}
+            {data.map((movie: movie, index) => (
+              <Card
+                key={`${movie.id}-${index}`}
+                id = {movie.id}
+                genre_ids = {movie.genre_ids}
+                poster = {movie.poster_path}
+                title = {movie.title}
+                release_date = {movie.release_date}
+                overview = {movie.overview}
+                vote_average = {movie.vote_average}
+              /> 
+            ))}
           </motion.ul>
         </motion.div>
       )}
