@@ -1,10 +1,5 @@
 import fetchDataProps from "./fetchData.type";
-import {
-  getAllMovies,
-  getDiscoverMovieData,
-  getNowPlayingMovieData,
-  getTrendingMovieData,
-} from "../api";
+import MovieAPI from "../api";
 
 export const fetchData = async ({
   setMovieTrendingData,
@@ -14,11 +9,25 @@ export const fetchData = async ({
   setDataLoaded,
 }: fetchDataProps) => {
   try {
+    const movieAPI = new MovieAPI();
+
     await Promise.all([
-      getTrendingMovieData("movie", setMovieTrendingData),
-      getDiscoverMovieData("movie", setMovieDiscoverData),
-      getAllMovies("movie", setAllMovies),
-      getNowPlayingMovieData("movie", setMovieNowPlayingData),
+      movieAPI.getTrendingMovieData({
+        type: "movie",
+        setMovieTrendingData: setMovieTrendingData,
+      }),
+
+      movieAPI.getDiscoverMovieData({
+        type: "movie",
+        setMovieDiscoverData: setMovieDiscoverData,
+      }),
+
+      movieAPI.getAllMovies({ type: "movie", setAllMovies: setAllMovies }),
+      movieAPI.getNowPlayingMovieData({
+        type: "movie",
+        setNowPlayingMovieData: setMovieNowPlayingData,
+      }),
+
     ]);
     setDataLoaded(true);
   } catch (error) {

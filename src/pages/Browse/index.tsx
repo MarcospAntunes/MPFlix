@@ -1,5 +1,5 @@
 import { useAuth } from "../../hooks/"
-import { getAllMovies } from "../../services/api"
+import MovieAPI from "../../services/api"
 import { useState, useEffect, useMemo } from 'react'
 import { movie } from "../../interfaces/movie"
 import { ListMoviesBrowse } from "./Browse.style"
@@ -20,10 +20,11 @@ function Browse(): JSX.Element {
   const [allMovies, setAllMovies] = useState<any[]>([])
   const [menuIsVisible, setMenuIsVisible] = useState(false)
   const [search, setSearch] = useState('')
+  const movieAPI = new MovieAPI();
 
   const user: any = useAuth()
 
-  getAllMovies("movie", setAllMovies)
+  movieAPI.getAllMovies({ type: "movie", setAllMovies: setAllMovies })
   const moviesSearched = useMemo(() => {
       const lowerBusca = search.toLowerCase()
       

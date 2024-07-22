@@ -1,4 +1,4 @@
-import { getNowPlayingMovieData } from "../../services/api"
+import MovieAPI from "../../services/api"
 import { useEffect, useState } from "react"
 import ModalBanner from "./ModalBanner"
 import { numeroAleatorio } from "../../utils"
@@ -8,9 +8,10 @@ import { movie } from "../../interfaces"
 function Banner(): JSX.Element {
   const [movieNowPlayingData, setMovieNowPlayingData] = useState<movie[]>([])
   const [openModal, setOpenModal] = useState(false)
+  const movieAPI = new MovieAPI();
 
   useEffect(() => {
-  getNowPlayingMovieData("movie", setMovieNowPlayingData)
+    movieAPI.getNowPlayingMovieData({type: "movie", setNowPlayingMovieData: setMovieNowPlayingData})
     }, [])
 
     const poster = movieNowPlayingData.map((poster) => {

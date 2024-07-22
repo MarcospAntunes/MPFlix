@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
-import { getVideosMovieData } from "../../services/api"
+import MovieAPI from "../../services/api"
 import IframeVideoProps from "./IframeVideo.type"
 
 function IframeVideo({ id, autoplay }: IframeVideoProps): JSX.Element {
+  const movieAPI = new MovieAPI()
   const [VideosMovieData, setVideosMovieData] = useState<any>([])
   useEffect(() => {
-    getVideosMovieData("movie", setVideosMovieData, id)
+    movieAPI.getVideosMovieData({type: "movie", setVideosMovieData: setVideosMovieData, movie_id: id})
   }, [id])
   
 

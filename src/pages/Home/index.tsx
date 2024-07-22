@@ -41,7 +41,7 @@ function Home(): JSX.Element {
     genreMovies[genreIdsToNames[genreId]] = filterMoviesByGenre(parseInt(genreId), allMovies)
   }
 
-  const filterMovieNowPlayingData = movieNowPlayingData.filter(({}, index: number) => index !== numeroAleatorio )
+  const filterMovieNowPlayingData = movieNowPlayingData.filter((_, index: number) => index !== numeroAleatorio )
   const movieNowPlaying = filterMovieNowPlayingData.slice(0, 4)
 
   useEffect(() => {
