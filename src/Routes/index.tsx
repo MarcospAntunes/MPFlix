@@ -1,10 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import GlobalStyles from "./GlobalStyles"
+import GlobalStyles from "../GlobalStyles"
 import { useState } from "react"
 import { ThemeProvider } from "styled-components"
-import { darkTheme, lightTheme } from "./themes"
-import { AuthProvider, FavoritesProvider, CardDataProvider } from "./contexts"
-import { useAuth } from "./hooks"
+import { darkTheme, lightTheme } from "../themes"
+import { AuthProvider, FavoritesProvider, CardDataProvider } from "../contexts"
 import { 
   Browse, 
   Favorites, 
@@ -14,20 +13,10 @@ import {
   Settings, 
   Start, 
   Error404 
-} from "./pages"
+} from "../pages"
+import Private from "./Private"
 
-interface PrivateProps {
-  Item: any
-  themeToggler: () => void
-}
-
-const Private = ({ Item, themeToggler }: PrivateProps): JSX.Element => {
-  const { signed }: any = useAuth();
-
-  return signed > 0 ? <Item themeToggler={themeToggler} /> : <Login />;
-}
-
-function Routing() {
+function AppRoutes() {
   const [theme, setTheme] = useState('dark')
   const themeToggler = (target?: string) => {
     target === 'dark' ? setTheme('dark') : setTheme('light')
@@ -57,4 +46,4 @@ function Routing() {
   )
 }
 
-export default Routing
+export default AppRoutes
